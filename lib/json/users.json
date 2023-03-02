@@ -1,0 +1,17 @@
+[
+    {
+        "email": "teach@email.sc.edu",
+        "username": "uofscTeacher",
+        "password": "TeacherPassw0rd",
+        "firstName": "Teach",
+        "lastName": "Er",
+        "userID": "T10122023"
+    },{
+        "email": "student@email.sc.edu",
+        "username": "uofscStudent",
+        "password": "StudentPassw0rd",
+        "firstName": "Stud",
+        "lastName": "Ent",
+        "userID": "S10122023"
+    }
+]

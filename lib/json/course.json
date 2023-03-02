@@ -1,0 +1,60 @@
+[
+    {
+        "Teacher": "Teach Er",
+        "difficulty": 1,
+        "name": "Java Boolean Tutorial",
+        "modules": [
+            {"name": "Java Tutorial", 
+            "description": "A short java tutorial", 
+            "quiz": [{
+                "ask": "What is a boolean?", 
+                "answer": "A variable", 
+                "potentialAnswers": ["A bean"]}],
+                 "sections": [{
+                    "name": "Boolean", 
+                    "content": "Boolena is a variable"}]
+        }],
+        "comments": [{
+            "message": "This was short",
+            "reply": [{
+                "message": "I agree"}]
+            
+        }],
+        "endOfCourseQuiz": [{
+            "question": [{"ask": "Is a boolean a variable?",
+            "answer": "True",
+            "potentialAnswers": ["False"]}]
+        }],
+        "quizResult": 100.0,
+        "courseID": "JAVA#1234",
+        "userID": "S10122023"
+        
+    },{
+        "Teacher": "Teach Er",
+        "difficulty": 1,
+        "name": "Python Boolean Tutorial",
+        "modules": [{"name": "Python Tutorial",
+        "description": "A short python tutorial",
+        "quiz": [{"ask": "What is a boolean?",
+        "answer": "A variable",
+        "potentialAnswers": ["A bean"]}], 
+        "sections": [{
+            "name": "Boolean",
+            "content": "Boolena is a variable"}] 
+        }],
+        "comments": [{
+            "message": "This was aslo short",
+            "reply": [{
+                "message": "I also agree"}]
+        }],
+        "endOfCourseQuiz": [{
+            "question": [{"ask": "Is a boolean a variable?",
+             "answer": "True",
+            "potentialAnswers": [
+                "False"]}]
+            }],
+        "quizResult": 100.0,
+        "courseID": "PYTHON#1234",
+        "userID": "S10122023"
+    }
+]
