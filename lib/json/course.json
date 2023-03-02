@@ -1,6 +1,6 @@
 [
     {
-        "Teacher": "Teach Er",
+        "Teacher": "99de1e37-4150-450a-bae6-989e366c2235",
         "difficulty": 1,
         "name": "Java Boolean Tutorial",
         "modules": [
@@ -32,7 +32,7 @@
         "userID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
         
     },{
-        "Teacher": "Teach Er",
+        "Teacher": "99de1e37-4150-450a-bae6-989e366c2235",
         "difficulty": 1,
         "name": "Python Boolean Tutorial",
         "modules": [{"name": "Python Tutorial",
