@@ -5,13 +5,15 @@
         "password": "TeacherPassw0rd",
         "firstName": "Teach",
         "lastName": "Er",
-        "userID": "T10122023"
+        "type": "teacher",
+        "userID": "99de1e37-4150-450a-bae6-989e366c2235"
     },{
         "email": "student@email.sc.edu",
         "username": "uofscStudent",
         "password": "StudentPassw0rd",
         "firstName": "Stud",
         "lastName": "Ent",
-        "userID": "S10122023"
+        "type": "student",
+        "userID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
     }
 ]

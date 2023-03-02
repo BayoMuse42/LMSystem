@@ -26,8 +26,8 @@
             "potentialAnswers": ["False"]}]
         }],
         "quizResult": 100.0,
-        "courseID": "JAVA#1234",
-        "userID": "S10122023"
+        "courseID": "ef498a14-2fbc-42fb-b21d-58c6d682052d",
+        "userID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
         
     },{
         "Teacher": "Teach Er",
@@ -54,7 +54,7 @@
                 "False"]}]
             }],
         "quizResult": 100.0,
-        "courseID": "PYTHON#1234",
-        "userID": "S10122023"
+        "courseID": "6727e46d-ccc2-436e-b9f8-d8757a33a102",
+        "userID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
     }
 ]
