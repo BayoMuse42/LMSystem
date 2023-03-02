@@ -1,4 +1,4 @@
-package LMSystem;
+package src;
 
 public class Module {
     
