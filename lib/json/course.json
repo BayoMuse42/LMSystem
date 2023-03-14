@@ -15,8 +15,10 @@
                     "content": "Boolena is a variable"}]
         }],
         "comments": [{
+            "userID":"2b2bc859-32da-4de9-a089-2e8d40fe576b:",
             "message": "This was short",
             "reply": [{
+                "userID":"c6deaf22-5c2f-45a3-b9ef-5f2215e9c7cb",
                 "message": "I agree"}]
             
         }],
@@ -43,8 +45,10 @@
             "content": "Boolena is a variable"}] 
         }],
         "comments": [{
+            "userID":"cb839ed7-d417-4911-bcfc-8423505cfe5e",
             "message": "This was aslo short",
             "reply": [{
+                "userID":"0accd7f1-098d-4f69-bf02-f8675160a199",
                 "message": "I also agree"}]
         }],
         "endOfCourseQuiz": [{
