@@ -1,5 +1,6 @@
 package src;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class CourseList {
     private CourseList courseList;
@@ -12,16 +13,20 @@ public class CourseList {
         return courseList;
           
     }
-    public Course getCourse(String courseID) {
+
+    public Course getCourse(UUID courseID) {
         return null;
         
     }
-    public void addCourse(String courseID) {
+
+    public void addCourse(UUID courseID) {
 
     }
-    public void deleteCourse(String courseID){
+
+    public void deleteCourse(UUID courseID){
 
     }
+    
     public void editCourses(Course course){
 
     }
