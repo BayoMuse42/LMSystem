@@ -23,9 +23,9 @@ public class UI {
     menu.add("Exit");
 
     while(true) {
-      MainMenu();
+      mainMenu();
 
-      int uInput = getInput(menu.size());
+      int uInput = getIntInput(menu.size());
   
       if (uInput == -1) {
         System.out.println("Invalid Input: Try again");
@@ -34,22 +34,21 @@ public class UI {
 
       switch(uInput) {
         case (1):
-          // TODO Login Method
+          login();
           break;
         case(2):
-          // TODO Register Method
+          register();
           break;
-        case(0): // Exit
-          
-          break;
+        case(3): // Exit
+          System.out.println("Thank you for using the Coding Learning Management System");
+          System.exit(0);
       }
 
     }
-    System.out.println("Thank you for using the Coding Learning Management System");
 
   }
 
-  public int getInput(int choices) {
+  public int getIntInput(int choices) {
     System.out.println("What would you like to do?\n");
 
     int input = scanner.nextInt();
@@ -60,10 +59,19 @@ public class UI {
     return -1;
   }
 
+  public String getInput(int choices) {
+    System.out.println("What would you like to do?\n");
+
+    String input = scanner.nextLine();
+
+    if ( input != null)
+      return input;
+    return null;
+  }
+
   // TODO Gen Heading
 
-  // TODO Main Menu
-  private void MainMenu() {
+  private void mainMenu() {
     System.out.println("\n" + WELCOME_HEADER);
 
     for(int i = 0; i < menu.size(); i++) {
@@ -73,9 +81,13 @@ public class UI {
   }
 
   // TODO Login
+    private void login() {
 
+    }
   // TODO Register
+    private void register() {
 
+    }
   // TODO course menu
 
   // TODO create course
@@ -95,4 +107,9 @@ public class UI {
   // TODO Comment Menu
 
   // TODO Create Comment
+
+  public static void main(String[] args) {
+    UI userInterface = new UI();
+    userInterface.run();
+  }
 }
