@@ -2,14 +2,14 @@ package src;
 import java.util.UUID;
 import java.util.ArrayList;
 
-public class Teacher {
+public class Teacher extends User{
 
-    public Teacher(String email, String username, String password){
-
+    public Teacher(String email, String username, String password, String firstName, String lastName){
+        super(email, username, password, firstName, lastName);
     }
 
-    public Teacher(String email, String usernmae, String password, UUID userID){
-
+    public Teacher(String email, String username, String password, String firstName, String lastName, UUID userID){
+        super(email, username, password, firstName, lastName, userID);
     }
 
     public ArrayList<Course> getCourses(String keyword){
@@ -23,7 +23,4 @@ public class Teacher {
     public String toString(){
         
     }
-
-=======
->>>>>>> af8cb41f14a7b7b05aad6b2f3814579a90ad1b59
 }

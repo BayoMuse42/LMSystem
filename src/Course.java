@@ -15,7 +15,7 @@ public class Course {
     public UUID userID;
 
     public Course(Teacher teacher, int difficulty, String name){
-
+        
     }
 
     public void createModule(String name, String description){

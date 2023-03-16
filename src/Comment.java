@@ -5,15 +5,16 @@ import java.util.ArrayList;
 public class Comment {
 
     public String message;
-    public ArrayList<Comment> reply;
+    public ArrayList<Comment> replies;
     public UUID userID;
 
-    public void createMessage(String message){
-
+    public Comment(String message){
+        this.message = message;
     }
 
     public void replyMessage(String message){
-        
+        Comment reply = new Comment(message);
+        replies.add(reply);
     }
     
 }
