@@ -9,7 +9,7 @@
             "quiz": [{
                 "ask": "What is a boolean?", 
                 "answer": "A variable", 
-                "potentialAnswers": ["A bean"]}],
+                "potentialAnswers": ["A bean", "A variable"]}],
                  "sections": [{
                     "name": "Boolean", 
                     "content": "Boolena is a variable"}]
@@ -25,7 +25,7 @@
         "endOfCourseQuiz": [{
             "question": [{"ask": "Is a boolean a variable?",
             "answer": "True",
-            "potentialAnswers": ["False"]}]
+            "potentialAnswers": ["False", "True"]}]
         }],
         "quizResult": 100.0,
         "courseID": "ef498a14-2fbc-42fb-b21d-58c6d682052d",
@@ -39,7 +39,7 @@
         "description": "A short python tutorial",
         "quiz": [{"ask": "What is a boolean?",
         "answer": "A variable",
-        "potentialAnswers": ["A bean"]}], 
+        "potentialAnswers": ["A bean", "A variable", "A hex value", "A taxonomy"]}], 
         "sections": [{
             "name": "Boolean",
             "content": "Boolena is a variable"}] 
@@ -55,7 +55,7 @@
             "question": [{"ask": "Is a boolean a variable?",
              "answer": "True",
             "potentialAnswers": [
-                "False"]}]
+                "False", "True"]}]
             }],
         "quizResult": 100.0,
         "courseID": "6727e46d-ccc2-436e-b9f8-d8757a33a102",
