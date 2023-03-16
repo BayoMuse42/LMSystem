@@ -6,6 +6,10 @@ public abstract class LMS {
   private User currentUser;
   private Course currentCourse;
 
+  public LMS() {
+    currentUser = UserList.getInstance();
+    currentCourse = CourseList.getInstance();
+  }
   public boolean login(String username, String password) {
 
   }
@@ -19,19 +23,19 @@ public abstract class LMS {
   }
 
   public User getUser(UUID userID) {
-
+    return UserList.getUser(userID);
   }
 
   public void addUser(UUID userID) { 
-
+    UserList.addUser(userID);
   }
 
   public void deleteUser(UUID userID) {
-
+    UserList.deleteUser(userID);
   }
 
   public void editUser(User user) {
-
+    UserList.editUser(user);
   }
 
   public Course createCourse(UUID teacher, int difficulty, String name) {
@@ -39,7 +43,7 @@ public abstract class LMS {
   }
 
   public Course getCourse(UUID courseID) {
-
+    return CourseList.getCourse(courseID);
   }
 
   public Module getModule(UUID courseID) {
@@ -55,19 +59,19 @@ public abstract class LMS {
   }
 
   public ArrayList<Course> getUserCourses(User user) {
-
+    
   }
 
   public void addCourse(UUID courseID) {
-
+    CourseList.addCourse(courseID);
   }
 
   public void deleteCourse(UUID courseID) {
-
+    CourseList.deleteCourse(courseID);
   }
 
   public void editCourse(Course course) {
-
+    CourseList.editCourse(course);
   }
 
   public abstract Course Search(Teacher teacher);
