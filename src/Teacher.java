@@ -20,7 +20,6 @@ public class Teacher {
         
     }
     
-<<<<<<< HEAD
     public String toString(){
         
     }
