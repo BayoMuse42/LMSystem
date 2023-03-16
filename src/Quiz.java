@@ -1,16 +1,18 @@
 package src;
 import java.util.ArrayList;
 
-public class Quiz {
+public abstract class Quiz {
+    public ArrayList<Question> question;
 
-    public ArrayList<Question> questions;
-
-    public Quiz(Question question){
+    public Quiz(Question question) {
 
     }
-
-    public void addQuestion(String ask, ArrayList<String> answers, int correctAnswer){
+    /*
+     * this class add questions in the parm of ask
+     * answer, and the correct answer. 
+     *      */
+    public void addQuestion(String ask,ArrayList<String> answer, int correctAnswer) {
         
-    }
-    
+    } 
+
 }
