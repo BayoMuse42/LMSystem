@@ -8,18 +8,18 @@ public class CourseList {
     private CourseList() {
     }
     
-    public CourseList getInstance() {
+    public static CourseList getInstance() {
         return courseList;
           
     }
-    public Course getCourse(String courseID) {
+    public static Course getCourse(String UUID) {
         return null;
         
     }
-    public void addCourse(String courseID) {
+    public void addCourse(String UUIDID) {
 
     }
-    public void deleteCourse(String courseID){
+    public void deleteCourse(String UUID){
 
     }
     public void editCourses(Course course){
