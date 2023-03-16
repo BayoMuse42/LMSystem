@@ -10,6 +10,7 @@ public class Comment {
 
     public Comment(String message){
         this.message = message;
+        this.replies = new ArrayList<Comment>();
     }
 
     public void replyMessage(String message){
