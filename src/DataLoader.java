@@ -114,12 +114,15 @@ public class DataLoader extends DataConstants {
                         String ask = (String)endQuizJSON.get(ASK);
                         String answer = (String)endQuizJSON.get(ANSWER);
 
-                        JSONArray potentialAnswers = (JSONArray)endQuizJSON.get(POTENTIAL_ANSWERS);
+                        potentialAnswersAL = (ArrayList<String>)endQuizJSON.get(POTENTIAL_ANSWERS);
+
+                        /* JSONArray potentialAnswers = (JSONArray)endQuizJSON.get(POTENTIAL_ANSWERS);
                         for(int b = 0; b < potentialAnswers.size(); b++) {
                             JSONObject potAns = (JSONObject)potentialAnswers.get(b);
+                            potentialAnswersAL = (ArrayList<String>)potAns.get(POTENTIAL_ANSWERS);
                             //String anAns = (Stirng)potAns;
                             //potentialAnswersAL.add(potAns);
-                        }
+                        } */
                         quiz.add(new Quiz(ask, answer, potentialAnswersAL));
                 }
 
