@@ -1,64 +1,64 @@
 [
     {
-        "Teacher": "99de1e37-4150-450a-bae6-989e366c2235",
-        "difficulty": 1,
-        "name": "Java Boolean Tutorial",
-        "modules": [
-            {"name": "Java Tutorial", 
-            "description": "A short java tutorial", 
-            "quiz": [{
-                "ask": "What is a boolean?", 
-                "answer": "A variable", 
-                "potentialAnswers": ["A bean", "A variable"]}],
-                 "sections": [{
-                    "name": "Boolean", 
-                    "content": "Boolena is a variable"}]
+        "TEACHER": "99de1e37-4150-450a-bae6-989e366c2235",
+        "DIFFICULTY": 1,
+        "NAME": "Java Boolean Tutorial",
+        "MODULES": [
+            {"NAME": "Java Tutorial", 
+            "DESCRIPTION": "A short java tutorial", 
+            "QUIZ": [{
+                "ASK": "What is a boolean?", 
+                "ANSWER": "A variable", 
+                "POTENTIAL_ANSWERS": ["A bean", "A variable"]}],
+            "SECTIONS": [{
+                "NAME": "Boolean", 
+                "CONTENT": "Boolena is a variable"}]
         }],
-        "comments": [{
-            "userID":"2b2bc859-32da-4de9-a089-2e8d40fe576b:",
-            "message": "This was short",
-            "reply": [{
-                "userID":"c6deaf22-5c2f-45a3-b9ef-5f2215e9c7cb",
-                "message": "I agree"}]
+        "COMMENTS": [{
+            "USER_ID":"2b2bc859-32da-4de9-a089-2e8d40fe576b:",
+            "MESSAGE": "This was short",
+            "REPLY": [{
+                "USERID":"c6deaf22-5c2f-45a3-b9ef-5f2215e9c7cb",
+                "MESSAGE": "I agree"}]
             
         }],
-        "endOfCourseQuiz": [{
-            "question": [{"ask": "Is a boolean a variable?",
-            "answer": "True",
-            "potentialAnswers": ["False", "True"]}]
+        "END_OF_COURSE_QUIZ": [{
+            "QUESTION": [{"ask": "Is a boolean a variable?",
+            "ANSWER": "True",
+            "POTENTIAL_ANSWERS": ["False", "True"]}]
         }],
-        "quizResult": 100.0,
-        "courseID": "ef498a14-2fbc-42fb-b21d-58c6d682052d",
-        "userID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
+        "QUIZRESULT": 100.0,
+        "COURSEID": "ef498a14-2fbc-42fb-b21d-58c6d682052d",
+        "USERID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
         
     },{
-        "Teacher": "99de1e37-4150-450a-bae6-989e366c2235",
-        "difficulty": 1,
-        "name": "Python Boolean Tutorial",
-        "modules": [{"name": "Python Tutorial",
-        "description": "A short python tutorial",
-        "quiz": [{"ask": "What is a boolean?",
-        "answer": "A variable",
-        "potentialAnswers": ["A bean", "A variable", "A hex value", "A taxonomy"]}], 
-        "sections": [{
-            "name": "Boolean",
-            "content": "Boolena is a variable"}] 
+        "TEACHER": "99de1e37-4150-450a-bae6-989e366c2235",
+        "DIFFICULTY": 1,
+        "NAME": "Python Boolean Tutorial",
+        "MODULES": [{"name": "Python Tutorial",
+        "DESCRIPTION": "A short python tutorial",
+        "QUIZ": [{"ask": "What is a boolean?",
+        "ANSWER": "A variable",
+        "POTENTIAL_ANSWERS": ["A bean", "A variable", "A hex value", "A taxonomy"]}], 
+        "SECTIONS": [{
+            "NAME": "Boolean",
+            "CONTENT": "Boolena is a variable"}] 
         }],
-        "comments": [{
-            "userID":"cb839ed7-d417-4911-bcfc-8423505cfe5e",
-            "message": "This was aslo short",
-            "reply": [{
-                "userID":"0accd7f1-098d-4f69-bf02-f8675160a199",
-                "message": "I also agree"}]
+        "COMMENTS": [{
+            "USER_ID":"cb839ed7-d417-4911-bcfc-8423505cfe5e",
+            "MESSAGE": "This was aslo short",
+            "REPLY": [{
+                "USER_ID":"0accd7f1-098d-4f69-bf02-f8675160a199",
+                "MESSAGE": "I also agree"}]
         }],
-        "endOfCourseQuiz": [{
-            "question": [{"ask": "Is a boolean a variable?",
-             "answer": "True",
-            "potentialAnswers": [
+        "END_OF_COURSE_QUIZ": [{
+            "QUESTION": [{"ask": "Is a boolean a variable?",
+             "ANSWER": "True",
+            "POTENTIAL_ANSWERS": [
                 "False", "True"]}]
             }],
-        "quizResult": 100.0,
-        "courseID": "6727e46d-ccc2-436e-b9f8-d8757a33a102",
-        "userID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
+        "QUIZ_RESULT": 100.0,
+        "COURSE_ID": "6727e46d-ccc2-436e-b9f8-d8757a33a102",
+        "USER_ID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
     }
 ]

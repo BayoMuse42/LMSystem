@@ -61,16 +61,26 @@ public class DataWriter extends DataConstants {
         }
 	}
 
-    public static JSONObject getUserJSON(User user) {
+    public static JSONObject getCourseJSON(Course course) {
 		JSONObject courseDetails = new JSONObject();
-		courseDetails.put(TEACHER, user.getTeacher().toString());
-		courseDetails.put(DIFFICULTY, user.getDifficulty());
-		courseDetails.put(MODULES, user.getModule());
-		courseDetails.put(COMMENTS, user.getComments());
-		courseDetails.put(END_OF_COURSE_QUIZ, user.getEndOfCOurseQuiz().toString());
-        courseDetails.put(QUIZ_RESULT, user.getQuizResult());
-        courseDetails.put(COURSE_ID, user.getCourseID());
-        courseDetails.put(USER_ID, user.getUser());
+		courseDetails.put(TEACHER, course.getTeacher().toString());
+		courseDetails.put(DIFFICULTY, course.getDifficulty());
+		courseDetails.put(NAME, course.getName());
+		//courseDetails.put(MODULES, course.getModule());
+		//JSONArray courseModules = new JSONArray();
+		for(Module m : course.getModule()) {
+			//JSONObject courseJSON = new JSONObject();
+			courseDetails.put(NAME, m.getName());
+			courseDetails.put(DESCRIPTION, m.getDescription());
+			
+		}
+		courseDetails.put(COMMENTS, course.getComments());
+
+		courseDetails.put(END_OF_COURSE_QUIZ, course.getEndOfCOurseQuiz().toString());
+		
+        courseDetails.put(QUIZ_RESULT, course.getQuizResult());
+        courseDetails.put(COURSE_ID, course.getCourseID());
+        courseDetails.put(USER_ID, course.getUser());
         
         return courseDetails;
 	}

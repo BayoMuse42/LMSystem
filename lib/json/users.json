@@ -1,19 +1,19 @@
 [
     {
-        "email": "teach@email.sc.edu",
-        "username": "uofscTeacher",
-        "password": "TeacherPassw0rd",
-        "firstName": "Teach",
-        "lastName": "Er",
-        "type": "teacher",
-        "userID": "99de1e37-4150-450a-bae6-989e366c2235"
+        "EMAIL": "teach@email.sc.edu",
+        "USERNAME": "uofscTeacher",
+        "PASSWORD": "TeacherPassw0rd",
+        "FIRST_NAME": "Teach",
+        "LAST_NAME": "Er",
+        "TYPE": "teacher",
+        "USER_ID": "99de1e37-4150-450a-bae6-989e366c2235"
     },{
-        "email": "student@email.sc.edu",
-        "username": "uofscStudent",
-        "password": "StudentPassw0rd",
-        "firstName": "Stud",
-        "lastName": "Ent",
-        "type": "student",
-        "userID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
+        "EMAIL": "student@email.sc.edu",
+        "USERNAME": "uofscStudent",
+        "PASSWORD": "StudentPassw0rd",
+        "FIRST_NAME": "Stud",
+        "LAST_NAME": "Ent",
+        "TYPE": "student",
+        "USER_ID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
     }
 ]
