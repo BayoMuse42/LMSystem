@@ -21,6 +21,6 @@ public class Teacher extends User{
     }
     
     public String toString(){
-        
+        return firstName + " " + lastName + " is a teacher."
     }
 }

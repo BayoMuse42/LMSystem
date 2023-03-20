@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class Student extends User{
 
     private int skill;
-    private ArrayList<double> grades;
+    private ArrayList<Double> grades;
 
-    public Student(String email, String username, String password){
-        super(email, username, password);
+    public Student(String email, String username, String password, String firstName, String lastName){
+        super(email, username, password, firstName, lastName);
     }
 
-    public Student(String email, String username, String password, UUID userID){
-        super(email, username, password, userID);
+    public Student(String email, String username, String password, String firstName, String lastName, UUID userID){
+        super(email, username, password, firstName, lastName, userID);
     }
 
     public ArrayList<Course> getCourses(String keyword){
@@ -24,7 +24,7 @@ public class Student extends User{
     }
 
     public String toString(){
-        
+        return firstName + " " + lastName + " is a student";
     }
     
 }
