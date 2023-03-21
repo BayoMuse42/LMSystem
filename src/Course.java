@@ -11,7 +11,7 @@ public class Course {
     private ArrayList<Comment> comments;
     private Quiz endOfCourseQuiz;
     private double quizResult;
-    public String courseID;
+    public UUID courseID;
     public UUID userID;
 
     public Course(UUID Teacher, int difficulty, String name){
@@ -21,7 +21,7 @@ public class Course {
     }
 
     public void createModule(String name, String description){
-        modules = new ArrayList<Module>();
+        this.modules = new ArrayList<Module>();
 
     }
 
@@ -51,6 +51,10 @@ public class Course {
 
     public double getQuizResult(Quiz quiz){
         
+    }
+
+    public UUID getID(){
+        return courseID;
     }
     
 }

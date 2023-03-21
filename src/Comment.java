@@ -8,7 +8,12 @@ public class Comment {
     public ArrayList<Comment> replies;
     public UUID userID;
 
-    public Comment(String message){
+    public Comment(UUID userID, String message){
+        this.message = message;
+        this.userID = userID;
+    }
+
+    public Comment(UUID userID, String message, ArrayList<Comment> replies){
         this.message = message;
         this.replies = new ArrayList<Comment>();
     }

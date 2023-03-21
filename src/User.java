@@ -36,5 +36,9 @@ public abstract class User {
         
     };
 
+    public UUID getID(){
+        return userID;
+    }
+
     
 }
