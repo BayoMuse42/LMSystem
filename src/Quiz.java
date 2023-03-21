@@ -3,6 +3,9 @@ import java.util.ArrayList;
 
 public abstract class Quiz {
     public ArrayList<Question> question;
+    protected String ask;
+    protected int correctAnswer;
+    protected ArrayList<String> answer;
 
     public Quiz(Question question) {
 
@@ -12,6 +15,7 @@ public abstract class Quiz {
      * answer, and the correct answer. 
      *      */
     public void addQuestion(String ask,ArrayList<String> answer, int correctAnswer) {
+        this.ask = ask;
         
     } 
 

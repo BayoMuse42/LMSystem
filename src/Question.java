@@ -5,6 +5,8 @@ public class Question {
     protected String ask;
     protected String answer;
     protected ArrayList<String> potentialAnswers;
+    protected String correctAnswer;
+    protected int response;
         
     
     public Question(String ask, String answer, ArrayList<String> potentialAnswers) {
@@ -21,6 +23,7 @@ public class Question {
     }        
 
     public void isCorrect(int response) {
+        this.response = response;
 
     }
 }
