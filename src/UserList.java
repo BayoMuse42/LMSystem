@@ -11,7 +11,7 @@ public class UserList {
         users = DataLoader.getUsers();
     }
 
-    public UserList getInstance() {
+    public static UserList getInstance() {
         if(userList == null) {
             userList = new UserList();
         }
@@ -38,9 +38,9 @@ public class UserList {
     }
     // TODO Either edit arguments for User constructor 
     // OR figure out a way to get the users based on the UUID alone
-    public void addUser(UUID userID) {
+    public void addUser(String username, String email, String password, String firstName, String lastName, UUID userID) {
         if(!hasUser(userID)) {
-            users.add(new User());
+            users.add(new User(username, email, password, firstName, lastName));
         }
 
     }
