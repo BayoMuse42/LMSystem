@@ -10,7 +10,8 @@ public class Module {
     private ArrayList<Section> sections;
 
     public Module(String name, String description){
-        
+        this.name = name;
+        this.description = description;
     }
 
     public void createSection(String name, String content){

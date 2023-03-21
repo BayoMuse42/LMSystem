@@ -13,7 +13,6 @@ public class CourseList {
         return courseList;
           
     }
-<<<<<<< HEAD
     public static Course getCourse(String UUID) {
         return null;
         
@@ -22,7 +21,6 @@ public class CourseList {
 
     }
     public void deleteCourse(String UUID){
-=======
 
     public Course getCourse(UUID courseID) {
         return null;
@@ -34,7 +32,6 @@ public class CourseList {
     }
 
     public void deleteCourse(UUID courseID){
->>>>>>> 87461f49450027961b716beb13bebafcb3902310
 
     }
     

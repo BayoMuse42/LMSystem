@@ -14,11 +14,14 @@ public class Course {
     public String courseID;
     public UUID userID;
 
-    public Course(Teacher teacher, int difficulty, String name){
-        
+    public Course(UUID Teacher, int difficulty, String name){
+        this.Teacher = Teacher;
+        this.difficulty = difficulty;
+        this.name = name;
     }
 
     public void createModule(String name, String description){
+        modules = new ArrayList<Module>();
 
     }
 
