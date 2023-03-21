@@ -20,7 +20,10 @@ public class Question {
         this.answer = correctAnswer;
     }        **/
 
-    public void isCorrect(int response) {
-        this.response = response;
+    public boolean isCorrect(String response) {
+        if (response == answer){
+            return true;
+        }
+        else return false;
     }
 }
