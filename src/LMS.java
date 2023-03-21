@@ -10,6 +10,7 @@ public abstract class LMS {
     currentUser = UserList.getInstance();
     currentCourse = CourseList.getInstance();
   }
+  
   public boolean login(String username, String password) {
 
   }
