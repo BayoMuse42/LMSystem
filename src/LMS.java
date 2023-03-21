@@ -5,22 +5,32 @@ import java.util.ArrayList;
 public abstract class LMS {
   private User currentUser;
   private Course currentCourse;
+  private UserList userList;
+  private CourseList courseList;
 
   public LMS() {
-    currentUser = UserList.getInstance();
-    currentCourse = CourseList.getInstance();
+    userList = UserList.getInstance();
+    courseList = CourseList.getInstance();
   }
-  
-  public boolean login(String username, String password) {
 
+  public boolean login(String username, String password) {
+    // TODO fix this
+    if() {
+      return true;
+    }
+
+    return false;
   }
 
   public void logout() {
-
+    currentUser = null;
   }
 
-  public User createUser(String username, String email, String password, String firstName, String lastName, UUID userID) {
-
+  public User createUser(String username, String email, String password, String firstName, String lastName) {
+    UUID userID = UUID.randomUUID();
+    userList.addUser(username, email, password, firstName, lastName, userID);
+    return userList.getUser(userID);
+  
   }
 
   public User getUser(UUID userID) {
