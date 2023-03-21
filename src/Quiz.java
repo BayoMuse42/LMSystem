@@ -2,6 +2,19 @@ package src;
 import java.util.ArrayList;
 
 public abstract class Quiz {
+<<<<<<< HEAD
+    
+    protected String ask;
+    protected int correctAnswer;
+    protected ArrayList<String> answer;
+    protected Object ArrayList;
+
+    public Quiz(Question question) {
+         question.ask(question);
+    }
+    
+    } 
+=======
 
     public Question question;
 
@@ -23,3 +36,4 @@ public abstract class Quiz {
     }
 
 }
+>>>>>>> a57ac3db7af38e368ba37b6542e7bd7ce835e22b
