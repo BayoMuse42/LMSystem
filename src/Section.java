@@ -2,8 +2,8 @@ package src;
 
 public class Section {
 
-    private String name;
-    private String content;
+    protected String name;
+    protected String content;
 
     public Section(String name, String content) {
         this.name = name;

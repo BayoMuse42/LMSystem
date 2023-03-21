@@ -6,6 +6,7 @@ public abstract class Quiz {
     protected String ask;
     protected int correctAnswer;
     protected ArrayList<String> answer;
+    protected Object ArrayList;
 
     public Quiz(Question question) {
 
@@ -14,8 +15,10 @@ public abstract class Quiz {
      * this class add questions in the parm of ask
      * answer, and the correct answer. 
      *      */
-    public void addQuestion(String ask,ArrayList<String> answer, int correctAnswer) {
+    public void addQuestion(String ask, ArrayList<String> answer, int correctAnswer) {
         this.ask = ask;
+        this.ArrayList<String> = answer;
+        this.correctAnswer = correctAnswer;
         
     } 
 
