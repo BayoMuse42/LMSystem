@@ -16,11 +16,10 @@ public abstract class Quiz {
     } 
 =======
 
-    public ArrayList<Question> questions;
+    public Question question;
 
     public Quiz(Question question) {
-        questions = new ArrayList<Question>();
-        questions.add(question);
+        this.question = question;
     }
 
     /*
@@ -33,7 +32,7 @@ public abstract class Quiz {
     } */
 
     public Quiz getQuiz(){
-
+        return quiz;
     }
 
 }

@@ -80,33 +80,69 @@ public class UI {
     System.out.println("\n");
   }
 
-  // TODO Login
+  // Login
     private void login() {
+      boolean isLog = false;
+      while(!isLog) {
+        System.out.println(LOGIN_HEADER);
+        System.out.println("Enter your username:");
+        String user = scanner.nextLine();
+        System.out.println("Enter your password:");
+        String pass = scanner.nextLine();
 
+        isLog = lms.login(user, pass);
+
+        if(!isLog) {
+          System.out.println("Oops! The username and password do not match.");
+          continue;
+        }
+      }
     }
   // TODO Register
     private void register() {
 
     }
   // TODO course menu
+    private void courseMenu() {
 
+    }
   // TODO create course
+    private void createCourse() {
 
+    }
   // TODO Module menu
+    private void moduleMenu() {
 
+    }
   // TODO Create module
+    private void createModule() {
+      
+    }
 
   // TODO Section menu
+    private void sectionMenu() {
 
+    }
   // TODO Create Section
+    private void createSection() {
 
+    }
   // TODO Quiz menu
+    private void quizMenu() {
 
+    }
   // TODO Create quiz
+    private void createQuiz() {
 
+    }
   // TODO Comment Menu
+    private void commentMenu() {
 
+    }
   // TODO Create Comment
+  private void createComment() {
+
+  }
 
   public static void main(String[] args) {
     UI userInterface = new UI();
