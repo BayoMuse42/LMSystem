@@ -13,14 +13,19 @@ public class CourseList {
         return courseList;
           
     }
+
     public static Course getCourse(String UUID) {
         return null;
         
     }
+
     public void addCourse(String UUIDID) {
 
     }
+
     public void deleteCourse(String UUID){
+    
+    }
 
     public Course getCourse(UUID courseID) {
         return null;
