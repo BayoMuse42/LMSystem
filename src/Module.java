@@ -19,7 +19,11 @@ public class Module {
     }
 
     public String getName(){
+        return this.name;
+    }
 
+    public String getDescription(){
+        return this.description;
     }
 
     public String getContent(){

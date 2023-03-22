@@ -22,5 +22,9 @@ public class Comment {
         Comment reply = new Comment(message);
         replies.add(reply);
     }
+
+    public String getMessage(){
+        return this.message;
+    }
     
 }

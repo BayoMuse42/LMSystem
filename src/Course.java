@@ -65,6 +65,34 @@ public class Course {
         
     }
 
+    public UUID getTeacher(){
+        return this.Teacher;
+    }
+
+    public int getDifficulty(){
+        return this.difficulty;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public Quiz getEndOfCourseQuiz(){
+        return this.endOfCourseQuiz;
+    }
+
+    public ArrayList<Comment> getComments(){
+        return this.comments;
+    }
+
+    public ArrayList<Module> getModule(){
+        return this.modules;
+    }
+
+    public UUID getCourseID(){
+        return this.courseID;
+    }
+
     public UUID getID(){
         return courseID;
     }
