@@ -11,14 +11,29 @@ public class Course {
     private ArrayList<Comment> comments;
     private Quiz endOfCourseQuiz;
     private double quizResult;
-    public String courseID;
+    public UUID courseID;
     public UUID userID;
 
-    public Course(Teacher teacher, int difficulty, String name){
-        
+    public Course(UUID Teacher, int difficulty, String name, ArrayList<Module> modules, ArrayList<Comment> comments, Quiz quiz, UUID courseID, UUID userID){
+        this.Teacher = Teacher;
+        this.difficulty = difficulty;
+        this.name = name;
+        this.modules = modules;
+        this.comments = comments;
+        this.endOfCourseQuiz = quiz;
+        this.courseID = courseID;
+        this.userID = userID;
+    }
+
+    public Course(UUID Teacher, int difficulty, String name, Quiz endOfCourseQuiz){
+        this.Teacher = Teacher;
+        this.difficulty = difficulty;
+        this.name = name;
+        this.endOfCourseQuiz = endOfCourseQuiz;
     }
 
     public void createModule(String name, String description){
+        this.modules = new ArrayList<Module>();
 
     }
 
@@ -48,6 +63,10 @@ public class Course {
 
     public double getQuizResult(Quiz quiz){
         
+    }
+
+    public UUID getID(){
+        return courseID;
     }
     
 }

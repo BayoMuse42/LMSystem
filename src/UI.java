@@ -11,6 +11,7 @@ public class UI {
   private ArrayList<String> menu = new ArrayList<String>();
   private Scanner scanner;
   private LMS lms;
+  private boolean isTeacher;
 
   UI() {
     scanner = new Scanner(System.in);
@@ -80,33 +81,90 @@ public class UI {
     System.out.println("\n");
   }
 
-  // TODO Login
+  // Login
     private void login() {
+      boolean isLog = false;
+      while(!isLog) {
+        System.out.println(LOGIN_HEADER);
+        System.out.println("Enter your username:");
+        String user = scanner.nextLine();
+        System.out.println("Enter your password:");
+        String pass = scanner.nextLine();
 
+        isLog = lms.login(user, pass);
+
+        if(!isLog) {
+          System.out.println("Oops! The username and password do not match.");
+          continue;
+        }
+        //TODO add additional screens for Student, Teacher, Admin
+      }
     }
   // TODO Register
     private void register() {
+      boolean isValid = false;
+      System.out.println(REGISTER_HEADER);
 
+      System.out.println("Enter your email address:");
+      String email = scanner.nextLine();
+
+      System.out.println("Enter your username:");
+      String username = scanner.nextLine();
+
+      clearScreen();
+      while(!isValid) {
+        System.out.println(REGISTER_HEADER);
+        System.out.println("For security reasons, your password is required to:");
+      }
+
+
+      
     }
   // TODO course menu
+    private void courseMenu() {
 
+    }
   // TODO create course
+    private void createCourse() {
 
+    }
   // TODO Module menu
+    private void moduleMenu() {
 
+    }
   // TODO Create module
+    private void createModule() {
+      
+    }
 
   // TODO Section menu
+    private void sectionMenu() {
 
+    }
   // TODO Create Section
+    private void createSection() {
 
+    }
   // TODO Quiz menu
+    private void quizMenu() {
 
+    }
   // TODO Create quiz
+    private void createQuiz() {
 
+    }
   // TODO Comment Menu
+    private void commentMenu() {
 
+    }
   // TODO Create Comment
+  private void createComment() {
+
+  }
+
+  private void clearScreen() {
+
+  }
 
   public static void main(String[] args) {
     UI userInterface = new UI();

@@ -1,31 +1,59 @@
 package src;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class UserList {
-    private UserList userList;
+    private static UserList userList;
     private ArrayList<User> users;
 
     private UserList() {
-
+        users = DataLoader.getUsers();
     }
-    public UserList getInstance() {
+
+    public static UserList getInstance() {
+        if(userList == null) {
+            userList = new UserList();
+        }
+
         return userList;
     }
-    public void getUser(String userID) {
+
+    public boolean hasUser(UUID userID) {
+        for(User user: users) {
+            if(user.getID().equals(userID)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public User getUser(UUID userID) {
+        for(User user : users) {
+            if(hasUser(userID)) {
+                return user;
+            }
+        }
+        return null;
+    }
+    // TODO Either edit arguments for User constructor 
+    // OR figure out a way to get the users based on the UUID alone
+    public void addUser(String username, String email, String password, String firstName, String lastName, UUID userID) {
+        if(!hasUser(userID)) {
+            users.add(new User(username, email, password, firstName, lastName));
+        }
 
     }
-    public void addUser(String userID) {
 
+    public void deleteUser(UUID userID){
+        if(!hasUser(userID)) {
+            users.remove(getUser(userID));
+        }
     }
-    public void deleteUser(String userID){
-
-    }
+    //TODO
     public void editUser(User user){
 
     }
     
-
-
 
 }
