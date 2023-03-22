@@ -9,7 +9,8 @@ public abstract class User {
     protected String password;
     protected String firstName;
     protected String lastName;
-    public UUID userID;
+    protected String type; // Student, Teacher, or Admin. Lmk if this changes. Needed for UI.
+    public UUID userID;    
 
     public User(String email, String username, String password, String firstName, String lastName){
         this.email = email;
@@ -36,9 +37,12 @@ public abstract class User {
         
     };
 
-    public UUID getID(){
-        return userID;
+    public String getEmail() {
+        return this.email;
     }
 
+    public String getType() {
+        return this.type;
+    }
     
 }

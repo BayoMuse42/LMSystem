@@ -81,6 +81,126 @@ public class UI {
     System.out.println("\n");
   }
 
+  private void MainStudentMenu() {
+    clearScreen();
+    menu.clear();
+
+    menu.add("Go to Course List");
+    menu.add("Search from Course Database")
+    menu.add("Logout");
+    menu.add("Exit");
+
+    System.out.println("Welcome, " + lms.getCurrentUser().username + "!");
+
+    while(true) {
+      mainMenu();
+
+      int uInput = getIntInput(menu.size());
+  
+      if (uInput == -1) {
+        System.out.println("Invalid Input: Try again");
+        continue;
+      }
+
+      switch(uInput) {
+        case (1):
+          courseMenuStudent();
+          break;
+        case(2):
+          courseSearch();
+          break;
+        case(3):
+          lms.logout();
+          run();
+        case(4): // Exit
+          System.out.println("Thank you for using the Coding Learning Management System");
+          System.exit(0);
+      }
+
+    }
+
+  }
+
+  private void MainTeacherMenu() {
+    clearScreen();
+    menu.clear();
+
+    System.out.println("Welcome, " + lms.getCurrentUser().username + "!");
+
+    menu.add("Go to Course List");
+    menu.add("Create a New Course");
+    menu.add("Search from Course Database");
+    menu.add("logout");
+    menu.add("Exit");
+
+    while(true) {
+      mainMenu();
+
+      int uInput = getIntInput(menu.size());
+  
+      if (uInput == -1) {
+        System.out.println("Invalid Input: Try again");
+        continue;
+      }
+
+      switch(uInput) {
+        case (1):
+          courseMenuTeacher();
+          break;
+        case(2):
+          createCourse();
+          break;
+        case(3):
+          courseSearch();
+          break;
+        case(4):
+          lms.logout();
+          run();
+          break;
+        case(5): // Exit
+          System.out.println("Thank you for using the Coding Learning Management System");
+          System.exit(0);
+      }
+
+    }
+  }
+
+  private void MainAdminMenu() {
+    clearScreen();
+    menu.clear();
+
+    System.out.println("Welcome, " + lms.getCurrentUser().username + "!");
+
+    menu.add("Search from Course Database");
+    menu.add("logout");
+    menu.add("exit");
+
+    while(true) {
+      mainMenu();
+
+      int uInput = getIntInput(menu.size());
+  
+      if (uInput == -1) {
+        System.out.println("Invalid Input: Try again");
+        continue;
+      }
+
+      switch(uInput) {
+        case (1):
+          courseSearch();
+          break;
+        case(2):
+        lms.logout();
+        run();
+        break;
+        case(3): // Exit
+          System.out.println("Thank you for using the Coding Learning Management System");
+          System.exit(0);
+      }
+
+    }
+  }
+
   // Login
     private void login() {
       boolean isLog = false;
@@ -97,10 +217,21 @@ public class UI {
           System.out.println("Oops! The username and password do not match.");
           continue;
         }
-        //TODO add additional screens for Student, Teacher, Admin
+        
+        switch(lms.getCurrentUser().getType()) {
+          case("student"):
+            MainStudentMenu();
+            break;
+          case("teacher"):
+            MainTeacherMenu();
+            break;
+          case("admin"):
+            MainAdminMenu();
+            break;
+        }
       }
     }
-  // TODO Register
+  // Register
     private void register() {
       boolean isValid = false;
       System.out.println(REGISTER_HEADER);
@@ -115,13 +246,45 @@ public class UI {
       while(!isValid) {
         System.out.println(REGISTER_HEADER);
         System.out.println("For security reasons, your password is required to:");
+        System.out.println("> be at least 8 characters in length\n" +
+                            "> include at least 1 capital letter\n" +
+                            "> include at least 1 lowercase letter\n" +
+                            "> include at least 1 special character\n");
+        System.out.println("Enter your password:");
+        String pass = scanner.nextLine();
+
+        if(!validPass(pass)) {
+          System.out.println("your password does not meet the requirements. Please enter a new password.");
+          continue;
+        }
+
+        isValid = true;
       }
 
+      System.out.println("Enter your first name:");
+      String firstName = scanner.nextLine();
 
+      System.out.println("Enter your last name:");
+      String lastName = scanner.nextLine();
+
+      lms.createUser(username, email, pass, firstName, lastName);
+
+      System.out.println("Success! " + username + " has been created! Press \"ENTER\" to return to the main menu.");
+      scanner.nextLine();
+      mainMenu();
       
     }
+    //TODO Create a method to check if the password is valid. For loop check?
+    private boolean validPass(String password) {
+      return true;
+    }
+
   // TODO course menu
-    private void courseMenu() {
+    private void courseMenuStudent() {
+
+    }
+
+    private void courseMenuTeacher() {
 
     }
   // TODO create course
@@ -159,6 +322,11 @@ public class UI {
     }
   // TODO Create Comment
   private void createComment() {
+
+  }
+
+  // TODO
+  private void courseSearch() {
 
   }
 

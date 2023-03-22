@@ -14,16 +14,27 @@ public abstract class LMS {
   }
 
   public boolean login(String username, String password) {
-    // TODO fix this
-    if() {
+    if(!userList.hasUser(username)) {
+      return false;
+    }
+    User temp = userList.getUser(username);
+    if(temp.getPassword().equals(password)) {
+      currentUser = userList.getUser(username);
       return true;
     }
-
     return false;
   }
 
   public void logout() {
     currentUser = null;
+  }
+
+  public User getCurrentUser() {
+    return currentUser;
+  }
+
+  public Course getCurrentCourse() {
+    return currentCourse;
   }
 
   public User createUser(String username, String email, String password, String firstName, String lastName) {

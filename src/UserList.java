@@ -28,9 +28,27 @@ public class UserList {
         return false;
     }
 
+    public boolean hasUser(String username) {
+        for(User user: users) {
+            if(user.getUserName().equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public User getUser(UUID userID) {
         for(User user : users) {
             if(hasUser(userID)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public User getUser(String username) {
+        for(User user : users) {
+            if(hasUser(username)) {
                 return user;
             }
         }
