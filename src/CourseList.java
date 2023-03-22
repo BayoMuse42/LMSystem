@@ -18,21 +18,6 @@ public class CourseList {
         return courseList;
           
     }
-<<<<<<< HEAD
-
-    public static Course getCourse(String UUID) {
-        return null;
-        
-    }
-
-    public void addCourse(String UUIDID) {
-
-    }
-
-    public void deleteCourse(String UUID){
-    
-    }
-=======
     
     public boolean hasCourse(UUID courseID) {
         for(Course course: courses) {
@@ -42,7 +27,6 @@ public class CourseList {
         }
         return false;
     }
->>>>>>> 0a69e69ee86cd40770a2e5c6a77251db697d06ed
 
     public Course getCourse(UUID courseID) {
         for(Course course: courses) {

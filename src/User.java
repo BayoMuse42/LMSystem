@@ -34,9 +34,29 @@ public abstract class User {
     };
 
     public ArrayList<Course> getCourses(){
-        
+       
     };
 
+    public String getFirstName(){
+        return this.firstName;
+    }
+
+    public String getLastName(){
+        return this.lastName;
+    }
+
+    public String getPassword(){
+        return this.password;
+    }
+
+    public String getUserName(){
+        return this.username;
+    }
+
+    public UUID getID(){
+        return this.userID;
+    }
+    
     public String getEmail() {
         return this.email;
     }

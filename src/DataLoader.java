@@ -74,11 +74,10 @@ public class DataLoader extends DataConstants {
                     Module module = new Module(name, description);
 
                     JSONArray jsonSection = (JSONArray)moduleJSON.get(SECTIONS);
-                    Section section = new Section();
                     for(int b = 0; b < jsonSection.size(); b++) {
                         JSONObject sectionJSON = (JSONObject)jsonModules.get(b);
                         String nameSection = (String)sectionJSON.get(NAME);
-                        String content = (String)sectionJSON.get(SECTIONS);
+                        String content = (String)sectionJSON.get(CONTENT);
                         module.createSection(name, description);
                     }
 
@@ -97,7 +96,7 @@ public class DataLoader extends DataConstants {
                     JSONArray jsonReply = (JSONArray)commentJSON.get(REPLY);
                     for(int b = 0; b < jsonReply.size(); b++) {
                         JSONObject replyJSON = (JSONObject)jsonReply.get(b);
-                        String userIDR = (String)replyJSON.get(USER_ID);
+                        UUID userIDR = (UUID)replyJSON.get(USER_ID);
                         String messageR = (String)replyJSON.get(MESSAGE);
                         replyComments.add(new Comment(userIDR, messageR));
                     }
