@@ -1,5 +1,6 @@
 package src;
 import java.util.UUID;
+import java.util.ArrayList;
 
 public class Admin extends User{
 
@@ -16,10 +17,12 @@ public class Admin extends User{
     }
 
     public ArrayList<Course> getCourses(String keyword){
+        return null;
 
     }
 
     public ArrayList<Course> getCourses(){
+        return null;
 
     }
     
