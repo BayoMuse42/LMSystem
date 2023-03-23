@@ -10,9 +10,12 @@ public class Section {
         this.content = content;
     }
     
-    public String getSection() {
-        return content;
+    public String getContent() {
+        return this.content;
+    }
 
+    public String getName(){
+        return this.name;
     }
     
 
