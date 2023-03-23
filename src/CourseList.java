@@ -39,11 +39,12 @@ public class CourseList {
     }
 
     public ArrayList<Course> getCourses() {
-        return courses;
+        return this.courses;
     }
+
     // TODO Either edit arguments for Course constructor 
     // OR figure out a way to get the courses based on the UUID alone
-    public void addCourse(UUID courseID) {
+    public void addCourse(UUID teacherID, int difficulty, String name, UUID courseID) {
         if(!hasCourse(courseID)) {
             courses.add(new Course());
         }
@@ -61,17 +62,30 @@ public class CourseList {
     }
 
     public Course searchCourses(Teacher teacher) {
+        for (Course c: courses){
+            if (c.getTeacher().equals(teacher)){
+                return c;
+            }
+        };
         return null;
 
     }
 
     public Course searchCourses(int difficulty) {
+        for (Course c: courses){
+            if (c.getDifficulty() == difficulty){
+                return c;
+            }
+        }
         return null;
-
     }
 
     public Course searchCourses(String name) {
+        for (Course c: courses){
+            if (c.getName().equals(name)){
+                return c;
+            }
+        }
         return null;
-
     }
 }

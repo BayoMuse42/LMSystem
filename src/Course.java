@@ -70,11 +70,7 @@ public class Course {
     }
 
     public double getQuizResult(Quiz quiz){
-<<<<<<< HEAD
-       
-=======
-        return quizResult;
-        
+        return this.quizResult;
     }
 
     public UUID getTeacher(){
