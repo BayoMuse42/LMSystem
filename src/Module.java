@@ -15,19 +15,18 @@ public class Module {
     }
 
     public void createSection(String name, String content){
+        this.name = name;
+        this.content = content;
 
     }
 
     public String getName(){
         return this.name;
-    }
 
-    public String getDescription(){
-        return this.description;
     }
 
     public String getContent(){
-
+        return this.content;
     }
 
     public void setName(String name){
@@ -39,7 +38,7 @@ public class Module {
     }
 
     public boolean isComplete(){
-
+        
     }
 
     public void createQuiz(){

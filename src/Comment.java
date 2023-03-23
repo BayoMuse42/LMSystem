@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class Comment {
 
+    public String Reply;
+    public String 
+
     public String message;
     public ArrayList<Comment> replies;
     public UUID userID;
@@ -26,5 +29,11 @@ public class Comment {
     public String getMessage(){
         return this.message;
     }
+    public String getUserID() {
+        return this.userID;
+    }
     
+    public String getReply() {
+        return this.reply;
+    }
 }
