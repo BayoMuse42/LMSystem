@@ -63,7 +63,7 @@ public class Course {
     }
 
     public double getQuizResult(Quiz quiz){
-        
+       
     }
 
     public UUID getTeacher(){
@@ -94,7 +94,7 @@ public class Course {
         return this.courseID;
     }
 
-    public UUID getID(){
+    public UUID getUserID(){
         return courseID;
     }
 

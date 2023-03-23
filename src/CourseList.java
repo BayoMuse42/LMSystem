@@ -21,7 +21,7 @@ public class CourseList {
     
     public boolean hasCourse(UUID courseID) {
         for(Course course: courses) {
-            if(course.getID().equals(courseID)) {
+            if(course.getCourseID().equals(courseID)) {
                 return true;
             }
         }
@@ -30,7 +30,7 @@ public class CourseList {
 
     public Course getCourse(UUID courseID) {
         for(Course course: courses) {
-            if(course.getID().equals(courseID)) {
+            if(course.getCourseID().equals(courseID)) {
                 return course;
             }
         }
