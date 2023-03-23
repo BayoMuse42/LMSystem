@@ -75,7 +75,6 @@ public class Course {
 =======
         return quizResult;
         
->>>>>>> a957e1e43d2ee825462d1b7c43178316d4b2b9a8
     }
 
     public UUID getTeacher(){
