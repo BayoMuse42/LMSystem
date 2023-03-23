@@ -243,6 +243,7 @@ public class UI {
       String username = scanner.nextLine();
 
       clearScreen();
+      String pass = " ";
       while(!isValid) {
         System.out.println(REGISTER_HEADER);
         System.out.println("For security reasons, your password is required to:");
@@ -251,7 +252,7 @@ public class UI {
                             "> include at least 1 lowercase letter\n" +
                             "> include at least 1 special character\n");
         System.out.println("Enter your password:");
-        String pass = scanner.nextLine();
+        pass = scanner.nextLine();
 
         if(!validPass(pass)) {
           System.out.println("your password does not meet the requirements. Please enter a new password.");
@@ -274,11 +275,27 @@ public class UI {
       mainMenu();
       
     }
-    //TODO Create a method to check if the password is valid. For loop check?
-    private boolean validPass(String password) {
-      return true;
-    }
 
+    private boolean validPass(String password) {
+      boolean lengthFlag = false;
+      boolean capFlag = false;
+      boolean lowFlag = false;
+      boolean specFlag = false;
+      for(int i = 0; i < password.length(); i++) {
+        char temp = password.charAt(i);
+        if(Character.isUpperCase(temp))
+          capFlag = true;
+        if(Character.isLowerCase(temp))
+          lowFlag = true;
+        if(!Character.isLetterOrDigit(temp))
+          specFlag = true;
+      }
+    if(password.length() >= 8)
+      lengthFlag = true;
+    if(lengthFlag && capFlag && lowFlag && specFlag)
+      return true;
+    return false;
+  }
   // TODO course menu
     private void courseMenuStudent() {
 
