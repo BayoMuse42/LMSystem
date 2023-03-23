@@ -38,6 +38,7 @@ public class Course {
     }
 
     public Course searchCourses(Teacher teacher){
+        return null;
 
     }
 

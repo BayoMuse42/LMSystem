@@ -9,5 +9,11 @@ public class Section {
         this.name = name;
         this.content = content;
     }
+    
+    public String getSection() {
+        return content;
+
+    }
+    
 
 }
