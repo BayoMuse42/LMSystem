@@ -71,11 +71,11 @@ public class LMS {
   }
 
   public Module getModule(UUID courseID) {
-
+    return currentCourse.getModule();
   }
 
   public Section getSection(UUID courseID) {
-    currentCourse.getModule()
+    return currentCourse.getModule().getSection();
   }
 
   public Quiz getQuiz(UUID courseID) {
@@ -86,8 +86,8 @@ public class LMS {
     return currentUser.getCourses();
   }
 
-  public void addCourse(UUID courseID) {
-    courseList.addCourse(courseID);
+  public void addCourse(UUID teacherID, int difficulty, String name, UUID courseID) {
+    courseList.addCourse(teacherID, difficulty, name, courseID);
   }
 
   public void deleteCourse(UUID courseID) {
