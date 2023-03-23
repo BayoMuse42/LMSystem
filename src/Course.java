@@ -101,5 +101,9 @@ public class Course {
     public String getAsk(){
         return this.endOfCourseQuiz.getAsk();
     }
+
+    public ArrayList<Section> getSection(){
+        return this.
+    }
     
 }
