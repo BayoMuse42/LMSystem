@@ -13,14 +13,14 @@ public class Teacher extends User{
     }
 
     public ArrayList<Course> getCourses(String keyword){
-            return null;
+            return this.getCourses(keyword);
     }
 
     public ArrayList<Course> getCourses(){
-        
+        return this.getCourses();
     }
     
     public String toString(){
-        return firstName + " " + lastName + " is a teacher."
+        return firstName + " " + lastName + " is a teacher.";
     }
 }
