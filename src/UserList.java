@@ -64,7 +64,6 @@ public class UserList {
         if(!hasUser(userID)) {
             users.add(new User(username, email, password, firstName, lastName));
         }
-
     }
 
     public void deleteUser(UUID userID){

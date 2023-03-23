@@ -13,7 +13,11 @@ public class Teacher extends User{
     }
 
     public ArrayList<Course> getCourses(String keyword){
+<<<<<<< HEAD
+            return this.getCourses(keyword);
+=======
         return this.getCourses(keyword);
+>>>>>>> bfc1c9bd413d592ec471baea29b5b924d1702a2c
     }
 
     public ArrayList<Course> getCourses(){

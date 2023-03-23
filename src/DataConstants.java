@@ -12,6 +12,7 @@ public abstract class DataConstants {
     protected static final String FIRST_NAME = "FIRST_NAME";
     protected static final String LAST_NAME = "LAST_NAME";
     protected static final String USER_ID = "USER_ID";
+    protected static final String TYPE = "TYPE";
     /**
      * Course elements
      */
