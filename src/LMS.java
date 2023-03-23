@@ -2,7 +2,7 @@ package src;
 import java.util.UUID;
 import java.util.ArrayList;
 
-public abstract class LMS {
+public class LMS {
   private User currentUser;
   private Course currentCourse;
   private UserList userList;
@@ -45,27 +45,29 @@ public abstract class LMS {
   }
 
   public User getUser(UUID userID) {
-    return UserList.getUser(userID);
+    return userList.getUser(userID);
   }
 
   public void addUser(UUID userID) { 
-    UserList.addUser(userID);
+    userList.addUser(userID);
   }
 
   public void deleteUser(UUID userID) {
-    UserList.deleteUser(userID);
+    userList.deleteUser(userID);
   }
 
   public void editUser(User user) {
-    UserList.editUser(user);
+    userList.editUser(user);
   }
 
   public Course createCourse(UUID teacher, int difficulty, String name) {
-
+    UUID courseID = UUID.randomUUID();
+    courseList.addCourse(teacher, difficulty, name, courseID);
+    return courseList.getCourse(courseID);
   }
 
   public Course getCourse(UUID courseID) {
-    return CourseList.getCourse(courseID);
+    return courseList.getCourse(courseID);
   }
 
   public Module getModule(UUID courseID) {
@@ -73,32 +75,38 @@ public abstract class LMS {
   }
 
   public Section getSection(UUID courseID) {
-
+    currentCourse.getModule()
   }
 
   public Quiz getQuiz(UUID courseID) {
-
+    return currentCourse.getQuiz;
   }
 
   public ArrayList<Course> getUserCourses(User user) {
-    
+    return currentUser.getCourses();
   }
 
   public void addCourse(UUID courseID) {
-    CourseList.addCourse(courseID);
+    courseList.addCourse(courseID);
   }
 
   public void deleteCourse(UUID courseID) {
-    CourseList.deleteCourse(courseID);
+    courseList.deleteCourse(courseID);
   }
 
   public void editCourse(Course course) {
-    CourseList.editCourse(course);
+    courseList.editCourse(course);
   }
 
-  public abstract Course Search(Teacher teacher);
+  public Course Search(Teacher teacher) {
+    return courseList.searchCourses(teacher);
+  }
 
-  public abstract Course Search(int difficulty);
+  public Course Search(int difficulty) {
+    return courseList.searchCourses(difficulty);
+  }
 
-  public abstract Course Search(String name);
+  public Course Search(String name) {
+    return courseList.searchCourses(name);
+  }
 }
