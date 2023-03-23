@@ -21,7 +21,7 @@ public class UserList {
 
     public boolean hasUser(UUID userID) {
         for(User user: users) {
-            if(user.getID().equals(userID)) {
+            if(user.getUserID().equals(userID)) {
                 return true;
             }
         }
@@ -64,7 +64,6 @@ public class UserList {
         if(!hasUser(userID)) {
             users.add(new User(username, email, password, firstName, lastName));
         }
-
     }
 
     public void deleteUser(UUID userID){

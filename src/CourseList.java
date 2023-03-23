@@ -63,7 +63,7 @@ public class CourseList {
 
     public Course searchCourses(Teacher teacher) {
         for (Course c: courses){
-            if (c.getTeacher().equals(teacher)){
+            if (c.getTeacher().equals(teacher.getUserID())){
                 return c;
             }
         };
