@@ -7,7 +7,7 @@ import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants {
     public static void saveUsers() {
-		User users = User.getInstance();
+		UserList users = UserList.getInstance();
 		ArrayList<User> userList = users.getUsers();
 		JSONArray jsonUsers = new JSONArray();
 		
@@ -30,7 +30,7 @@ public class DataWriter extends DataConstants {
 
     public static JSONObject getUserJSON(User user) {
 		JSONObject userDetails = new JSONObject();
-		userDetails.put(USER_ID, user.getId().toString());
+		userDetails.put(USER_ID, user.getUserID().toString());
 		userDetails.put(USERNAME, user.getUserName());
 		userDetails.put(FIRST_NAME, user.getFirstName());
 		userDetails.put(LAST_NAME, user.getLastName());
@@ -40,8 +40,8 @@ public class DataWriter extends DataConstants {
 	}
 
     public static void saveCourses() {
-		Course courses = Course.getInstance();
-		ArrayList<User> courseList = courses.getCourses();
+		CourseList courses = CourseList.getInstance();
+		ArrayList<Course> courseList = courses.getCourses();
 		JSONArray jsonCourses = new JSONArray();
 		
 		//creating all the json objects
@@ -97,7 +97,7 @@ public class DataWriter extends DataConstants {
 			JSONObject commentJSON = new JSONObject();
 			commentJSON.put(USER_ID, c.getUserID());
 			commentJSON.put(MESSAGE, c.getMessage());
-			for(Comment cReply : c.getReply()) {
+			for(Comment cReply : c.getReplies()) {
 				JSONObject commentReplyJSON = new JSONObject();
 				commentReplyJSON.put(USER_ID, cReply.getUserID());
 				commentReplyJSON.put(MESSAGE, cReply.getMessage());
@@ -118,7 +118,7 @@ public class DataWriter extends DataConstants {
 		
         courseDetails.put(QUIZ_RESULT, course.getQuizResult());
         courseDetails.put(COURSE_ID, course.getCourseID());
-        courseDetails.put(USER_ID, course.getUser());
+        courseDetails.put(USER_ID, course.getUserID());
         
         return courseDetails;
 	}
