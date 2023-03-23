@@ -57,14 +57,17 @@ public class CourseList {
     }
 
     public Course searchCourses(Teacher teacher) {
+        return null;
 
     }
 
     public Course searchCourses(int difficulty) {
+        return null;
 
     }
 
     public Course searchCourses(String name) {
+        return null;
 
     }
 }

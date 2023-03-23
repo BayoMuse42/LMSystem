@@ -8,6 +8,7 @@ public class Module {
     private Quiz quiz;
     private double quizResult;
     private ArrayList<Section> sections;
+    private String content;
 
     public Module(String name, String description){
         this.name = name;
@@ -38,6 +39,7 @@ public class Module {
     }
 
     public boolean isComplete(){
+        return false;
         
     }
 
@@ -46,6 +48,7 @@ public class Module {
     }
 
     public double getQuizResult(){
+        return quizResult;
 
     }
     

@@ -8,19 +8,18 @@ public abstract class Quiz {
     public String answer; 
     public String correct;
     public String quizResult;
+    public Quiz quiz;
+    ; 
 
     public Quiz(Question question) {
         this.question = question;
     }
 
-    /*
-     * this class add questions in the parm of ask
-     * answer, and the correct answer. 
-     *      
+      
     public void addQuestion(String ask, ArrayList<String> potentialAnswer, String answer) {
         Question question = new Question(ask, answer, potentialAnswer);
         this.questions.add(question);
-    } */
+    }
 
     public Quiz getQuizResult(){
         return quiz;
@@ -45,6 +44,7 @@ public abstract class Quiz {
     public void setQuizResult(String quizResult) {
         this.quizResult = quizResult;
     }
-    else return flase;
+    else return false;
+
 
 }
