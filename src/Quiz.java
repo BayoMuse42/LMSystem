@@ -2,7 +2,7 @@ package src;
 import java.util.ArrayList;
 import java.util.function.BooleanSupplier;
 
-public abstract class Quiz {
+public class Quiz {
 
     public Question question;
     public String answer; 

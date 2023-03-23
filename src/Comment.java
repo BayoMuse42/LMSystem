@@ -5,8 +5,7 @@ import java.util.ArrayList;
 public class Comment {
 
     public String Reply;
-    public String 
-
+    
     public String message;
     public ArrayList<Comment> replies;
     public UUID userID;

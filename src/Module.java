@@ -63,5 +63,12 @@ public class Module {
     public ArrayList<String> getPotentialAnswers(){
         return this.quiz.getPotentialAnswers();
     }
+
+    public Section getSection(){
+        for (Section s: this.sections){
+            return s;
+        }
+        return null;
+    }
     
 }
