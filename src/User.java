@@ -12,7 +12,7 @@ public abstract class User {
     protected String type; // Student, Teacher, or Admin. Lmk if this changes. Needed for UI.
     public UUID userID;    
 
-    public User(String email, String username, String password, String firstName, String lastName){
+    public User(String email, String password, String username, String firstName, String lastName){
         this.email = email;
         this.username = username;
         this.password = password;

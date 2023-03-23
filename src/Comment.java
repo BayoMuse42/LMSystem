@@ -18,22 +18,24 @@ public class Comment {
 
     public Comment(UUID userID, String message, ArrayList<Comment> replies){
         this.message = message;
-        this.replies = new ArrayList<Comment>();
+        this.replies = replies;
+        this.userID = userID;
     }
 
     public void replyMessage(String message){
-        Comment reply = new Comment(message);
+        Comment reply = new Comment(userID, message);
         replies.add(reply);
     }
 
     public String getMessage(){
         return this.message;
     }
-    public String getUserID() {
+
+    public UUID getUserID() {
         return this.userID;
     }
     
-    public String getReply() {
-        return this.reply;
+    public ArrayList<Comment> getReplies() {
+        return this.replies;
     }
 }
