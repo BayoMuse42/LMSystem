@@ -28,4 +28,8 @@ public class Question {
         }
         else return false;
     }
+
+    public String getAsk(){
+        return this.ask;
+    }
 }

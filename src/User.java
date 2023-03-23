@@ -53,7 +53,7 @@ public abstract class User {
         return this.username;
     }
 
-    public UUID getID(){
+    public UUID getUserID(){
         return this.userID;
     }
     

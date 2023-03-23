@@ -97,5 +97,9 @@ public class Course {
     public UUID getID(){
         return courseID;
     }
+
+    public String getAsk(){
+        return this.endOfCourseQuiz.getAsk();
+    }
     
 }

@@ -18,7 +18,7 @@ public abstract class Quiz {
       
     public void addQuestion(String ask, ArrayList<String> potentialAnswer, String answer) {
         Question question = new Question(ask, answer, potentialAnswer);
-        this.questions.add(question);
+        this.question = question;
     }
 
     public Quiz getQuizResult(){
@@ -34,7 +34,7 @@ public abstract class Quiz {
     }
 
     public String getCorrect() {
-        return correct;
+        return this.correct;
     }
 
     public void setCorrect(String correct) {
@@ -44,7 +44,10 @@ public abstract class Quiz {
     public void setQuizResult(String quizResult) {
         this.quizResult = quizResult;
     }
-    else return false;
+
+    public String getAsk(){
+        return this.question.getAsk();
+    }
 
 
 }
