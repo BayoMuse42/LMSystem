@@ -32,4 +32,8 @@ public class Question {
     public String getAsk(){
         return this.ask;
     }
+
+    public ArrayList<String> getPotentialAnswers(){
+        return this.potentialAnswers;
+    }
 }

@@ -49,5 +49,9 @@ public abstract class Quiz {
         return this.question.getAsk();
     }
 
+    public ArrayList<String> getPotentialAnswers(){
+        return this.question.getPotentialAnswers();
+    }
+
 
 }

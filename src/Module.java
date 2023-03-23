@@ -51,5 +51,17 @@ public class Module {
         return quizResult;
 
     }
+
+    public String getDescription(){
+        return this.description;
+    }
+
+    public Quiz getQuiz(){
+        return this.quiz;
+    }
+
+    public ArrayList<String> getPotentialAnswers(){
+        return this.quiz.getPotentialAnswers();
+    }
     
 }
