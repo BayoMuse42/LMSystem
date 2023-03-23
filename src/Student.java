@@ -16,11 +16,12 @@ public class Student extends User{
     }
 
     public ArrayList<Course> getCourses(String keyword){
+        return this.getCourses(keyword);
 
     }
 
     public ArrayList<Course> getCourses(){
-        
+        return this.getCourses();
     }
 
     public String toString(){

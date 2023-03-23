@@ -43,26 +43,34 @@ public class Course {
     }
 
     public Course searchCourse(int difficulty){
-
+        return null;
+         
     }
 
     public Course searchCourses(String name){
+        return null;
 
     }
 
     public Course searchCourses(Course course){
+        return course;
 
     }
 
     public double checkProgress(Course course){
+        return difficulty;
 
     }
 
     public boolean isComplete(){
-
+        if(isComplete()) {
+            return true;
+        }
+        return false;
     }
 
     public double getQuizResult(Quiz quiz){
+        return quizResult;
         
     }
 
