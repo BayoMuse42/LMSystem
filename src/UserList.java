@@ -46,6 +46,10 @@ public class UserList {
         return null;
     }
 
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
     public User getUser(String username) {
         for(User user : users) {
             if(hasUser(username)) {

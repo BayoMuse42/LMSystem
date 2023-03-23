@@ -37,6 +37,10 @@ public class CourseList {
         return null;
         
     }
+
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
     // TODO Either edit arguments for Course constructor 
     // OR figure out a way to get the courses based on the UUID alone
     public void addCourse(UUID courseID) {
