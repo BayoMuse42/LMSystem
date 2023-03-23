@@ -43,27 +43,39 @@ public class Course {
     }
 
     public Course searchCourse(int difficulty){
-
+        return null;
+         
     }
 
     public Course searchCourses(String name){
+        return null;
 
     }
 
     public Course searchCourses(Course course){
+        return course;
 
     }
 
     public double checkProgress(Course course){
+        return difficulty;
 
     }
 
     public boolean isComplete(){
-
+        if(isComplete()) {
+            return true;
+        }
+        return false;
     }
 
     public double getQuizResult(Quiz quiz){
+<<<<<<< HEAD
        
+=======
+        return quizResult;
+        
+>>>>>>> a957e1e43d2ee825462d1b7c43178316d4b2b9a8
     }
 
     public UUID getTeacher(){

@@ -13,7 +13,7 @@ public class Teacher extends User{
     }
 
     public ArrayList<Course> getCourses(String keyword){
-
+            return null;
     }
 
     public ArrayList<Course> getCourses(){
