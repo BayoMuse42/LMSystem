@@ -68,6 +68,7 @@ public class Module {
         for (Section s: this.sections){
             return s;
         }
+        return null;
     }
     
 }
