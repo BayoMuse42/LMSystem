@@ -64,11 +64,16 @@ public class Module {
         return this.quiz.getPotentialAnswers();
     }
 
-    public Section getSection(){
+    public Section getSection(String name){
         for (Section s: this.sections){
-            return s;
+            if (s.getName().equals(name))
+                return s;
         }
         return null;
+    }
+
+    public ArrayList<Section> getSections() {
+        return sections;
     }
     
 }

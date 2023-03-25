@@ -19,18 +19,18 @@ public class CourseList {
           
     }
     
-    public boolean hasCourse(UUID courseID) {
+    public boolean hasCourse(String courseName) {
         for(Course course: courses) {
-            if(course.getCourseID().equals(courseID)) {
+            if(course.getName().equals(courseName)) {
                 return true;
             }
         }
         return false;
     }
 
-    public Course getCourse(UUID courseID) {
+    public Course getCourse(String courseName) {
         for(Course course: courses) {
-            if(course.getCourseID().equals(courseID)) {
+            if(course.getName().equals(courseName)) {
                 return course;
             }
         }
@@ -45,16 +45,17 @@ public class CourseList {
     // TODO Either edit arguments for Course constructor 
     // OR figure out a way to get the courses based on the UUID alone
     public void addCourse(UUID teacherID, int difficulty, String name, UUID courseID) {
-        if(!hasCourse(courseID)) {
-            courses.add(new Course());
+        if(!hasCourse(name)) {
+            courses.add(new Course(teacherID,difficulty,name,endOfCourseQuiz));
         }
     }
 
-    public void deleteCourse(UUID courseID) {
-        if(!hasCourse(courseID)) {
-            courses.remove(getCourse(courseID));
+    public void deleteCourse(String name) {
+        if(!hasCourse(name)) {
+            courses.remove(getCourse(name));
         }
     }
+    
     
     //TODO
     public void editCourse(Course course){

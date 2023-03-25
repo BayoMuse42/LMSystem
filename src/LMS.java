@@ -5,6 +5,9 @@ import java.util.ArrayList;
 public class LMS {
   private User currentUser;
   private Course currentCourse;
+  private Module currentModule;
+  private Section currentSection;
+  private Quiz currentQuiz;
   private UserList userList;
   private CourseList courseList;
 
@@ -33,10 +36,35 @@ public class LMS {
     return currentUser;
   }
 
+  public void setCurrentUser(String name) {
+    this.currentUser = userList.getUser(name);
+  }
+
   public Course getCurrentCourse() {
     return currentCourse;
   }
 
+  public void setCurrentCourse(String name) {
+    this.currentCourse = courseList.getCourse(name);
+  }
+
+  public Module getCurrentModule() {
+    return currentModule;
+  }
+
+  public void setCurrentModule(String name) {
+    this.currentModule = currentCourse.getModule(name);
+  }
+
+  public Section getCurrentSection() {
+    return currentSection;
+  }
+
+  public void setCurrentSection(String name) {
+    this.currentSection = currentModule.getSection(name);
+  }
+
+  // TODO Differenciate between student, teacher, and admin
   public User createUser(String username, String email, String password, String firstName, String lastName) {
     UUID userID = UUID.randomUUID();
     userList.addUser(username, email, password, firstName, lastName, userID);
@@ -63,11 +91,11 @@ public class LMS {
   public Course createCourse(UUID teacher, int difficulty, String name) {
     UUID courseID = UUID.randomUUID();
     courseList.addCourse(teacher, difficulty, name, courseID);
-    return courseList.getCourse(courseID);
+    return courseList.getCourse(name);
   }
 
-  public Course getCourse(UUID courseID) {
-    return courseList.getCourse(courseID);
+  public Course getCourse(String name) {
+    return courseList.getCourse(name);
   }
 
   public Module getModule(UUID courseID) {
@@ -79,7 +107,7 @@ public class LMS {
   }
 
   public Quiz getQuiz(UUID courseID) {
-    return currentCourse.getQuiz;
+    return currentCourse.getQuiz();
   }
 
   public ArrayList<Course> getUserCourses(User user) {
@@ -90,8 +118,8 @@ public class LMS {
     courseList.addCourse(teacherID, difficulty, name, courseID);
   }
 
-  public void deleteCourse(UUID courseID) {
-    courseList.deleteCourse(courseID);
+  public void deleteCourse(String courseName) {
+    courseList.deleteCourse(courseName);
   }
 
   public void editCourse(Course course) {
