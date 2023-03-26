@@ -407,7 +407,7 @@ public class UI {
             sectionMenuStudent(mInput);
           courseMenuStudent(courseName);
         }
-        sectionMenuStudent(mInput);
+        moduleMenuStudent(mInput);
         break;
       case 2:
         commentMenu();
@@ -439,7 +439,7 @@ public class UI {
     switch(uInput) {
       case 1:
         System.out.println("Which module would you like to view?");
-        sectionMenuTeacher(getInput());
+        moduleMenuTeacher(getInput());
         break;
       case 2:
         commentMenu();
@@ -462,22 +462,87 @@ public class UI {
   // Module menu
   private void moduleMenuStudent(String moduleName) {
     clearScreen();
-    menu.clear();
+    lms.setCurrentModule(moduleName);
+    Module currentModule = lms.getCurrentModule();
 
     System.out.println("| " + moduleName + " |");
-    
+
+    System.out.println(lms.getCurrentModule().getDescription());
+    System.out.println("There are " + currentModule.getSections().size() + " sections");
+
+    for(Section section : currentModule.getSections()) {
+      System.out.println("> " + section);
+    }
+
+    System.out.println("Would you like to begin the first section:" +
+    currentModule.getSections().get(0).getName() + "?");
+
+    String uInput = getInput();
+
+    switch(uInput) {
+      case "yes":
+        sectionMenuStudent(currentModule.getSections().get(0).getName());
+        break;
+      case "no":
+        courseMenuStudent(lms.getCurrentCourse().getName());
+        break;
+      default:
+        System.out.println("Invalid input");
+        moduleMenuStudent(moduleName);
+        break;
+    }
+
   }
 
   private void moduleMenuTeacher(String moduleName) {
-      
+    clearScreen();
+    menu.clear();
+    lms.setCurrentModule(moduleName);
+    Module currentModule = lms.getCurrentModule();
+
+    menu.add("View section");
+    menu.add("View end-of-module quiz");
+    menu.add("Back");
+
+    System.out.println("| " + moduleName + " |");
+
+    System.out.println(lms.getCurrentModule().getDescription());
+    System.out.println("There are " + currentModule.getSections().size() + " sections");
+
+    for(Section section : currentModule.getSections()) {
+      System.out.println("> " + section);
+    }
+
+    printMenu();
+
+    int uInput = getIntInput(menu.size());
+
+    switch(uInput) {
+      case 1:
+        System.out.println("Which section would you like to view?");
+        sectionMenuTeacher(getInput());
+        break;
+      case 2:
+        quizMenuTeacher();
+        break;
+      case 3:
+        courseMenuTeacher(lms.getCurrentCourse().getName());
+        break;
+      default:
+        System.out.println("Invalid input");
+        moduleMenuTeacher(moduleName);
+        break;
+    }
+
   }
 
   private void printModules() {
-    System.out.println("There are " + lms.getCurrentCourse().getModules().size() + " modules avaliable");
+    Course currentCourse = lms.getCurrentCourse();
+    System.out.println("There are " + currentCourse.getModules().size() + " modules avaliable");
 
-    for(int i = 0; i < lms.getCurrentCourse().getModules().size(); i++) {
-      System.out.println("> " + lms.getCurrentCourse().getModules().get(i).getName());
-      if(lms.getCurrentCourse().getModules().get(i).getQuizResult() > 80)
+    for(int i = 0; i < currentCourse.getModules().size(); i++) {
+      System.out.println("> " + currentCourse.getModules().get(i).getName());
+      if(currentCourse.getModules().get(i).getQuizResult() > 80)
         System.out.print(" -- Complete");
     }
     System.out.println("> End of Course Quiz\n");
@@ -492,13 +557,81 @@ public class UI {
 
   }
 
-  // TODO Section menu
+  // Section menu
   private void sectionMenuStudent(String sectionName) {
+    clearScreen();
+    lms.setCurrentSection(sectionName);
+    Section currentSection = lms.getCurrentSection();
+    Module currentModule = lms.getCurrentModule();
 
+    System.out.println(currentSection.getName());
+
+    System.out.println(currentSection.getContent());
+
+    if(currentModule.getSections().indexOf(currentSection) ==
+      currentModule.getSections().size() - 1) {
+        System.out.println("This is the last section of the module.");
+        System.out.println("When you are finished with this section, type \"next\" to move on to the end-of-module quiz.");
+        while(true) {
+          switch(getInput()) {
+            case "next":
+            quizMenuStudent();
+            default:
+              System.out.println("invalid input");
+              continue;
+          }
+        }
+    }
+
+    System.out.println("When you are finished with this section, type \"next\" to move on to the next section.");
+    while(true) {
+      switch(getInput()) {
+        case "next":
+          sectionMenuStudent(currentModule.getSections().get(currentModule.getSections().indexOf(currentSection)+1).getName());
+          break;
+        default:
+          System.out.println("invalid input");
+          continue;
+      }
+    }
   }
 
   private void sectionMenuTeacher(String sectionName) {
+    clearScreen();
+    lms.setCurrentSection(sectionName);
+    Section currentSection = lms.getCurrentSection();
+    Module currentModule = lms.getCurrentModule();
 
+    System.out.println(currentSection.getName());
+
+    System.out.println(currentSection.getContent());
+
+    if(currentModule.getSections().indexOf(currentSection) ==
+      currentModule.getSections().size() - 1) {
+        System.out.println("This is the last section of the module.");
+        System.out.println("When you are finished with this section, type \"next\" to move on to the end-of-module quiz.");
+        while(true) {
+          switch(getInput()) {
+            case "next":
+            quizMenuTeacher();
+            default:
+              System.out.println("invalid input");
+              continue;
+          }
+        }
+    }
+
+    System.out.println("When you are finished with this section, type \"next\" to move on to the next section.");
+    while(true) {
+      switch(getInput()) {
+        case "next":
+          sectionMenuTeacher(currentModule.getSections().get(currentModule.getSections().indexOf(currentSection)+1).getName());
+          break;
+        default:
+          System.out.println("invalid input");
+          continue;
+      }
+    }
   }
 
   // TODO Create Section

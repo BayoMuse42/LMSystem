@@ -98,12 +98,12 @@ public class LMS {
     return courseList.getCourse(name);
   }
 
-  public Module getModule(UUID courseID) {
-    return currentCourse.getModule();
+  public Module getModule(String name) {
+    return currentCourse.getModule(name);
   }
 
-  public Section getSection(UUID courseID) {
-    return currentCourse.getModule().getSection();
+  public Section getSection(String name) {
+    return currentModule.getSection(name);
   }
 
   public Quiz getQuiz(UUID courseID) {

@@ -73,7 +73,7 @@ public class Module {
     }
 
     public ArrayList<Section> getSections() {
-        return sections;
+        return this.sections;
     }
     
 }
