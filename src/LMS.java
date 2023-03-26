@@ -64,6 +64,16 @@ public class LMS {
     this.currentSection = currentModule.getSection(name);
   }
 
+  public Quiz getCurrentQuiz(String Coursename, boolean isEndCourse) {
+   return currentQuiz;
+  }
+
+  public void setCurrentQuiz(String name, boolean isEndCourse) {
+    if(isEndCourse)
+      this.currentQuiz = getCurrentCourse().getEndOfCourseQuiz();
+    this.currentQuiz = getCurrentModule().getQuiz();
+  }
+
   // TODO Differenciate between student, teacher, and admin
   public User createUser(String username, String email, String password, String firstName, String lastName) {
     UUID userID = UUID.randomUUID();

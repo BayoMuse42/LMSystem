@@ -21,6 +21,10 @@ public class Quiz {
         this.question = question;
     }
 
+    public Question getQuestion() {
+        return this.question;
+    }
+
     public Quiz getQuizResult(){
         return quiz;
     }

@@ -382,40 +382,54 @@ public class UI {
     clearScreen();
     menu.clear();
     lms.setCurrentCourse(courseName);
+    Course currentCourse = lms.getCurrentCourse();
     
 
     menu.add("Take module");
+    menu.add("Take end-of-course quiz");
     menu.add("View comments");
     menu.add("Go back");
 
     System.out.println("---- " + courseName + " ----");
-    System.out.println("| " + lms.getCurrentCourse().getTeacher().toString() + " |");
+    System.out.println("| " + currentCourse.getTeacher().toString() + " |");
     printModules();
 
     printMenu();
 
     int uInput = getIntInput(menu.size());
 
-    switch(uInput) {
-      case 1:
-        System.out.println("Which module would you like to take?");
-        String mInput = getInput();
-        if(lms.getCurrentCourse().getModule(mInput).getQuizResult() > 80) {
-          System.out.println("This is a module that you have already completed.\n" +
-          "Would you like to review this module?\nyes or no");
-          if(getInput().equals("yes"))
-            sectionMenuStudent(mInput);
-          courseMenuStudent(courseName);
-        }
-        moduleMenuStudent(mInput);
-        break;
-      case 2:
-        commentMenu();
-        break;
-      case 3:
-        viewCoursesStudent();
-      break;
-  }
+    while(true) {
+      switch(uInput) {
+        case 1:
+          System.out.println("Which module would you like to take?");
+          String mInput = getInput();
+          if(currentCourse.getModule(mInput).getQuizResult() > 80) {
+            System.out.println("This is a module that you have already completed.\n" +
+            "Would you like to review this module?\nyes or no");
+            if(getInput().equals("yes"))
+              sectionMenuStudent(mInput);
+            continue;
+          }
+          moduleMenuStudent(mInput);
+          break;
+        case 2:
+          for(Module module : currentCourse.getModules()) {
+            if(!module.isComplete()) {
+              System.out.println("All modules must be complete to take the end-of-course quiz");
+              courseMenuStudent(courseName);
+              break;
+            }
+          }
+          quizMenuStudent(courseName, true);
+          break;
+        case 3:
+          commentMenu(courseName);
+          break;
+        case 4:
+          viewCoursesStudent();
+          break;
+      }
+    }
 }
 
   private void courseMenuTeacher(String courseName) {
@@ -442,7 +456,7 @@ public class UI {
         moduleMenuTeacher(getInput());
         break;
       case 2:
-        commentMenu();
+        commentMenu(courseName);
         break;
       case 3:
         viewCoursesTeacher();
@@ -523,7 +537,7 @@ public class UI {
         sectionMenuTeacher(getInput());
         break;
       case 2:
-        quizMenuTeacher();
+        quizMenuTeacher(moduleName, false);
         break;
       case 3:
         courseMenuTeacher(lms.getCurrentCourse().getName());
@@ -542,7 +556,7 @@ public class UI {
 
     for(int i = 0; i < currentCourse.getModules().size(); i++) {
       System.out.println("> " + currentCourse.getModules().get(i).getName());
-      if(currentCourse.getModules().get(i).getQuizResult() > 80)
+      if(currentCourse.getModules().get(i).isComplete())
         System.out.print(" -- Complete");
     }
     System.out.println("> End of Course Quiz\n");
@@ -575,7 +589,7 @@ public class UI {
         while(true) {
           switch(getInput()) {
             case "next":
-            quizMenuStudent();
+            quizMenuStudent(currentModule.getName(), false);
             default:
               System.out.println("invalid input");
               continue;
@@ -613,7 +627,7 @@ public class UI {
         while(true) {
           switch(getInput()) {
             case "next":
-            quizMenuTeacher();
+            quizMenuTeacher(currentModule.getName(), false);
             default:
               System.out.println("invalid input");
               continue;
@@ -639,11 +653,26 @@ public class UI {
 
   }
   // TODO Quiz menu
-  private void quizMenuStudent() {
+  private void quizMenuStudent(String name, boolean isEndCourse) {
+    clearScreen();
+    menu.clear();
 
+    lms.setCurrentQuiz(name, isEndCourse);
+    Quiz currentQuiz = lms.getCurrentQuiz(name, isEndCourse);
+
+    if(isEndCourse)
+      System.out.println("| end-of-course quiz |");
+    System.out.println("| end-of-module quiz |");
+
+    // Question currentQuestion = currentQuiz.getAsk();
+    System.out.println(currentQuiz.getAsk());
+
+    for(int i = 0; i < currentQuiz.getPotentialAnswers().size(); i++) {
+
+    }
   }
 
-  private void quizMenuTeacher() {
+  private void quizMenuTeacher(String name, boolean isEndCourse) {
 
   }
 
@@ -651,19 +680,106 @@ public class UI {
   private void createQuiz() {
 
   }
-  // TODO Comment Menu
-  private void commentMenu() {
+  // Comment Menu
+  private void commentMenu(String courseName) {
+    clearScreen();
+    menu.clear();
+
+    menu.add("Add a comment");
+    menu.add("Reply to a comment");
+    menu.add("Back");
+
+    Course currentCourse = lms.getCurrentCourse();
+    System.out.println("---- " + courseName + " ----");
+    System.out.println("| comments |");
+    
+    for(int i = 0; i < currentCourse.getComments().size(); i++) {
+      Comment currentComment = currentCourse.getComments().get(i);
+      System.out.println(i + ". " + currentComment.message);
+      System.out.println(lms.getUser(currentComment.getUserID()).getUserName());
+      
+      for(int j = 0; j < currentComment.getReplies().size(); j++) {
+        Comment currentreply = currentComment.getReplies().get(j);
+        System.out.println(j + ". " + currentreply.message);
+        System.out.println(lms.getUser(currentreply.getUserID()).getUserName());
+      }
+    }
+
+    printMenu();
+
+    int uInput = getIntInput(menu.size());
+
+    switch(uInput) {
+      case 1:
+        createComment();
+        break;
+      case 2:
+        System.out.println("Which comment would you like to reply to?");
+        createReply(getIntInput(currentCourse.getComments().size()));
+        break;
+      case 3:
+        if(lms.getCurrentUser().getType().equals("student")) {
+          courseMenuStudent(courseName);
+        } else {
+          courseMenuTeacher(courseName);
+        }
+        break;
+    }
 
   }
 
   // TODO Create Comment
   private void createComment() {
+    clearScreen();
+
+    System.out.println("Type your comment:");
+    // TODO comment constructor
 
   }
 
+  private void createReply(int comIndex) {
+      clearScreen();
+
+    System.out.println("Type your reply:");
+    // TODO comment constructor
+    
+  }
   // TODO
   private void courseSearch() {
+    clearScreen();
+    menu.clear();
 
+    menu.add("Search by teacher");
+    menu.add("Search by Difficulty");
+    menu.add("Search by keyword");
+    menu.add("Back");
+
+    printMenu();
+    int uInput = getIntInput(menu.size());
+
+    switch(uInput) {
+      case 1:
+        System.out.println("Enter the name of the teacher");
+
+      case 2:
+        System.out.println("Enter the difficulty level you would like to view");
+      case 3:
+        System.out.println("Enter what you would like to search by");
+
+      case 4:
+        switch(lms.getCurrentUser().getType()) {
+          case "student":
+            MainStudentMenu();
+            break;
+          case "teacher":
+            MainTeacherMenu();
+            break;
+          case "admin":
+            MainAdminMenu();
+            break;
+        }
+        break;
+    }
   }
 
   private void clearScreen() {
