@@ -69,7 +69,7 @@ public class DataWriter extends DataConstants {
 		courseDetails.put(NAME, course.getName());
 
 		JSONArray moduleArrayJSON = new JSONArray();
-		for(Module m : course.getModule()) {
+		for(Module m : course.getModules()) {
 			JSONObject moduleJSON = new JSONObject();
 			moduleJSON.put(NAME, m.getName());
 			moduleJSON.put(DESCRIPTION, m.getDescription());
@@ -80,10 +80,10 @@ public class DataWriter extends DataConstants {
 			quizJSON.put(POTENTIAL_ANSWERS, m.getQuiz().getPotentialAnswers());
 			moduleJSON.put(QUIZ, quizJSON);
 
-			for(Section s : course.getSection()) {
+			for(Section s : course.getSections()) {
 				JSONObject sectionJSON = new JSONObject();
-				sectionJSON.put(NAME, m.getSections().getName());
-				sectionJSON.put(CONTENT, m.getSections().getContent());
+				sectionJSON.put(NAME, s.getName());
+				sectionJSON.put(CONTENT, s.getContent());
 				moduleJSON.put(SECTIONS, sectionJSON);
 			}
 
