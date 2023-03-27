@@ -106,6 +106,10 @@ public class Course {
         return null;
     }
 
+    public void removeModule(String modName) {
+
+    }
+
     public UUID getCourseID(){
         return this.courseID;
     }

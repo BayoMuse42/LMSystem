@@ -75,5 +75,9 @@ public class Module {
     public ArrayList<Section> getSections() {
         return this.sections;
     }
+
+    public void removeSection(String secName) {
+
+    }
     
 }

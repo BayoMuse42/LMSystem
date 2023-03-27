@@ -474,6 +474,8 @@ public class UI {
     menu.add("Intermidiate");
     menu.add("Experienced");
 
+    System.out.println(CREATE_HEADER);
+
     System.out.println("Enter the name of your course");
     String courseName = getInput();
 
@@ -499,8 +501,10 @@ public class UI {
     Quiz currentQuiz = lms.getCurrentQuiz(courseName, true);
 
     menu.add("Add a module");
-    if(!currentCourse.getModules().equals(null))
+    if(!currentCourse.getModules().equals(null)) {
       menu.add("Edit a module");
+      menu.add("Remove a course");
+    }
     if(currentQuiz.equals(null)) {
       menu.add("Create end-of-course quiz");
     } else {
@@ -527,13 +531,19 @@ public class UI {
           editModule(getInput());
           break;
         case 3:
+          System.out.println("Which module would you like to remove?");
+          currentCourse.removeModule(getInput());
+          System.out.println("Module removed");
+          editCourse(courseName);
+          break;
+        case 4:
           if(currentQuiz.equals(null)) {
             createQuiz(true);
             break;
           }
-          editQuiz(true);
+          editQuiz(courseName, true);
           break;
-        case 4:
+        case 5:
           viewCoursesTeacher();
           break;
       }
@@ -547,7 +557,7 @@ public class UI {
             createQuiz(true);
             break;
           }
-        editQuiz(true);
+        editQuiz(courseName, true);
         break;
         case 3:
           viewCoursesTeacher();
@@ -646,13 +656,83 @@ public class UI {
     System.out.println("> End of Course Quiz\n");
   }
 
-  // TODO Create module
+  // Create module
   private void createModule() {
-      
+      clearScreen();
+      menu.clear();
+
+    System.out.println("Enter the name of the module");
+    String modname = getInput();
+
+    System.out.println("Enter the module's description");
+    String modDesc = getInput();
+
+    lms.getCurrentCourse().createModule(modname, modDesc);
+    createQuiz(false);
+
   }
 
   private void editModule(String modName) {
+    clearScreen();
+    menu.clear();
+    lms.setCurrentModule(modName);
+    Module currentModule = lms.getCurrentModule();
 
+    menu.add("Add a section");
+    if(!currentModule.getSections().equals(null)) {
+      menu.add("Remove a section");
+      menu.add("Edit a section");
+    }
+    menu.add("Edit end-of-module quiz");
+    menu.add("Back");
+
+    System.out.println("| " + modName + " |");
+    System.out.println(currentModule.getDescription());
+    System.out.println("There are " + currentModule.getSections().size() + " sections");
+
+    for(Section section : currentModule.getSections()) {
+      System.out.println("> " + section);
+    }
+
+    printMenu();
+
+    int uInput = getIntInput(menu.size());
+      if(!currentModule.getSections().equals(null)) {
+        switch(uInput) {
+          case 1:
+            createSection();
+            break;
+          case 2:
+            System.out.println("Which section would you like to remove?");
+            currentModule.removeSection(getInput());
+            System.out.println("Section removed");
+            editModule(modName);
+            break;
+          case 3:
+            System.out.println("Which section would you like to edit?");
+            editSection(getInput());
+            break;
+          case 4:
+            editQuiz(modName, false);
+            break;
+          case 5:
+            editCourse(lms.getCurrentCourse().getName());
+            break;
+
+        }
+      } else {
+        switch(uInput) {
+          case 1:
+            createSection();
+            break;
+          case 2:
+            editQuiz(modName, false);
+            break;
+          case 3:
+            editCourse(lms.getCurrentCourse().getName());
+            break;
+        }
+      }
   }
 
   // Section menu
@@ -732,11 +812,64 @@ public class UI {
     }
   }
 
-  // TODO Create Section
-  private void createSection(String secName) {
+  // Create Section
+  private void createSection() {
+    clearScreen();
 
+    System.out.println("Enter the name of the section");
+    String secName = getInput();
+
+    System.out.println("Enter the section's content");
+    String secDesc = getInput();
+
+    lms.getCurrentModule().createSection(secName, secDesc);
+    System.out.println("Section created");
+
+    scanner.nextLine();
+    editModule(lms.getCurrentModule().getName());
   }
-  // TODO Quiz menu
+
+  private void editSection(String secName) {
+    clearScreen();
+    menu.clear();
+
+    lms.setCurrentSection(secName);
+    Section currentSection = lms.getCurrentSection();
+    Module currentModule = lms.getCurrentModule();
+
+    menu.add("Edit section name");
+    menu.add("Edit section content");
+    menu.add("Back");
+
+    System.out.println(currentSection.getName());
+
+    System.out.println(currentSection.getContent());
+
+    printMenu();
+    int uInput = getIntInput(menu.size());
+
+    while(true) {
+      switch(uInput) {
+        case 1:
+          System.out.println("Enter the new section name");
+          currentModule.setName(getInput());
+          editSection(currentSection.getName());
+          break;
+        case 2:
+          System.out.println("Enter the new content for this section");
+          currentModule.setContent(getInput());
+          editSection(secName);
+          break;
+        case 3:
+          editModule(currentModule.getName());
+          break;
+        default:
+          System.out.println("Invalid input");
+          continue;
+      }
+    }
+  }
+  // Quiz menu
   private void quizMenuStudent(String name, boolean isEndCourse) {
     clearScreen();
     menu.clear();
@@ -765,7 +898,7 @@ public class UI {
 
   }
 
-  private void editQuiz(boolean isEndCourse) {
+  private void editQuiz(String name, boolean isEndCourse) {
 
   }
   // Comment Menu
