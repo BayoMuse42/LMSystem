@@ -93,8 +93,21 @@ public class Course {
         return this.comments;
     }
 
-    public ArrayList<Module> getModule(){
+    public ArrayList<Module> getModules(){
         return this.modules;
+    }
+
+    public Module getModule(String name) {
+        for(Module m : modules) {
+            if(m.getName().equals(name)) {
+                return m;
+            }
+        }
+        return null;
+    }
+
+    public void removeModule(String modName) {
+
     }
 
     public UUID getCourseID(){
@@ -109,8 +122,11 @@ public class Course {
         return this.endOfCourseQuiz.getAsk();
     }
 
-    public ArrayList<Section> getSection(){
-        return this.
+    public ArrayList<Section> getSections(){
+        for (Module m: modules){
+            return m.getSections();
+        }
+        return null;
     }
     
 }

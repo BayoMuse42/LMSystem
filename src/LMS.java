@@ -5,6 +5,9 @@ import java.util.ArrayList;
 public class LMS {
   private User currentUser;
   private Course currentCourse;
+  private Module currentModule;
+  private Section currentSection;
+  private Quiz currentQuiz;
   private UserList userList;
   private CourseList courseList;
 
@@ -33,10 +36,45 @@ public class LMS {
     return currentUser;
   }
 
+  public void setCurrentUser(String name) {
+    this.currentUser = userList.getUser(name);
+  }
+
   public Course getCurrentCourse() {
     return currentCourse;
   }
 
+  public void setCurrentCourse(String name) {
+    this.currentCourse = courseList.getCourse(name);
+  }
+
+  public Module getCurrentModule() {
+    return currentModule;
+  }
+
+  public void setCurrentModule(String name) {
+    this.currentModule = currentCourse.getModule(name);
+  }
+
+  public Section getCurrentSection() {
+    return currentSection;
+  }
+
+  public void setCurrentSection(String name) {
+    this.currentSection = currentModule.getSection(name);
+  }
+
+  public Quiz getCurrentQuiz(String Coursename, boolean isEndCourse) {
+   return currentQuiz;
+  }
+
+  public void setCurrentQuiz(String name, boolean isEndCourse) {
+    if(isEndCourse)
+      this.currentQuiz = getCurrentCourse().getEndOfCourseQuiz();
+    this.currentQuiz = getCurrentModule().getQuiz();
+  }
+
+  // TODO Differenciate between student, teacher, and admin
   public User createUser(String username, String email, String password, String firstName, String lastName) {
     UUID userID = UUID.randomUUID();
     userList.addUser(username, email, password, firstName, lastName, userID);
@@ -63,35 +101,35 @@ public class LMS {
   public Course createCourse(UUID teacher, int difficulty, String name) {
     UUID courseID = UUID.randomUUID();
     courseList.addCourse(teacher, difficulty, name, courseID);
-    return courseList.getCourse(courseID);
+    return courseList.getCourse(name);
   }
 
-  public Course getCourse(UUID courseID) {
-    return courseList.getCourse(courseID);
+  public Course getCourse(String name) {
+    return courseList.getCourse(name);
   }
 
-  public Module getModule(UUID courseID) {
-
+  public Module getModule(String name) {
+    return currentCourse.getModule(name);
   }
 
-  public Section getSection(UUID courseID) {
-    currentCourse.getModule()
+  public Section getSection(String name) {
+    return currentModule.getSection(name);
   }
 
   public Quiz getQuiz(UUID courseID) {
-    return currentCourse.getQuiz;
+    return currentCourse.getQuiz();
   }
 
   public ArrayList<Course> getUserCourses(User user) {
     return currentUser.getCourses();
   }
 
-  public void addCourse(UUID courseID) {
-    courseList.addCourse(courseID);
+  public void addCourse(UUID teacherID, int difficulty, String name, UUID courseID) {
+    courseList.addCourse(teacherID, difficulty, name, courseID);
   }
 
-  public void deleteCourse(UUID courseID) {
-    courseList.deleteCourse(courseID);
+  public void deleteCourse(String courseName) {
+    courseList.deleteCourse(courseName);
   }
 
   public void editCourse(Course course) {

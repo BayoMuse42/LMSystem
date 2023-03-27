@@ -1,5 +1,6 @@
 package src;
 import java.util.ArrayList;
+import java.util.concurrent.CompletionException;
 
 public class Module {
 
@@ -27,23 +28,30 @@ public class Module {
     }
 
     public String getContent(){
-        return this.content;
+        for (Section s: sections){
+            return s.getContent();
+        }
+        
+        return null;
     }
 
-    public void setName(String name){
-
+    public Object setName(String name){
+            return this.setName(name);
     }
 
-    public void setContent(String message){
-
+    public Object setContent(String message){
+            return this.setContent(message);
     }
 
     public boolean isComplete(){
-        return false;
-        
-    }
-
+        if(isComplete())  {
+            return true;
+            }
+            else return false;
+        }
+   
     public void createQuiz(){
+
 
     }
 
@@ -64,11 +72,20 @@ public class Module {
         return this.quiz.getPotentialAnswers();
     }
 
-    public Section getSection(){
+    public Section getSection(String name){
         for (Section s: this.sections){
-            return s;
+            if (s.getName().equals(name))
+                return s;
         }
         return null;
+    }
+
+    public ArrayList<Section> getSections() {
+        return this.sections;
+    }
+
+    public void removeSection(String secName) {
+
     }
     
 }

@@ -21,8 +21,18 @@ public class Quiz {
         this.question = question;
     }
 
-    public Quiz getQuizResult(){
-        return quiz;
+    public boolean getQuizResult(int input){
+        if (input == this.question.potentialAnswers.indexOf(answer)){
+            return true;
+        }
+        else return false;
+    }
+
+    public double getQuizResult(String input){
+        if (input.equals(answer)){
+            return 100;
+        }
+        else return 0;
     }
 
     public String getAnswer() {
