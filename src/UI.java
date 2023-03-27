@@ -362,7 +362,8 @@ public class UI {
         courseMenuTeacher(getInput());
         break;
       case 2:
-        editCourse();
+        System.out.println("Which course would you like to edit?");
+        editCourse(getInput());
         break;
       case 3:
         System.out.println("Type in the name of the course you would like to remove.");
@@ -391,7 +392,7 @@ public class UI {
     menu.add("Go back");
 
     System.out.println("---- " + courseName + " ----");
-    System.out.println("| " + currentCourse.getTeacher().toString() + " |");
+    System.out.println("| " + lms.getUser(currentCourse.getTeacher()).getUserName() + " |");
     printModules();
 
     printMenu();
@@ -443,7 +444,7 @@ public class UI {
     menu.add("Go back");
 
     System.out.println("---- " + courseName + " ----");
-    System.out.println("| " + lms.getCurrentCourse().getTeacher().toString() + " |");
+    System.out.println("| " + lms.getCurrentUser().getUserName() + " |");
     printModules();
 
     printMenu();
@@ -464,12 +465,95 @@ public class UI {
     }
 
   }
-  // TODO create course
+  // create course
   private void createCourse() {
+    clearScreen();
+    menu.clear();
 
+    menu.add("Beginner");
+    menu.add("Intermidiate");
+    menu.add("Experienced");
+
+    System.out.println("Enter the name of your course");
+    String courseName = getInput();
+
+    System.out.println("Enter the difficulty of your course");
+
+    printMenu();
+
+    int difficulty = getIntInput(menu.size());
+
+    lms.createCourse(lms.getCurrentUser().getUserID(), difficulty, courseName);
+
+    System.out.println("Course has been created");
+    scanner.nextLine();
+
+    editCourse(courseName);
   }
 
-  private void editCourse() {
+  private void editCourse(String courseName) {
+    clearScreen();
+    menu.clear();
+    lms.setCurrentCourse(courseName);
+    Course currentCourse = lms.getCurrentCourse();
+    Quiz currentQuiz = lms.getCurrentQuiz(courseName, true);
+
+    menu.add("Add a module");
+    if(!currentCourse.getModules().equals(null))
+      menu.add("Edit a module");
+    if(currentQuiz.equals(null)) {
+      menu.add("Create end-of-course quiz");
+    } else {
+      menu.add("Edit end-of-course quiz");
+    }
+    menu.add("back");
+      
+
+    System.out.println("---- " + courseName + " ----");
+    System.out.println("| " + lms.getCurrentUser().getUserName() + " |");
+    printModules();
+
+    printMenu();
+
+    int uInput = getIntInput(menu.size());
+
+    if(!currentCourse.getModules().equals(null)) {
+      switch(uInput) {
+        case 1:
+          createModule();
+          break;
+        case 2:
+          System.out.println("Which module would you like to edit?");
+          editModule(getInput());
+          break;
+        case 3:
+          if(currentQuiz.equals(null)) {
+            createQuiz(true);
+            break;
+          }
+          editQuiz(true);
+          break;
+        case 4:
+          viewCoursesTeacher();
+          break;
+      }
+    } else {
+      switch(uInput) {
+        case 1:
+          createModule();
+          break;
+        case 2:
+          if(currentQuiz.equals(null)) {
+            createQuiz(true);
+            break;
+          }
+        editQuiz(true);
+        break;
+        case 3:
+          viewCoursesTeacher();
+         break;
+      }
+    }
 
   }
 
@@ -567,7 +651,7 @@ public class UI {
       
   }
 
-  private void editModule() {
+  private void editModule(String modName) {
 
   }
 
@@ -649,7 +733,7 @@ public class UI {
   }
 
   // TODO Create Section
-  private void createSection() {
+  private void createSection(String secName) {
 
   }
   // TODO Quiz menu
@@ -677,7 +761,11 @@ public class UI {
   }
 
   // TODO Create quiz
-  private void createQuiz() {
+  private void createQuiz(boolean isEndCourse) {
+
+  }
+
+  private void editQuiz(boolean isEndCourse) {
 
   }
   // Comment Menu
@@ -744,7 +832,7 @@ public class UI {
     // TODO comment constructor
     
   }
-  // TODO
+  // TODO finish this
   private void courseSearch() {
     clearScreen();
     menu.clear();
