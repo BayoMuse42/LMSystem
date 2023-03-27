@@ -123,7 +123,10 @@ public class Course {
     }
 
     public ArrayList<Section> getSections(){
-        
+        for (Module m: modules){
+            return m.getSections();
+        }
+        return null;
     }
     
 }
