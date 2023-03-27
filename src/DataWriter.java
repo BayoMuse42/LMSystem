@@ -81,8 +81,8 @@ public class DataWriter extends DataConstants {
 
 			for(Section s : course.getSection()) {
 				JSONObject sectionJSON = new JSONObject();
-				sectionJSON.put(NAME, m.getSection().getName());
-				sectionJSON.put(CONTENT, m.getSection().getContent());
+				sectionJSON.put(NAME, m.getSections().getName());
+				sectionJSON.put(CONTENT, m.getSections().getContent());
 				moduleJSON.put(SECTIONS, sectionJSON);
 			}
 

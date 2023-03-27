@@ -27,7 +27,11 @@ public class Module {
     }
 
     public String getContent(){
-        return this.content;
+        for (Section s: sections){
+            return s.getContent();
+        }
+        
+        return null;
     }
 
     public void setName(String name){
