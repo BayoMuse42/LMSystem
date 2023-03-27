@@ -35,6 +35,7 @@ public class DataWriter extends DataConstants {
 		userDetails.put(FIRST_NAME, user.getFirstName());
 		userDetails.put(LAST_NAME, user.getLastName());
 		userDetails.put(PASSWORD, user.getPassword().toString());
+		userDetails.put(TYPE, user.getType());
         
         return userDetails;
 	}
@@ -45,7 +46,7 @@ public class DataWriter extends DataConstants {
 		JSONArray jsonCourses = new JSONArray();
 		
 		//creating all the json objects
-		for(int i=0; i< CourseList.size(); i++) {
+		for(int i=0; i< courseList.size(); i++) {
 			jsonCourses.add(getCourseJSON(courseList.get(i)));
 		}
 		
