@@ -60,7 +60,7 @@ public class Quiz {
             }
         }
         System.out.println("Quiz finished. Your score is " + score + "/" + questions.length);
-        this.quizResult = score;
+        this.quizResult = score / questions.length;
         }
     }
 

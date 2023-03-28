@@ -3,18 +3,18 @@ import java.util.ArrayList;
 
 public class Question {
     protected String ask;
-    protected String answer;
+    protected int answer;
     protected String[] potentialAnswers;
     protected String response;
         
    
-    public Question(String ask, String answer, String[] potentialAnswers) {
+    public Question(String ask, int answer, String[] potentialAnswers) {
         this.ask = ask;
         this.answer = answer;
         this.potentialAnswers = potentialAnswers;
     }
     
-    public void addQuestion(String ask, String answer) {
+    public void addQuestion(String ask, int answer) {
         this.ask = ask;
         this.answer = answer; 
     }        
