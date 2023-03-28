@@ -27,14 +27,23 @@ public class Question {
     }
 
     public String getAsk(){
-        return this.ask;
+        return ask;
     }
 
     public String getAnswer(){
-        
+        return answer;
+    }
+
+    public int getAnswerIndex(){
+        for (int l = 0; l < potentialAnswers.length; l++){
+            if (potentialAnswers[l] == answer){
+                return l;
+            }
+        }
+        return -1;
     }
 
     public String[] getPotentialAnswers(){
-        return this.potentialAnswers;
+        return potentialAnswers;
     }
 }

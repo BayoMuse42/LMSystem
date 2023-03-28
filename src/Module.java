@@ -68,7 +68,7 @@ public class Module {
         return this.quiz;
     }
 
-    public ArrayList<String> getPotentialAnswers(){
+    public String[] getPotentialAnswers(){
         return this.quiz.getPotentialAnswers();
     }
 
