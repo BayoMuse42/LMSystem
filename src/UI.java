@@ -301,6 +301,7 @@ public class UI {
     menu.add("Take a course");
     menu.add("Add a course to your list");
     menu.add("Remove a course from your list");
+    menu.add("Print certificate");
     menu.add("Back");
 
     System.out.println(COURSE_HEADER + "\n");
@@ -331,8 +332,18 @@ public class UI {
         viewCoursesStudent();
         break;
       case 4:
-      MainStudentMenu();
-      break;
+        System.out.println("Which course would you like to print the certificate for?");
+        String input = getInput();
+        if(!lms.getCourse(input).isComplete()) {
+          System.out.println("A course must be completed in order for you to print the certificate");
+          viewCoursesStudent();
+          break;
+        }
+        // TODO add printCert method when written
+        break;
+      case 5:
+        MainStudentMenu();
+        break;
     }
   }
 
@@ -570,8 +581,14 @@ public class UI {
   // Module menu
   private void moduleMenuStudent(String moduleName) {
     clearScreen();
+    menu.clear();
+
     lms.setCurrentModule(moduleName);
     Module currentModule = lms.getCurrentModule();
+
+    menu.add("Start section");
+    menu.add("Print module content");
+    menu.add("Back");
 
     System.out.println("| " + moduleName + " |");
 
@@ -585,13 +602,16 @@ public class UI {
     System.out.println("Would you like to begin the first section:" +
     currentModule.getSections().get(0).getName() + "?");
 
-    String uInput = getInput();
+    int uInput = getIntInput(menu.size());
 
     switch(uInput) {
-      case "yes":
+      case 1:
         sectionMenuStudent(currentModule.getSections().get(0).getName());
         break;
-      case "no":
+      case 2:
+        // Add print module function when implemented
+        break;
+      case 3:
         courseMenuStudent(lms.getCurrentCourse().getName());
         break;
       default:
@@ -869,13 +889,15 @@ public class UI {
       }
     }
   }
-  // Quiz menu
+  // TODO Quiz menu
   private void quizMenuStudent(String name, boolean isEndCourse) {
     clearScreen();
     menu.clear();
 
     lms.setCurrentQuiz(name, isEndCourse);
     Quiz currentQuiz = lms.getCurrentQuiz(name, isEndCourse);
+    int questIndex = 0;
+    Question currentQuestion = currentQuiz;
 
     if(isEndCourse)
       System.out.println("| end-of-course quiz |");
