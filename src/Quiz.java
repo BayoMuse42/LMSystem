@@ -5,24 +5,23 @@ import java.util.Scanner;
 
 public class Quiz {
 
-    public Question[] questions;
+    public ArrayList<Question> questions;
     public double quizResult;    
 
-    public Quiz(Question[] questions) {
+    public Quiz(ArrayList<Question> questions) {
         this.questions = questions;
     }
-
       
     public void addQuestion(String ask, String[] potentialAnswer, int answer) {
         Question question = new Question(ask, answer, potentialAnswer);
-        questions[questions.length + 1] = question;
+        questions.add(question);
     }
 
     public double getQuizResult(int input){
         return quizResult;
     }
 
-    public Question[] getQuestions(){
+    public ArrayList<Question> getQuestions(){
         return questions;
     }
 
@@ -32,7 +31,7 @@ public class Quiz {
     }
 
     public String[] getPotentialAnswers(){
-        for (int k = 0; k < questions.length; k++){
+        for (int k = 0; k < questions.size(); k++){
             return questions[k].getPotentialAnswers();
         };
         return null;
@@ -40,7 +39,7 @@ public class Quiz {
 
     public void startQuiz(){
         int score = 0;
-        for (int i = 0; i < questions.length; i++){
+        for (int i = 0; i < questions.size(); i++){
             System.out.println("Question " + (i + 1) + ": " + questions[i].getAsk());
 
             String[] options = questions[i].getPotentialAnswers();
@@ -59,8 +58,8 @@ public class Quiz {
                 System.out.println("Incorrect.");
             }
         }
-        System.out.println("Quiz finished. Your score is " + score + "/" + questions.length);
-        this.quizResult = score / questions.length;
+        System.out.println("Quiz finished. Your score is " + score + "/" + questions.size());
+        this.quizResult = score / questions.size();
         }
     }
 
