@@ -4,26 +4,23 @@ import java.util.ArrayList;
 public class Question {
     protected String ask;
     protected String answer;
-    protected ArrayList<String> potentialAnswers;
-    protected String correctAnswer;
+    protected String[] potentialAnswers;
     protected String response;
         
    
-    public Question(String ask, String answer, ArrayList<String> potentialAnswers) {
+    public Question(String ask, String answer, String[] potentialAnswers) {
         this.ask = ask;
         this.answer = answer;
-                  
+        this.potentialAnswers = potentialAnswers;
     }
     
-    public void addQuestion(String ask, String answer, String correctAnswer) {
+    public void addQuestion(String ask, String answer) {
         this.ask = ask;
         this.answer = answer; 
-        this.correctAnswer = correctAnswer;
-        
     }        
 
-    public boolean isCorrect(String response) {
-        if (response == answer){
+    public boolean isCorrect(int response) {
+        if (potentialAnswers[response] == answer){
             return true;
         }
         else return false;
@@ -33,7 +30,11 @@ public class Question {
         return this.ask;
     }
 
-    public ArrayList<String> getPotentialAnswers(){
+    public String getAnswer(){
+        
+    }
+
+    public String[] getPotentialAnswers(){
         return this.potentialAnswers;
     }
 }
