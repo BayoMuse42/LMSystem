@@ -118,10 +118,6 @@ public class Course {
         return courseID;
     }
 
-    public String getAsk(){
-        return this.endOfCourseQuiz.getAsk();
-    }
-
     public ArrayList<Section> getSections(){
         for (Module m: modules){
             return m.getSections();

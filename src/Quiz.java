@@ -41,7 +41,7 @@ public class Quiz {
     public void startQuiz(){
         int score = 0;
         for (int i = 0; i < questions.length; i++){
-            System.out.println("Question " + (i + 1) + ": " + questions[i].getAsk())
+            System.out.println("Question " + (i + 1) + ": " + questions[i].getAsk());
 
             String[] options = questions[i].getPotentialAnswers();
             for (int j = 0; j < options.length; j++){
