@@ -17,7 +17,7 @@ public class Quiz {
         questions.add(question);
     }
 
-    public double getQuizResult(int input){
+    public double getQuizResult() {
         return quizResult;
     }
 
@@ -32,21 +32,22 @@ public class Quiz {
 
     public String[] getPotentialAnswers(){
         for (int k = 0; k < questions.size(); k++){
-            return questions[k].getPotentialAnswers();
+            return questions.get(k).getPotentialAnswers();
         };
         return null;
     }
 
     public void calcQuizResult(int numCorrect) {
-        quizResult = numCorrect/questions.length;
+        quizResult = (numCorrect/questions.size())*100;
     }
     
-    public void startQuiz(){
+    /* We wont need this, it's in the UI already
+     public void startQuiz(){
         int score = 0;
         for (int i = 0; i < questions.size(); i++){
-            System.out.println("Question " + (i + 1) + ": " + questions[i].getAsk());
+            System.out.println("Question " + (i + 1) + ": " + questions.get(i).getAsk());
 
-            String[] options = questions[i].getPotentialAnswers();
+            String[] options = questions.get(i).getPotentialAnswers();
             for (int j = 0; j < options.length; j++){
                 System.out.println((j + 1) + ") " + options[j]);
             } 
@@ -64,7 +65,7 @@ public class Quiz {
         }
         System.out.println("Quiz finished. Your score is " + score + "/" + questions.size());
         this.quizResult = score / questions.size();
-        }
+        } */
     }
 
 

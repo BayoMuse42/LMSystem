@@ -308,7 +308,7 @@ public class UI {
 
     for(Course course : lms.getUserCourses(lms.getCurrentUser())) {
       System.out.println(course.getName() +
-      " -- " + course.checkProgress(course) +
+      " -- " + course.checkProgress() +
       "% complete\n");
     }
 
@@ -359,9 +359,7 @@ public class UI {
     System.out.println(COURSE_HEADER + "\n");
 
     for(Course course : lms.getUserCourses(lms.getCurrentUser())) {
-      System.out.println(course.getName() +
-      " -- " + course.checkProgress(course) +
-      "% complete\n");
+      System.out.println(course.getName());
     }
 
     printMenu();
@@ -889,7 +887,7 @@ public class UI {
       }
     }
   }
-  // TODO Quiz menu
+  // Quiz menu
   private void quizMenuStudent(String name, boolean isEndCourse) {
     clearScreen();
     menu.clear();
@@ -930,21 +928,57 @@ public class UI {
     System.out.println("Your score: " + currentQuiz.getQuizResult() + "%");
 
     if(currentQuiz.getQuizResult() >= 80) {
-
+      if(isEndCourse) {
+        System.out.println("You passed! You have successfully completed the course and earned your certification.");
+      } else {
+        System.out.println("You passed! You can now move on to the next module");
+        lms.getCurrentModule().setComplete(true);
+        lms.getCurrentCourse().calcProgress();
+      }
     } else {
-
+      if(isEndCourse) {
+        System.out.println("You did not pass the quiz. You will have to reatake the quiz in order to recieve your certification.");
+      } else {
+        System.out.println("You did not pass the quiz. You will not be able to move on to the next module.");
+      }
+        
     }
 
     System.out.println("Press any key to continue");
 
     scanner.nextLine();
     courseMenuStudent(lms.getCurrentCourse().getName());
-
-
-
   }
 
   private void quizMenuTeacher(String name, boolean isEndCourse) {
+    clearScreen();
+    menu.clear();
+
+    lms.setCurrentQuiz(name, isEndCourse);
+    Quiz currentQuiz = lms.getCurrentQuiz(name, isEndCourse);
+
+    for(int i = 0; i < currentQuiz.getQuestions().size(); i++) {
+      Question currentQuestion = currentQuiz.getQuestions().get(i);
+
+      if(isEndCourse)
+      System.out.println("| end-of-course quiz |");
+     else
+      System.out.println("| end-of-module quiz |");
+
+      System.out.println(currentQuestion.ask);
+
+      for(int j = 0; j < currentQuestion.getPotentialAnswers().length; j++)
+        System.out.println((j+1) + currentQuestion.getPotentialAnswers()[j]);
+
+      System.out.println("Correct answer: " + currentQuestion.getPotentialAnswers()[currentQuestion.getAnswer()]);
+      
+      System.out.println("Press any key to continue");
+      scanner.nextLine();
+    }
+
+    if(isEndCourse)
+      courseMenuTeacher(lms.getCurrentCourse().getName());
+    moduleMenuTeacher(lms.getCurrentCourse().getName());
 
   }
 
