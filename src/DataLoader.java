@@ -64,20 +64,19 @@ public class DataLoader extends DataConstants {
                     String description = (String)moduleJSON.get(DESCRIPTION);
 
                     JSONArray jsonQuiz = (JSONArray)moduleJSON.get(QUIZ);
-                    ArrayList<Quiz> quiz = new ArrayList<Quiz>();
+                    ArrayList<Question> quizQuestions = new ArrayList<Question>();
                     for(int a = 0; a < jsonQuiz.size(); a++) {
                         JSONObject quizJSON = (JSONObject)jsonQuiz.get(a);
-                        String ask = (String)quizJSON.get(ASK);
-                        String answer = (String)quizJSON.get(ANSWER);
-
-                        ArrayList<String> potentialAnswersModuleAL = (ArrayList<String>)quizJSON.get(POTENTIAL_ANSWERS);
-                        /* for(int b = 0; b < potentialAnswers.size(); b++) {
-                            JSONObject potAns = (JSONObject)potentialAnswers.get(b);
-                            //String anAns = (Stirng)potAns;
-                            //potentialAnswersAL.add(potAns);
-                        } */
-                        Question question = new Question(ask, answer, potentialAnswersModuleAL);
-                        quiz.add(new Quiz(question));
+                        JSONArray jsonQuestion = (JSONArray)quizJSON.get(QUESTION);
+                        for(int b = 0; b < jsonQuestion.size(); b++) {
+                            JSONObject questionJSON = (JSONObject)jsonQuestion.get(b);
+                            String ask = (String)questionJSON.get(ASK);
+                            int answer = (int)questionJSON.get(ANSWER);
+                            String[] potentialAnswers = (String[])questionJSON.get(POTENTIAL_ANSWERS);
+                            quizQuestions.add(new Question(ask, answer, potentialAnswers));
+                        }
+                        
+                        quiz.add(new Quiz(quizQuestions));
                     }
 
                     //make a module
@@ -116,24 +115,19 @@ public class DataLoader extends DataConstants {
                 }
 
                 ArrayList<Quiz> quiz = new ArrayList<Quiz>();
-                ArrayList<String> potentialAnswersEndAL = new ArrayList<String>();
+                ArrayList<Question> endQuizQuestions = new ArrayList<Question>();
                 JSONArray jsonEndOfCourseQuiz = (JSONArray)coursesJSON.get(END_OF_COURSE_QUIZ);
                 for(int j = 0; j < jsonEndOfCourseQuiz.size(); j++) {
                     JSONObject endQuizJSON = (JSONObject)jsonEndOfCourseQuiz.get(j);
-                        String ask = (String)endQuizJSON.get(ASK);
-                        String answer = (String)endQuizJSON.get(ANSWER);
-
-                        potentialAnswersEndAL = (ArrayList<String>)endQuizJSON.get(POTENTIAL_ANSWERS);
-
-                        /* JSONArray potentialAnswers = (JSONArray)endQuizJSON.get(POTENTIAL_ANSWERS);
-                        for(int b = 0; b < potentialAnswers.size(); b++) {
-                            JSONObject potAns = (JSONObject)potentialAnswers.get(b);
-                            potentialAnswersAL = (ArrayList<String>)potAns.get(POTENTIAL_ANSWERS);
-                            //String anAns = (Stirng)potAns;
-                            //potentialAnswersAL.add(potAns);
-                        } */
-                        Question question = new Question(ask, answer, potentialAnswersEndAL);
-                        quiz.add(new Quiz(question));
+                    JSONArray jsonQuestion = (JSONArray)endQuizJSON.get(QUESTION);
+                    for(int a = 0; a < jsonQuestion.size(); a++) {
+                        JSONObject questionJSON = (JSONObject)jsonQuestion.get(a);
+                        String ask = (String)questionJSON.get(ASK);
+                        int answer = (int)questionJSON.get(ANSWER);
+                        String[] potentialAnswers = (String[])questionJSON.get(a);
+                        endQuizQuestions.add(new Question(ask, answer, potentialAnswers));
+                    }
+                    quiz.add(new Quiz(endQuizQuestions));
                 }
 
                 UUID courseID = UUID.fromString((String)coursesJSON.get(COURSE_ID));

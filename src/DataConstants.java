@@ -24,6 +24,7 @@ public abstract class DataConstants {
     protected static final String MESSAGE = "MESSAGE";
     protected static final String END_OF_COURSE_QUIZ = "END_OF_COURSE_QUIZ";
     protected static final String QUIZ_RESULT = "QUIZ_RESULT";
+    protected static final String QUESTION = "QUESTION";
     protected static final String COURSE_ID = "COURSE_ID";
     protected static final String NAME = "NAME";
     protected static final String DESCRIPTION = "DESCRIPTION";
