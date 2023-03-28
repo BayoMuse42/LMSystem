@@ -6,11 +6,7 @@ import java.util.Scanner;
 public class Quiz {
 
     public Question[] questions;
-    public String answer; 
-    public String correct;
-    public double quizResult;
-    public Quiz quiz;
-    ; 
+    public double quizResult;    
 
     public Quiz(Question[] questions) {
         this.questions = questions;
@@ -23,47 +19,23 @@ public class Quiz {
     }
 
     public double getQuizResult(int input){
-        return this.quizResult;
+        return quizResult;
     }
 
-    public double getQuizResult(String input){
-        if (input.equals(answer)){
-            return 100;
-        }
-        else return 0;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
-
-    public String getCorrect() {
-        return this.correct;
-    }
-
-    public void setCorrect(String correct) {
-        this.correct = correct;
+    public Question[] getQuestions(){
+        return questions;
     }
 
     // To do 
-    public void setQuizResult(String quizResult) {
+    public void setQuizResult(double quizResult) {
         this.quizResult = quizResult;
     }
 
-    public String getAsk(){
-        for (int k = 0; k < questions.length; k++){
-            return questions[k].getAsk();
-        };
-    }
-
-    public String[] getOptions(){
+    public String[] getPotentialAnswers(){
         for (int k = 0; k < questions.length; k++){
             return questions[k].getPotentialAnswers();
         };
+        return null;
     }
 
     public void startQuiz(){
@@ -78,7 +50,7 @@ public class Quiz {
             
             Scanner scanner = new Scanner(System.in);
             int userAnswerIndex = scanner.nextInt();
-            String userAnswer = [userAnswerIndex - 1];
+            String userAnswer = options[userAnswerIndex - 1];
 
             if (userAnswer.equals(questions[i].getAnswer())) {
                 score++;
@@ -88,8 +60,8 @@ public class Quiz {
             }
         }
         System.out.println("Quiz finished. Your score is " + score + "/" + questions.length);
+        this.quizResult = score;
         }
     }
 
 
-}

@@ -981,7 +981,7 @@ public class UI {
     switch(uInput) {
       case 1:
         System.out.println("Enter the name of the teacher");
-
+        
       case 2:
         System.out.println("Enter the difficulty level you would like to view");
       case 3:
