@@ -898,8 +898,8 @@ public class UI {
     Quiz currentQuiz = lms.getCurrentQuiz(name, isEndCourse);
     int numCorrect = 0;
 
-    for(int i = 0; i < currentQuiz.getQuestions().length; i++) {
-      Question currentQuestion = currentQuiz.getQuestions()[i];
+    for(int i = 0; i < currentQuiz.getQuestions().size(); i++) {
+      Question currentQuestion = currentQuiz.getQuestions().get(i);
 
       if(isEndCourse)
       System.out.println("| end-of-course quiz |");
@@ -913,11 +913,33 @@ public class UI {
 
       int answer = getIntInput(currentQuestion.getPotentialAnswers().length);
 
-      if(currentQuestion.isCorrect(answer))
+      if(currentQuestion.isCorrect(answer)) {
         numCorrect++;
+        System.out.println("Your answer was correct");
+      } else {
+        System.out.println("Your answer was incorrect");
+      }
+
+      scanner.nextLine();
+
     }
 
     currentQuiz.calcQuizResult(numCorrect);
+
+    System.out.println("You have completed the quiz!");
+    System.out.println("Your score: " + currentQuiz.getQuizResult() + "%");
+
+    if(currentQuiz.getQuizResult() >= 80) {
+
+    } else {
+
+    }
+
+    System.out.println("Press any key to continue");
+
+    scanner.nextLine();
+    courseMenuStudent(lms.getCurrentCourse().getName());
+
 
 
   }

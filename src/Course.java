@@ -11,6 +11,7 @@ public class Course {
     private ArrayList<Comment> comments;
     private Quiz endOfCourseQuiz;
     private double quizResult;
+    private double courseProgress;
     public UUID courseID;
     public UUID userID;
 
@@ -57,13 +58,23 @@ public class Course {
 
     }
 
-    public double checkProgress(Course course){
-        return difficulty;
+    public double checkProgress(){
+        return courseProgress;
 
     }
 
+    public void calcProgress() {
+        double completeCount = 0;
+        for(Module m : modules) {
+            if(m.isComplete())
+                completeCount++;
+        }
+
+        courseProgress = (completeCount/modules.size())*100;
+    }
+
     public boolean isComplete(){
-        if(isComplete()) {
+        if(courseProgress == 100) {
             return true;
         }
         return false;

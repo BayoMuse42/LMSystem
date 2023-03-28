@@ -10,6 +10,7 @@ public class Module {
     private double quizResult;
     private ArrayList<Section> sections;
     private String content;
+    private boolean completeFlag;
 
     public Module(String name, String description){
         this.name = name;
@@ -44,11 +45,12 @@ public class Module {
     }
 
     public boolean isComplete(){
-        if(isComplete())  {
-            return true;
-            }
-            else return false;
-        }
+        return completeFlag;
+    }
+
+    public void setComplete(boolean b) {
+        this.completeFlag = b;
+    }
    
     public void createQuiz(){
 
