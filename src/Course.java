@@ -34,47 +34,41 @@ public class Course {
     }
 
     public void createModule(String name, String description){
-        this.modules = new ArrayList<Module>();
+        Module mod = new Module(name, description)
+        modules.add(mod);
 
     }
 
     public Course searchCourses(Teacher teacher){
-        return null;
+        CourseList clist = new CourseList();
+        return clist.searchCourses(teacher);
 
     }
 
     public Course searchCourse(int difficulty){
-        return null;
+        CourseList clist = new CourseList();
+        return clist.searchCourses(difficulty);
          
     }
 
-    public Course searchCourses(String name){
-        return null;
+    public Course searchCourse(String name){
+        CourseList clist = new CourseList();
+        return clist.searchCourses(name);
 
     }
 
     public Course searchCourses(Course course){
-        return course;
+        CourseList clist = new CourseList();
+        return clist.searchCourses(course);
 
     }
 
-    public double checkProgress(){
+    public double checkProgress(Course course){
         return courseProgress;
-
-    }
-
-    public void calcProgress() {
-        double completeCount = 0;
-        for(Module m : modules) {
-            if(m.isComplete())
-                completeCount++;
-        }
-
-        courseProgress = (completeCount/modules.size())*100;
     }
 
     public boolean isComplete(){
-        if(courseProgress == 100) {
+        if(isComplete()) {
             return true;
         }
         return false;

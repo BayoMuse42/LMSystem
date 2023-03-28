@@ -4,9 +4,9 @@ import java.util.UUID;
 
 public class CourseList {
     private static CourseList courseList;
-    private ArrayList<Course> courses;
+    public ArrayList<Course> courses;
 
-    private CourseList() {
+    public CourseList() {
         courses = DataLoader.getCourses();
     }
     
@@ -84,6 +84,15 @@ public class CourseList {
     public Course searchCourses(String name) {
         for (Course c: courses){
             if (c.getName().equals(name)){
+                return c;
+            }
+        }
+        return null;
+    }
+
+    public Course searchCourses(Course course){
+        for (Course c: courses){
+            if (c.getCourseID().equals(course.getCourseID())){
                 return c;
             }
         }
