@@ -20,7 +20,7 @@ public class Question {
     }        
 
     public boolean isCorrect(int response) {
-        if (potentialAnswers[response] == answer){
+        if (response == answer){
             return true;
         }
         else return false;
@@ -30,17 +30,8 @@ public class Question {
         return ask;
     }
 
-    public String getAnswer(){
+    public int getAnswer(){
         return answer;
-    }
-
-    public int getAnswerIndex(){
-        for (int l = 0; l < potentialAnswers.length; l++){
-            if (potentialAnswers[l] == answer){
-                return l;
-            }
-        }
-        return -1;
     }
 
     public String[] getPotentialAnswers(){
