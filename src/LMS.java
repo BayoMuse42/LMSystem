@@ -147,4 +147,12 @@ public class LMS {
   public Course Search(String name) {
     return courseList.searchCourses(name);
   }
+
+  public void printCertificate(String courseName) {
+
+  }
+
+  public void printModule() {
+    
+  }
 }
