@@ -30,17 +30,8 @@ public class Question {
         return ask;
     }
 
-    public String getCorrectAnswer(){
-        return potentialAnswers[answer];
-    }
-
-    public int getAnswerIndex(){
-        for (int l = 0; l < potentialAnswers.length; l++){
-            if (potentialAnswers[l] == answer){
-                return l;
-            }
-        }
-        return -1;
+    public int getAnswer(){
+        return answer;
     }
 
     public String[] getPotentialAnswers(){

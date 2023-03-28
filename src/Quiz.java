@@ -13,7 +13,7 @@ public class Quiz {
     }
 
       
-    public void addQuestion(String ask, String[] potentialAnswer, String answer) {
+    public void addQuestion(String ask, String[] potentialAnswer, int answer) {
         Question question = new Question(ask, answer, potentialAnswer);
         questions[questions.length + 1] = question;
     }
