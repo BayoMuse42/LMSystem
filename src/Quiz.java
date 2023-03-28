@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Quiz {
 
     public Question[] questions;
-    public double quizResult;    
+    public double quizResult;   
 
     public Quiz(Question[] questions) {
         this.questions = questions;
@@ -38,6 +38,10 @@ public class Quiz {
         return null;
     }
 
+    public void calcQuizResult(int numCorrect) {
+        quizResult = numCorrect/questions.length;
+    }
+    
     public void startQuiz(){
         int score = 0;
         for (int i = 0; i < questions.length; i++){

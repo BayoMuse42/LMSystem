@@ -896,19 +896,30 @@ public class UI {
 
     lms.setCurrentQuiz(name, isEndCourse);
     Quiz currentQuiz = lms.getCurrentQuiz(name, isEndCourse);
-    int questIndex = 0;
-    Question currentQuestion = currentQuiz;
+    int numCorrect = 0;
 
-    if(isEndCourse)
+    for(int i = 0; i < currentQuiz.getQuestions().length; i++) {
+      Question currentQuestion = currentQuiz.getQuestions()[i];
+
+      if(isEndCourse)
       System.out.println("| end-of-course quiz |");
-    System.out.println("| end-of-module quiz |");
+     else
+      System.out.println("| end-of-module quiz |");
 
-    // Question currentQuestion = currentQuiz.getAsk();
-    System.out.println(currentQuiz.getAsk());
+      System.out.println(currentQuestion.ask);
 
-    for(int i = 0; i < currentQuiz.getPotentialAnswers().size(); i++) {
+      for(int j = 0; j < currentQuestion.getPotentialAnswers().length; j++)
+        System.out.println((j+1) + currentQuestion.getPotentialAnswers()[j]);
 
+      int answer = getIntInput(currentQuestion.getPotentialAnswers().length);
+
+      if(currentQuestion.isCorrect(answer))
+        numCorrect++;
     }
+
+    currentQuiz.calcQuizResult(numCorrect);
+
+
   }
 
   private void quizMenuTeacher(String name, boolean isEndCourse) {
