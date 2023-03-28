@@ -14,6 +14,7 @@ public class Course {
     private double courseProgress;
     public UUID courseID;
     public UUID userID;
+    CourseList clist = new CourseList();
 
     public Course(UUID Teacher, int difficulty, String name, ArrayList<Module> modules, ArrayList<Comment> comments, Quiz quiz, UUID courseID, UUID userID){
         this.Teacher = Teacher;
@@ -34,31 +35,27 @@ public class Course {
     }
 
     public void createModule(String name, String description){
-        Module mod = new Module(name, description)
+        Module mod = new Module(name, description);
         modules.add(mod);
 
     }
 
     public Course searchCourses(Teacher teacher){
-        CourseList clist = new CourseList();
         return clist.searchCourses(teacher);
 
     }
 
     public Course searchCourse(int difficulty){
-        CourseList clist = new CourseList();
         return clist.searchCourses(difficulty);
          
     }
 
     public Course searchCourse(String name){
-        CourseList clist = new CourseList();
         return clist.searchCourses(name);
 
     }
 
     public Course searchCourses(Course course){
-        CourseList clist = new CourseList();
         return clist.searchCourses(course);
 
     }
