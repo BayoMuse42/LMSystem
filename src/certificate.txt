@@ -1,0 +1,7 @@
+Certificate of Completion
+This certifies that
+<<First Name >> <<Last Name>>
+has completed the nessary courses of study and passed the LM System' 
+Coding exam and is herby declasred a 
+Certified Coding Developer
+with the fundamental knowedge of web development using the HTML DOM.
