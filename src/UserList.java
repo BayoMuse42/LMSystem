@@ -58,11 +58,20 @@ public class UserList {
         }
         return null;
     }
-    // TODO Either edit arguments for User constructor 
-    // OR figure out a way to get the users based on the UUID alone
-    public void addUser(String username, String email, String password, String firstName, String lastName, UUID userID) {
+
+    public void addUser(String username, String email, String password, String firstName, String lastName, UUID userID, String type) {
         if(!hasUser(userID)) {
-            users.add(new User(username, email, password, firstName, lastName));
+            switch(type) {
+                case "student":
+                    users.add(new Student(username, email, password, firstName, lastName));
+                    break;
+                case "teacher":
+                    users.add(new Teacher(username, email, password, firstName, lastName));
+                    break;
+                case "admin":
+                    users.add(new Admin(username, email, password, firstName, lastName));
+                    break;
+            }
         }
     }
 
@@ -71,10 +80,5 @@ public class UserList {
             users.remove(getUser(userID));
         }
     }
-    //TODO
-    public void editUser(User user){
-
-    }
-    
 
 }

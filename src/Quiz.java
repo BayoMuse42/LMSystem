@@ -1,7 +1,6 @@
 package src;
 import java.util.ArrayList;
 import java.util.function.BooleanSupplier;
-import java.util.Scanner;
 
 public class Quiz {
 
@@ -23,6 +22,10 @@ public class Quiz {
 
     public ArrayList<Question> getQuestions(){
         return questions;
+    }
+
+    public void removeQuestion(int intInput) {
+        questions.remove(intInput);
     }
 
     // To do 

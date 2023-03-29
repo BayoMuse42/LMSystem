@@ -74,10 +74,9 @@ public class LMS {
     this.currentQuiz = getCurrentModule().getQuiz();
   }
 
-  // TODO Differenciate between student, teacher, and admin
-  public User createUser(String username, String email, String password, String firstName, String lastName) {
+  public User createUser(String username, String email, String password, String firstName, String lastName, String type) {
     UUID userID = UUID.randomUUID();
-    userList.addUser(username, email, password, firstName, lastName, userID);
+    userList.addUser(username, email, password, firstName, lastName, userID, type);
     return userList.getUser(userID);
   
   }
@@ -86,16 +85,16 @@ public class LMS {
     return userList.getUser(userID);
   }
 
-  public void addUser(UUID userID) { 
-    userList.addUser(userID);
+  public User getUser(String name) {
+    return userList.getUser(name);
+  }
+
+  public void addUser(String userName, String email, String password, String firstName, String lastName, UUID userID, String type) { 
+    userList.addUser(userName, email, password, firstName, lastName, userID, type);
   }
 
   public void deleteUser(UUID userID) {
     userList.deleteUser(userID);
-  }
-
-  public void editUser(User user) {
-    userList.editUser(user);
   }
 
   public Course createCourse(UUID teacher, int difficulty, String name) {
@@ -116,12 +115,23 @@ public class LMS {
     return currentModule.getSection(name);
   }
 
-  public Quiz getQuiz(UUID courseID) {
-    return currentCourse.getQuiz();
+  public Quiz getQuiz(String name, boolean isEndCourse) {
+    if(isEndCourse)
+      return currentCourse.getEndOfCourseQuiz();
+    return currentModule.getQuiz();
+  }
+
+  public void addQuiz(Quiz quiz) {
+    currentCourse.setQuiz(quiz);
   }
 
   public ArrayList<Course> getUserCourses(User user) {
     return currentUser.getCourses();
+  }
+
+  public void addUserCourses(String name) {
+    Course c = getCourse(name);
+    currentUser.getCourses().add(c);
   }
 
   public void addCourse(UUID teacherID, int difficulty, String name, UUID courseID) {
@@ -136,15 +146,15 @@ public class LMS {
     courseList.editCourse(course);
   }
 
-  public Course Search(Teacher teacher) {
+  public ArrayList<Course> Search(User teacher) {
     return courseList.searchCourses(teacher);
   }
 
-  public Course Search(int difficulty) {
+  public ArrayList<Course> Search(int difficulty) {
     return courseList.searchCourses(difficulty);
   }
 
-  public Course Search(String name) {
+  public ArrayList<Course> Search(String name) {
     return courseList.searchCourses(name);
   }
 

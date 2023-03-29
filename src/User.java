@@ -13,21 +13,23 @@ public abstract class User {
     public UUID userID;   
     CourseList cList = new CourseList();
 
-    public User(String email, String password, String username, String firstName, String lastName){
+    public User(String email, String password, String username, String firstName, String lastName, String type){
         this.email = email;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.type = type;
     };
 
-    public User(String email, String username, String password, String firstName, String lastName, UUID userID){
+    public User(String email, String username, String password, String firstName, String lastName, UUID userID, String type){
         this.email = email;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userID = userID;
+        this.type = type;
     };
 
     public Course getCourses(String name){

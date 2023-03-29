@@ -42,11 +42,9 @@ public class CourseList {
         return this.courses;
     }
 
-    // TODO Either edit arguments for Course constructor 
-    // OR figure out a way to get the courses based on the UUID alone
-    public void addCourse(UUID teacherID, int difficulty, String name, UUID courseID, Quiz endOfCourseQuiz) {
+    public void addCourse(UUID teacherID, int difficulty, String name, UUID courseID) {
         if(!hasCourse(name)) {
-            courses.add(new Course(teacherID,difficulty,name,endOfCourseQuiz));
+            courses.add(new Course(teacherID,difficulty,name));
         }
     }
 
@@ -62,36 +60,37 @@ public class CourseList {
 
     }
 
-    public ArrayList<Course> searchCourses(Teacher teacher) {
-        ArrayList<Course> matches = new ArrayList<Course>();
+    public ArrayList<Course> searchCourses(User teacher) {
+        ArrayList<Course> results = new ArrayList<Course>();
         for (Course c: courses){
             if (c.getTeacher().equals(teacher.getUserID())){
-                matches.add(c);
+                results.add(c);
             }
         };
-        return matches;
-
+        return results;
     }
 
     public ArrayList<Course> searchCourses(int difficulty) {
-        ArrayList<Course> matches = new ArrayList<Course>();
+        ArrayList<Course> results = new ArrayList<Course>();
         for (Course c: courses){
             if (c.getDifficulty() == difficulty){
-                matches.add(c);
+                results.add(c);
             }
         }
-        return matches;
+        return results;
     }
 
-    public Course searchCourses(String name) {
+    public ArrayList<Course> searchCourses(String name) {
+        ArrayList<Course> results = new ArrayList<Course>();
         for (Course c: courses){
             if (c.getName().equals(name)){
-                return c;
+                results.add(c);
             }
         }
-        return null;
+        return results;
     }
 
+    // Do we need this? -RB
     public Course searchCourses(Course course){
         for (Course c: courses){
             if (c.getCourseID().equals(course.getCourseID())){
