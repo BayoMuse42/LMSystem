@@ -86,8 +86,8 @@ public class LMS {
     return userList.getUser(userID);
   }
 
-  public void addUser(UUID userID) { 
-    userList.addUser(userID);
+  public void addUser(String userName, String email, String password, String firstName, String lastName, UUID userID) { 
+    userList.addUser(userName, email, password, firstName, lastName, userID);
   }
 
   public void deleteUser(UUID userID) {
@@ -116,8 +116,14 @@ public class LMS {
     return currentModule.getSection(name);
   }
 
-  public Quiz getQuiz(UUID courseID) {
-    return currentCourse.getQuiz();
+  public Quiz getQuiz(String name, boolean isEndCourse) {
+    if(isEndCourse)
+      return currentCourse.getEndOfCourseQuiz();
+    return currentModule.getQuiz();
+  }
+
+  public void addQuiz(Quiz quiz) {
+    currentCourse.setQuiz(quiz);
   }
 
   public ArrayList<Course> getUserCourses(User user) {

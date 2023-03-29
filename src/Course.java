@@ -27,11 +27,10 @@ public class Course {
         this.userID = userID;
     }
 
-    public Course(UUID Teacher, int difficulty, String name, Quiz endOfCourseQuiz){
+    public Course(UUID Teacher, int difficulty, String name){
         this.Teacher = Teacher;
         this.difficulty = difficulty;
         this.name = name;
-        this.endOfCourseQuiz = endOfCourseQuiz;
     }
 
     public void createModule(String name, String description){
@@ -60,12 +59,16 @@ public class Course {
 
     }
 
-    public double checkProgress(Course course){
+    public double checkProgress() {
         return courseProgress;
     }
 
-    public boolean isComplete(){
-        if(isComplete()) {
+    public void calcProgress(int numCorrect) {
+        courseProgress = (numCorrect/modules.size())*100;
+    }
+
+    public boolean isComplete() {
+        if(courseProgress == 100) {
             return true;
         }
         return false;
@@ -89,6 +92,10 @@ public class Course {
 
     public Quiz getEndOfCourseQuiz(){
         return this.endOfCourseQuiz;
+    }
+
+    public void setQuiz(Quiz quiz) {
+        endOfCourseQuiz = quiz;
     }
 
     public ArrayList<Comment> getComments(){
@@ -126,5 +133,4 @@ public class Course {
         }
         return null;
     }
-    
 }

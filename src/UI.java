@@ -933,7 +933,7 @@ public class UI {
       } else {
         System.out.println("You passed! You can now move on to the next module");
         lms.getCurrentModule().setComplete(true);
-        lms.getCurrentCourse().calcProgress();
+        lms.getCurrentCourse().calcProgress(numCorrect);
       }
     } else {
       if(isEndCourse) {

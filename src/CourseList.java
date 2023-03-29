@@ -44,9 +44,9 @@ public class CourseList {
 
     // TODO Either edit arguments for Course constructor 
     // OR figure out a way to get the courses based on the UUID alone
-    public void addCourse(UUID teacherID, int difficulty, String name, UUID courseID, Quiz endOfCourseQuiz) {
+    public void addCourse(UUID teacherID, int difficulty, String name, UUID courseID) {
         if(!hasCourse(name)) {
-            courses.add(new Course(teacherID,difficulty,name,endOfCourseQuiz));
+            courses.add(new Course(teacherID,difficulty,name));
         }
     }
 
