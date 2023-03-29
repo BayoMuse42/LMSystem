@@ -75,9 +75,16 @@ public class DataWriter extends DataConstants {
 			moduleJSON.put(DESCRIPTION, m.getDescription());
 
 			JSONObject quizJSON = new JSONObject();
-			quizJSON.put(ASK, m.getQuiz().getAsk());
-			quizJSON.put(ANSWER, m.getQuiz().getAnswer());
-			quizJSON.put(POTENTIAL_ANSWERS, m.getQuiz().getPotentialAnswers());
+			JSONObject questionJSON = new JSONObject();
+			JSONArray moduleQuizQuestions = new JSONArray();
+			for(Question q : m.getQuiz().getQuestions()) {
+				questionJSON.put(ASK, q.getAsk());
+				questionJSON.put(ANSWER, q.getAnswer());
+				questionJSON.put(POTENTIAL_ANSWERS, q.getPotentialAnswers());
+				moduleQuizQuestions.add(questionJSON);
+			}
+			quizJSON.put(QUESTION, questionJSON);
+			quizJSON.put(QUIZ_RESULT, m.getQuiz().getQuizResult());
 			moduleJSON.put(QUIZ, quizJSON);
 
 			for(Section s : course.getSections()) {
@@ -112,12 +119,17 @@ public class DataWriter extends DataConstants {
 
 		//courseDetails.put(END_OF_COURSE_QUIZ, course.getEndOfCOurseQuiz().toString());
 		JSONObject endQuizJSON = new JSONObject();
-		endQuizJSON.put(ASK, course.getEndOfCourseQuiz().getAsk());
-		endQuizJSON.put(ANSWER, course.getEndOfCourseQuiz().getAnswer());
-		endQuizJSON.put(POTENTIAL_ANSWERS, course.getEndOfCourseQuiz().getPotentialAnswers());
+		JSONObject endQuestionsJSON = new JSONObject();
+		JSONArray endQuizQuestions = new JSONArray();
+		for(Question q : course.getEndOfCourseQuiz().getQuestions()) {
+			endQuestionsJSON.put(ASK, q.getAsk());
+			endQuestionsJSON.put(ANSWER, q.getAnswer());
+			endQuestionsJSON.put(POTENTIAL_ANSWERS, q.getPotentialAnswers());
+			endQuizQuestions.add(endQuestionsJSON);
+		}
+		endQuizJSON.put(QUESTION, endQuizQuestions);
+		endQuizJSON.put(QUIZ_RESULT, course.getEndOfCourseQuiz().getQuizResult());
 		courseDetails.put(END_OF_COURSE_QUIZ, endQuizJSON);
-		
-        courseDetails.put(QUIZ_RESULT, course.getQuizResult());
         courseDetails.put(COURSE_ID, course.getCourseID());
         courseDetails.put(USER_ID, course.getUserID());
         
