@@ -235,6 +235,13 @@ public class UI {
 
     System.out.println("Enter your email address:");
     String email = scanner.nextLine();
+    String type;
+    if(email.contains(".edu")) {
+      type = "teacher";
+    } else {
+      type = "student";
+    }
+      
 
     System.out.println("Enter your username:");
     String username = scanner.nextLine();
@@ -265,7 +272,7 @@ public class UI {
     System.out.println("Enter your last name:");
     String lastName = scanner.nextLine();
 
-    lms.createUser(username, email, pass, firstName, lastName);
+    lms.createUser(username, email, pass, firstName, lastName, type);
 
     System.out.println("Success! " + username + " has been created! Press \"ENTER\" to return to the main menu.");
     scanner.nextLine();

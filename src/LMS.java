@@ -74,10 +74,9 @@ public class LMS {
     this.currentQuiz = getCurrentModule().getQuiz();
   }
 
-  // TODO Differenciate between student, teacher, and admin
-  public User createUser(String username, String email, String password, String firstName, String lastName) {
+  public User createUser(String username, String email, String password, String firstName, String lastName, String type) {
     UUID userID = UUID.randomUUID();
-    userList.addUser(username, email, password, firstName, lastName, userID);
+    userList.addUser(username, email, password, firstName, lastName, userID, type);
     return userList.getUser(userID);
   
   }
@@ -86,8 +85,8 @@ public class LMS {
     return userList.getUser(userID);
   }
 
-  public void addUser(String userName, String email, String password, String firstName, String lastName, UUID userID) { 
-    userList.addUser(userName, email, password, firstName, lastName, userID);
+  public void addUser(String userName, String email, String password, String firstName, String lastName, UUID userID, String type) { 
+    userList.addUser(userName, email, password, firstName, lastName, userID, type);
   }
 
   public void deleteUser(UUID userID) {
