@@ -16,12 +16,12 @@ public class Admin extends User{
 
     }
 
-    public ArrayList<Course> getCourses(String keyword){
-        return this.getCourses(keyword);
+    public Course getCourses(String name){
+        return super.getCourses(name);
     }
 
     public ArrayList<Course> getCourses(){
-        return this.getCourses();
+        return super.getCourses();
     }
     
 }

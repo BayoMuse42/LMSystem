@@ -40,12 +40,12 @@ public class Course {
 
     }
 
-    public Course searchCourses(Teacher teacher){
+    public ArrayList<Course> searchCourses(Teacher teacher){
         return clist.searchCourses(teacher);
 
     }
 
-    public Course searchCourse(int difficulty){
+    public ArrayList<Course> searchCourse(int difficulty){
         return clist.searchCourses(difficulty);
          
     }
@@ -109,7 +109,11 @@ public class Course {
     }
 
     public void removeModule(String modName) {
-
+        for (Module m: modules){
+            if (m.getName().equals(modName)){
+                modules.remove(m);
+            }
+        }
     }
 
     public UUID getCourseID(){

@@ -10,7 +10,8 @@ public abstract class User {
     protected String firstName;
     protected String lastName;
     protected String type; // Student, Teacher, or Admin. Lmk if this changes. Needed for UI.
-    public UUID userID;    
+    public UUID userID;   
+    CourseList cList = new CourseList();
 
     public User(String email, String password, String username, String firstName, String lastName){
         this.email = email;
@@ -29,12 +30,12 @@ public abstract class User {
         this.userID = userID;
     };
 
-    public ArrayList<Course> getCourses(String keyword){
-
+    public Course getCourses(String name){
+        return cList.getCourse(name);
     };
 
     public ArrayList<Course> getCourses(){
-       
+        return cList.getCourses();
     };
 
     public String getFirstName(){

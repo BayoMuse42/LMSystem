@@ -15,13 +15,13 @@ public class Student extends User{
         super(email, username, password, firstName, lastName, userID);
     }
 
-    public ArrayList<Course> getCourses(String keyword){
-        return this.getCourses(keyword);
+    public Course getCourses(String name){
+        return super.getCourses(name);
 
     }
 
     public ArrayList<Course> getCourses(){
-        return this.getCourses();
+        return super.getCourses();
     }
 
     public String toString(){

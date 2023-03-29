@@ -62,23 +62,25 @@ public class CourseList {
 
     }
 
-    public Course searchCourses(Teacher teacher) {
+    public ArrayList<Course> searchCourses(Teacher teacher) {
+        ArrayList<Course> matches = new ArrayList<Course>();
         for (Course c: courses){
             if (c.getTeacher().equals(teacher.getUserID())){
-                return c;
+                matches.add(c);
             }
         };
-        return null;
+        return matches;
 
     }
 
-    public Course searchCourses(int difficulty) {
+    public ArrayList<Course> searchCourses(int difficulty) {
+        ArrayList<Course> matches = new ArrayList<Course>();
         for (Course c: courses){
             if (c.getDifficulty() == difficulty){
-                return c;
+                matches.add(c);
             }
         }
-        return null;
+        return matches;
     }
 
     public Course searchCourses(String name) {
@@ -97,5 +99,15 @@ public class CourseList {
             }
         }
         return null;
+    }
+
+    public ArrayList<Course> getUserCourses(UUID userID){
+        ArrayList<Course> userCourses = new ArrayList<Course>();
+        for (Course c: courses){
+            if (c.userID.equals(userID)){
+                userCourses.add(c);
+            }
+        }
+        return userCourses;
     }
 }
