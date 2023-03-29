@@ -93,10 +93,6 @@ public class LMS {
     userList.deleteUser(userID);
   }
 
-  public void editUser(User user) {
-    userList.editUser(user);
-  }
-
   public Course createCourse(UUID teacher, int difficulty, String name) {
     UUID courseID = UUID.randomUUID();
     courseList.addCourse(teacher, difficulty, name, courseID);
