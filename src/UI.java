@@ -346,7 +346,7 @@ public class UI {
           viewCoursesStudent();
           break;
         }
-        // TODO add printCert method when written
+        lms.printCertificate(input);
         break;
       case 5:
         MainStudentMenu();
@@ -591,7 +591,7 @@ public class UI {
     lms.setCurrentModule(moduleName);
     Module currentModule = lms.getCurrentModule();
 
-    menu.add("Start section");
+    menu.add("Start first section");
     menu.add("Print module content");
     menu.add("Back");
 
@@ -604,8 +604,7 @@ public class UI {
       System.out.println("> " + section);
     }
 
-    System.out.println("Would you like to begin the first section:" +
-    currentModule.getSections().get(0).getName() + "?");
+    printMenu();
 
     int uInput = getIntInput(menu.size());
 
@@ -614,7 +613,7 @@ public class UI {
         sectionMenuStudent(currentModule.getSections().get(0).getName());
         break;
       case 2:
-        // Add print module function when implemented
+        lms.printModule();
         break;
       case 3:
         courseMenuStudent(lms.getCurrentCourse().getName());

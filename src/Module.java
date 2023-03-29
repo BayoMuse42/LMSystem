@@ -1,6 +1,7 @@
 package src;
 import java.util.ArrayList;
-import java.util.concurrent.CompletionException;
+import java.io.FileWriter;
+import java.io.IOException; 
 
 public class Module {
 
@@ -88,6 +89,21 @@ public class Module {
 
     public void removeSection(String secName) {
 
+    }
+
+    public void printContent() {
+        try {
+            FileWriter modWriter = new FileWriter(name + ".txt");
+            for (Section s : sections) {
+                modWriter.write(s.getName() + "\n");
+                modWriter.write(s.getContent() + "\n");
+            }
+            modWriter.close();
+            System.out.println("Module content successfully printed!");
+          } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+          } 
     }
     
 }

@@ -1,6 +1,8 @@
 package src;
 import java.util.UUID;
 import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.IOException; 
 
 public class LMS {
   private User currentUser;
@@ -159,10 +161,21 @@ public class LMS {
   }
 
   public void printCertificate(String courseName) {
-
-  }
+    try {
+        FileWriter certWriter = new FileWriter("Certificate.txt");
+        certWriter.write("---- Certificate of Completion ----\n");
+        certWriter.write("This certifies that\n");
+        certWriter.write(currentUser.getFirstName() + currentUser.getLastName() + "\n");
+        certWriter.write("Has completed " + courseName + "\n");
+        certWriter.close();
+        System.out.println("Certificate successfully created!");
+      } catch (IOException e) {
+        System.out.println("An error occurred.");
+        e.printStackTrace();
+      } 
+}
 
   public void printModule() {
-    
+    currentModule.printContent();
   }
 }
