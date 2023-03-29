@@ -1171,7 +1171,7 @@ public class UI {
     commentMenu(lms.getCurrentCourse().getName());
     
   }
-  // TODO finish this
+
   private void courseSearch() {
     clearScreen();
     menu.clear();
@@ -1212,21 +1212,101 @@ public class UI {
 
   private void searchByTeacher() {
     System.out.println("Enter the name of the teacher");
+    ArrayList<Course> result = lms.Search(lms.getUser(getInput()));
+    clearScreen();
+    System.out.println("There are " + result.size() + " results");
+    for (Course courses : result)
+      System.out.println(courses);
+
+    printMenu();
+
+    int uInput = getIntInput(menu.size());
+
+    while(true) {
+      switch(uInput) {
+        case 1:
+          System.out.println("Which course would you like to add?");
+          lms.addUserCourses(getInput());
+          System.out.println("Course added");
+          scanner.nextLine();
+          courseSearch();
+          break;
+        case 2:
+          courseSearch();
+          break;
+        default:
+          System.out.println("Invalid input");
+          continue;
+      }
+    }
   }
 
   private void searchByDifficulty() {
     menu.clear();
 
+    menu.add("Add course to course list");
+    menu.add("Back");
+
     System.out.println("Enter the difficulty level you would like to view");
     ArrayList<Course> result = lms.Search(getIntInput(3));
     clearScreen();
+    System.out.println("There are " + result.size() + " results");
     for (Course courses : result)
       System.out.println(courses);
+
+    printMenu();
+
+    int uInput = getIntInput(menu.size());
+
+    while(true) {
+      switch(uInput) {
+        case 1:
+          System.out.println("Which course would you like to add?");
+          lms.addUserCourses(getInput());
+          System.out.println("Course added");
+          scanner.nextLine();
+          courseSearch();
+          break;
+        case 2:
+          courseSearch();
+          break;
+        default:
+          System.out.println("Invalid input");
+          continue;
+      }
+    }
     
   }
 
   private void searchByKeyword() {
     System.out.println("Enter what you would like to search by");
+    ArrayList<Course> result = lms.Search(getInput());
+    clearScreen();
+    System.out.println("There are " + result.size() + " results");
+    for (Course courses : result)
+      System.out.println(courses);
+
+    printMenu();
+
+    int uInput = getIntInput(menu.size());
+
+    while(true) {
+      switch(uInput) {
+        case 1:
+          System.out.println("Which course would you like to add?");
+          lms.addUserCourses(getInput());
+          System.out.println("Course added");
+          scanner.nextLine();
+          courseSearch();
+          break;
+        case 2:
+          courseSearch();
+          break;
+        default:
+          System.out.println("Invalid input");
+          continue;
+      }
+    }
   }
 
   private void clearScreen() {

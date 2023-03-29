@@ -129,6 +129,11 @@ public class LMS {
     return currentUser.getCourses();
   }
 
+  public void addUserCourses(String name) {
+    Course c = getCourse(name);
+    currentUser.getCourses().add(c);
+  }
+
   public void addCourse(UUID teacherID, int difficulty, String name, UUID courseID) {
     courseList.addCourse(teacherID, difficulty, name, courseID);
   }
@@ -141,7 +146,7 @@ public class LMS {
     courseList.editCourse(course);
   }
 
-  public ArrayList<Course> Search(Teacher teacher) {
+  public ArrayList<Course> Search(User teacher) {
     return courseList.searchCourses(teacher);
   }
 
