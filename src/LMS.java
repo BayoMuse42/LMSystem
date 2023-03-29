@@ -144,10 +144,6 @@ public class LMS {
     courseList.deleteCourse(courseName);
   }
 
-  public void editCourse(Course course) {
-    courseList.editCourse(course);
-  }
-
   public ArrayList<Course> Search(User teacher) {
     return courseList.searchCourses(teacher);
   }

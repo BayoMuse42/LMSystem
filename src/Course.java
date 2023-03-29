@@ -54,11 +54,6 @@ public class Course {
 
     }
 
-    public Course searchCourses(Course course){
-        return clist.searchCourses(course);
-
-    }
-
     public double checkProgress() {
         return courseProgress;
     }

@@ -10,7 +10,6 @@ public class Module {
     private Quiz quiz;
     private double quizResult;
     private ArrayList<Section> sections;
-    private String content;
     private boolean completeFlag;
 
     public Module(String name, String description){
@@ -19,9 +18,7 @@ public class Module {
     }
 
     public void createSection(String name, String content){
-        this.name = name;
-        this.content = content;
-
+        sections.add(new Section(name, content));
     }
 
     public String getName(){
@@ -52,11 +49,6 @@ public class Module {
     public void setComplete(boolean b) {
         this.completeFlag = b;
     }
-   
-    public void createQuiz(){
-
-
-    }
 
     public double getQuizResult(){
         return quizResult;
@@ -69,10 +61,6 @@ public class Module {
 
     public Quiz getQuiz(){
         return this.quiz;
-    }
-
-    public String[] getPotentialAnswers(){
-        return this.quiz.getPotentialAnswers();
     }
 
     public Section getSection(String name){
@@ -88,7 +76,7 @@ public class Module {
     }
 
     public void removeSection(String secName) {
-
+        sections.remove(getSection(secName));
     }
 
     public void printContent() {

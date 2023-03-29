@@ -53,12 +53,6 @@ public class CourseList {
             courses.remove(getCourse(name));
         }
     }
-    
-    
-    //TODO
-    public void editCourse(Course course){
-
-    }
 
     public ArrayList<Course> searchCourses(User teacher) {
         ArrayList<Course> results = new ArrayList<Course>();
@@ -88,16 +82,6 @@ public class CourseList {
             }
         }
         return results;
-    }
-
-    // Do we need this? -RB
-    public Course searchCourses(Course course){
-        for (Course c: courses){
-            if (c.getCourseID().equals(course.getCourseID())){
-                return c;
-            }
-        }
-        return null;
     }
 
     public ArrayList<Course> getUserCourses(UUID userID){
