@@ -85,6 +85,10 @@ public class LMS {
     return userList.getUser(userID);
   }
 
+  public User getUser(String name) {
+    return userList.getUser(name);
+  }
+
   public void addUser(String userName, String email, String password, String firstName, String lastName, UUID userID, String type) { 
     userList.addUser(userName, email, password, firstName, lastName, userID, type);
   }
@@ -137,15 +141,15 @@ public class LMS {
     courseList.editCourse(course);
   }
 
-  public Course Search(Teacher teacher) {
+  public ArrayList<Course> Search(Teacher teacher) {
     return courseList.searchCourses(teacher);
   }
 
-  public Course Search(int difficulty) {
+  public ArrayList<Course> Search(int difficulty) {
     return courseList.searchCourses(difficulty);
   }
 
-  public Course Search(String name) {
+  public ArrayList<Course> Search(String name) {
     return courseList.searchCourses(name);
   }
 

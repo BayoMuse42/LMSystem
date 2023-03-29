@@ -989,13 +989,113 @@ public class UI {
 
   }
 
-  // TODO Create quiz
+  // Create quiz
   private void createQuiz(boolean isEndCourse) {
+    clearScreen();
+    menu.clear();
+    ArrayList<Question> questions = new ArrayList<Question>();
 
+    if(isEndCourse) {
+      System.out.println("| End-of-Course Quiz Creation |");
+    } else {
+      System.out.println("| End-of-Course Module Creation |");
+    }
+
+    System.out.println("This quiz currently has 0 questions");
+
+    System.out.println("Enter the question");
+    String ask = getInput();
+
+    System.out.println("How many answer choices are there?");
+    int numofQuestions = getIntInput(4);
+    String[] answers = new String[numofQuestions];
+    for(int i = 0; i < answers.length; i++) {
+      System.out.println("Enter answer choice " + i+1);
+      answers[i] = getInput();
+    }
+    System.out.println("Which answer is the correct answer?");
+    int correct = getIntInput(numofQuestions);
+    questions.add(new Question(ask, correct, answers));
+    lms.addQuiz(new Quiz(questions));
+
+    if(isEndCourse) {
+      editQuiz(lms.getCurrentCourse().getName(), isEndCourse);
+    } else {
+      editQuiz(lms.getCurrentModule().getName(), isEndCourse);
+    }
   }
 
   private void editQuiz(String name, boolean isEndCourse) {
+    clearScreen();
+    menu.clear();
 
+    menu.add("Add a question");
+    menu.add("remove a question");
+    menu.add("Done");
+    
+    lms.setCurrentQuiz(name, isEndCourse);
+    Quiz currentQuiz = lms.getCurrentQuiz(name, isEndCourse);
+
+    if(isEndCourse)
+      System.out.println("| end-of-course quiz |");
+    else
+      System.out.println("| end-of-module quiz |");
+
+    for(int i = 0; i < currentQuiz.getQuestions().size(); i++) {
+      Question currentQuestion = currentQuiz.getQuestions().get(i);
+
+      System.out.println(currentQuestion.ask);
+
+      for(int j = 0; j < currentQuestion.getPotentialAnswers().length; j++)
+        System.out.println((j+1) + currentQuestion.getPotentialAnswers()[j]);
+      System.out.println("Correct answer: " + currentQuestion.getPotentialAnswers()[currentQuestion.getAnswer()]);
+    }
+
+    printMenu();
+
+    int uInput = getIntInput(menu.size());
+
+    while(true) {
+      switch(uInput) {
+        case 1:
+          clearScreen();
+          System.out.println("Enter the question");
+          String ask = getInput();
+      
+          System.out.println("How many answer choices are there?");
+          int numofQuestions = getIntInput(4);
+          String[] answers = new String[numofQuestions];
+          for(int i = 0; i < answers.length; i++) {
+            System.out.println("Enter answer choice " + i+1);
+            answers[i] = getInput();
+          }
+          System.out.println("Which answer is the correct answer?");
+          int correct = getIntInput(numofQuestions);
+          currentQuiz.addQuestion(ask, answers, correct);
+          editQuiz(name, isEndCourse);
+          break;
+        case 2:
+          System.out.println("Which question would you like to remove?");
+          currentQuiz.removeQuestion(getIntInput(currentQuiz.getQuestions().size())-1);
+          editQuiz(name, isEndCourse);
+          break;
+        case 3:
+          if(currentQuiz.getQuestions().equals(null)) {
+            System.out.println("You must have at least 1 question to complete quiz creation");
+            editQuiz(name, isEndCourse);
+            break;
+          }
+
+          if(isEndCourse) {
+            courseMenuTeacher(name);
+            break;
+          }
+          moduleMenuTeacher(name);
+        default:
+          System.out.println("Invalid input");
+          continue;
+      }
+    }
   }
   // Comment Menu
   private void commentMenu(String courseName) {
@@ -1045,20 +1145,30 @@ public class UI {
 
   }
 
-  // TODO Create Comment
+  // Create Comment
   private void createComment() {
     clearScreen();
 
     System.out.println("Type your comment:");
-    // TODO comment constructor
+    lms.getCurrentCourse().addComment(lms.getCurrentUser().getUserID(), getInput());
 
+    System.out.println("Comment Added");
+    scanner.nextLine();
+
+    commentMenu(lms.getCurrentCourse().getName());
   }
 
   private void createReply(int comIndex) {
+      Comment currentComment = lms.getCurrentCourse().getComments().get(comIndex);
       clearScreen();
 
     System.out.println("Type your reply:");
-    // TODO comment constructor
+    currentComment.replyMessage(lms.getCurrentUser().getUserID(), getInput());
+
+    System.out.println("Comment Added");
+    scanner.nextLine();
+
+    commentMenu(lms.getCurrentCourse().getName());
     
   }
   // TODO finish this
@@ -1076,13 +1186,14 @@ public class UI {
 
     switch(uInput) {
       case 1:
-        System.out.println("Enter the name of the teacher");
-        
+        searchByTeacher();
+        break;
       case 2:
-        System.out.println("Enter the difficulty level you would like to view");
+        searchByDifficulty();
+        break;
       case 3:
-        System.out.println("Enter what you would like to search by");
-
+        searchByKeyword();
+        break;
       case 4:
         switch(lms.getCurrentUser().getType()) {
           case "student":
@@ -1097,6 +1208,25 @@ public class UI {
         }
         break;
     }
+  }
+
+  private void searchByTeacher() {
+    System.out.println("Enter the name of the teacher");
+  }
+
+  private void searchByDifficulty() {
+    menu.clear();
+
+    System.out.println("Enter the difficulty level you would like to view");
+    ArrayList<Course> result = lms.Search(getIntInput(3));
+    clearScreen();
+    for (Course courses : result)
+      System.out.println(courses);
+    
+  }
+
+  private void searchByKeyword() {
+    System.out.println("Enter what you would like to search by");
   }
 
   private void clearScreen() {

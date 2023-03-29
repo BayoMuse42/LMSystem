@@ -8,11 +8,11 @@ public class Student extends User{
     private ArrayList<Double> grades;
 
     public Student(String email, String username, String password, String firstName, String lastName){
-        super(email, username, password, firstName, lastName);
+        super(email, username, password, firstName, lastName, "student");
     }
 
     public Student(String email, String username, String password, String firstName, String lastName, UUID userID){
-        super(email, username, password, firstName, lastName, userID);
+        super(email, username, password, firstName, lastName, userID, "student");
     }
 
     public ArrayList<Course> getCourses(String keyword){

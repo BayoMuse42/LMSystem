@@ -39,17 +39,17 @@ public class Course {
 
     }
 
-    public Course searchCourses(Teacher teacher){
+    public ArrayList<Course> searchCourses(Teacher teacher){
         return clist.searchCourses(teacher);
 
     }
 
-    public Course searchCourse(int difficulty){
+    public ArrayList<Course> searchCourse(int difficulty){
         return clist.searchCourses(difficulty);
          
     }
 
-    public Course searchCourse(String name){
+    public ArrayList<Course> searchCourse(String name){
         return clist.searchCourses(name);
 
     }
@@ -100,6 +100,10 @@ public class Course {
 
     public ArrayList<Comment> getComments(){
         return this.comments;
+    }
+
+    public void addComment(UUID userID, String message) {
+        comments.add(new Comment(userID, message));
     }
 
     public ArrayList<Module> getModules(){

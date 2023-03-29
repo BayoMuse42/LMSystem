@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Admin extends User{
 
     public Admin(String email, String password, String username, String firstName, String lastName){
-        super(email, password, username, firstName, lastName);
+        super(email, password, username, firstName, lastName, "admin");
     }
 
     public Admin(String email, String username, String password, String firstName, String lastName, UUID userID){
-        super(email, username, password, firstName, lastName, userID);
+        super(email, username, password, firstName, lastName, userID, "admin");
     }
 
     public void removeMessage(){

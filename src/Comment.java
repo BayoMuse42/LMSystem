@@ -21,7 +21,7 @@ public class Comment {
         this.userID = userID;
     }
 
-    public void replyMessage(String message){
+    public void replyMessage(UUID userID, String message){
         Comment reply = new Comment(userID, message);
         replies.add(reply);
     }

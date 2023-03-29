@@ -62,34 +62,37 @@ public class CourseList {
 
     }
 
-    public Course searchCourses(Teacher teacher) {
+    public ArrayList<Course> searchCourses(Teacher teacher) {
+        ArrayList<Course> results = new ArrayList<Course>();
         for (Course c: courses){
             if (c.getTeacher().equals(teacher.getUserID())){
-                return c;
+                results.add(c);
             }
         };
-        return null;
-
+        return results;
     }
 
-    public Course searchCourses(int difficulty) {
+    public ArrayList<Course> searchCourses(int difficulty) {
+        ArrayList<Course> results = new ArrayList<Course>();
         for (Course c: courses){
             if (c.getDifficulty() == difficulty){
-                return c;
+                results.add(c);
             }
         }
-        return null;
+        return results;
     }
 
-    public Course searchCourses(String name) {
+    public ArrayList<Course> searchCourses(String name) {
+        ArrayList<Course> results = new ArrayList<Course>();
         for (Course c: courses){
             if (c.getName().equals(name)){
-                return c;
+                results.add(c);
             }
         }
-        return null;
+        return results;
     }
 
+    // Do we need this? -RB
     public Course searchCourses(Course course){
         for (Course c: courses){
             if (c.getCourseID().equals(course.getCourseID())){
