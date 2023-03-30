@@ -15,10 +15,18 @@ public class Section {
         this.content = content;
     }
 
+    /**
+     * sets section content
+     * @param content
+     */
     public void setContent(String content){
         this.content = content;
     }
 
+    /**
+     * sets section name
+     * @param name
+     */
     public void setName(String name){
         this.name = name;
     }
