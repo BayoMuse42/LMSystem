@@ -32,16 +32,27 @@ public class Student extends User{
         super(email, username, password, firstName, lastName, userID, "student");
     }
 
-    /** */
+    /**
+     * calls super method to get course based on name
+     * @param name
+     * @return 
+     */
     public Course getCourses(String name){
         return super.getCourses(name);
 
     }
 
+    /**
+     * calls super to get all courses
+     * 
+     */
     public ArrayList<Course> getCourses(){
         return super.getCourses();
     }
 
+    /**
+     * returns string description of student
+     */
     public String toString(){
         return "First name: " + firstName + " Last name " + lastName + " Email:  "
         + email + " username " + username + " password: " + password + " type: " + type + " UUID: " + userID;
