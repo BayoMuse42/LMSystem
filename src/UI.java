@@ -214,7 +214,8 @@ public class UI {
         System.out.println("Oops! The username and password do not match.");
         continue;
       }
-        
+      
+      lms.setCurrentUser(user);
       switch(lms.getCurrentUser().getType()) {
         case("student"):
            MainStudentMenu();

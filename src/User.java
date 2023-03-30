@@ -37,7 +37,7 @@ public abstract class User {
     };
 
     public ArrayList<Course> getCourses(){
-        return cList.getCourses();
+        return cList.getCourses(userID);
     };
 
     public String getFirstName(){

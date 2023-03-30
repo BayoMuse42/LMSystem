@@ -38,8 +38,14 @@ public class CourseList {
         
     }
 
-    public ArrayList<Course> getCourses() {
-        return this.courses;
+    public ArrayList<Course> getCourses(UUID userID) {
+        ArrayList<Course> userCourses = new ArrayList<Course>();
+        for (Course c : courses) {
+            if(c.getUserID().equals(userID) || c.getTeacher().equals(userID))
+                userCourses.add(c);
+            
+        }
+        return userCourses;
     }
 
     public void addCourse(UUID teacherID, int difficulty, String name, UUID courseID) {
