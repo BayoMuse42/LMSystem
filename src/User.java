@@ -11,7 +11,7 @@ public abstract class User {
     protected String lastName;
     protected String type; // Student, Teacher, or Admin. Lmk if this changes. Needed for UI.
     public UUID userID;   
-    CourseList cList = new CourseList();
+    protected CourseList cList =  CourseList.getInstance();
 
     public User(String email, String password, String username, String firstName, String lastName, String type){
         this.email = email;

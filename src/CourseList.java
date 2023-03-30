@@ -6,10 +6,14 @@ public class CourseList {
     private static CourseList courseList;
     public ArrayList<Course> courses;
 
+<<<<<<< HEAD
     /**
      * Constructor
      */
     public CourseList() {
+=======
+    private CourseList() {
+>>>>>>> 72dc240617bf1ed037468cbcf89ee6f6cc8f2ba7
         courses = DataLoader.getCourses();
     }
     
