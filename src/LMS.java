@@ -128,12 +128,12 @@ public class LMS {
   }
 
   public ArrayList<Course> getUserCourses(User user) {
-    return currentUser.getCourses();
+    return currentUser.getUserCourses();
   }
 
   public void addUserCourses(String name) {
     Course c = getCourse(name);
-    currentUser.getCourses().add(c);
+    currentUser.getUserCourses().add(c);
   }
 
   public void addCourse(UUID teacherID, int difficulty, String name, UUID courseID) {

@@ -877,12 +877,12 @@ public class UI {
       switch(uInput) {
         case 1:
           System.out.println("Enter the new section name");
-          currentModule.setName(getInput());
+          currentSection.setName(getInput());
           editSection(currentSection.getName());
           break;
         case 2:
           System.out.println("Enter the new content for this section");
-          currentModule.setContent(getInput());
+          currentSection.setContent(getInput());
           editSection(secName);
           break;
         case 3:

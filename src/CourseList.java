@@ -52,14 +52,8 @@ public class CourseList {
         
     }
 
-    public ArrayList<Course> getCourses(UUID userID) {
-        ArrayList<Course> userCourses = new ArrayList<Course>();
-        for (Course c : courses) {
-            if(c.getUserID().equals(userID) || c.getTeacher().equals(userID))
-                userCourses.add(c);
-            
-        }
-        return userCourses;
+    public ArrayList<Course> getCourses() {
+       return this.courses;
     }
 
     /**
@@ -139,10 +133,10 @@ public class CourseList {
      */
     public ArrayList<Course> getUserCourses(UUID userID){
         ArrayList<Course> userCourses = new ArrayList<Course>();
-        for (Course c: courses){
-            if (c.userID.equals(userID)){
+        for (Course c : courses) {
+            if(c.getUserID().equals(userID) || c.getTeacher().equals(userID))
                 userCourses.add(c);
-            }
+            
         }
         return userCourses;
     }
