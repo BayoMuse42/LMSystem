@@ -45,8 +45,14 @@ public class Quiz {
 
     @Override
     public String toString() {
-        return "Quiz [questions=" + questions + ", quizResult=" + quizResult + "]";
-    }
+        for (Question q: questions){
+            System.out.println("ASK: " + q.getAsk() + "\nANSWER: " + q.getAnswer() + "\nPOTENTIAL ANSWERS: ");
+            for(String s: q.potentialAnswers){
+                System.out.println((s) + "\n");
+            }
+        }
+        return null;
+        }
 }
 
 
