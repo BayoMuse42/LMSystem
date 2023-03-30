@@ -37,4 +37,10 @@ public class Comment {
     public ArrayList<Comment> getReplies() {
         return this.replies;
     }
+
+    public String toString() {
+        return "Comment [Reply=" + Reply + ", message=" + message + ", replies=" + replies + ", userID=" + userID + "]";
+    }
+
+    
 }

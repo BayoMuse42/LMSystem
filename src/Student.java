@@ -25,7 +25,8 @@ public class Student extends User{
     }
 
     public String toString(){
-        return firstName + " " + lastName + " is a student";
+        return "First name: " + firstName + " Last name " + lastName + " Email:  "
+        + email + " username " + username + " password: " + password + " type: " + type + " UUID: " + userID;
     }
     
     

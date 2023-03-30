@@ -24,4 +24,8 @@ public class Admin extends User{
         return super.getCourses();
     }
     
+    public String toString() {
+        return "First name: " + firstName + " Last name " + lastName + " Email:  "
+        + email + " username " + username + " password: " + password + " type: " + type + " UUID: " + userID;
+    }
 }

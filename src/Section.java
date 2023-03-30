@@ -18,5 +18,8 @@ public class Section {
         return this.name;
     }
     
+    public String toString() {
+        return "Name: " + name + " content " + content;
+    }
 
 }

@@ -1,6 +1,5 @@
 package src;
 import java.util.ArrayList;
-import java.util.function.BooleanSupplier;
 
 public class Quiz {
 
@@ -43,32 +42,11 @@ public class Quiz {
     public void calcQuizResult(int numCorrect) {
         quizResult = (numCorrect/questions.size())*100;
     }
-    
-    /* We wont need this, it's in the UI already
-     public void startQuiz(){
-        int score = 0;
-        for (int i = 0; i < questions.size(); i++){
-            System.out.println("Question " + (i + 1) + ": " + questions.get(i).getAsk());
 
-            String[] options = questions.get(i).getPotentialAnswers();
-            for (int j = 0; j < options.length; j++){
-                System.out.println((j + 1) + ") " + options[j]);
-            } 
-            
-            Scanner scanner = new Scanner(System.in);
-            int userAnswerIndex = scanner.nextInt();
-            String userAnswer = options[userAnswerIndex - 1];
-
-            if (userAnswer.equals(questions[i].getAnswer())) {
-                score++;
-                System.out.println("Correct!");
-            } else {
-                System.out.println("Incorrect.");
-            }
-        }
-        System.out.println("Quiz finished. Your score is " + score + "/" + questions.size());
-        this.quizResult = score / questions.size();
-        } */
+    @Override
+    public String toString() {
+        return "Quiz [questions=" + questions + ", quizResult=" + quizResult + "]";
     }
+}
 
 

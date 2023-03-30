@@ -136,4 +136,10 @@ public class Course {
         }
         return null;
     }
+
+    public String toString() {
+        return "Teacher ID: " + Teacher + " Difficulty: " + difficulty + " Course Name: " + name
+        + " Quiz Result: " + quizResult + " Course Progress: " + courseProgress + " Course ID: " 
+        + courseID + " UserID: " + userID;
+    }
 }

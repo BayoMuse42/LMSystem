@@ -93,5 +93,9 @@ public class Module {
             e.printStackTrace();
           } 
     }
+
+    public String toString() {
+        return "Name: " + name + " Description: " + description + " Quiz Result:" + quizResult + " Is the course complete?: " + completeFlag;
+    }
     
 }
