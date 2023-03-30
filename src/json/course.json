@@ -10,7 +10,7 @@
                 "QUESTION" : [{
                     "ASK": "What is a boolean?", 
                     "ANSWER": 1, 
-                    "POTENTIAL_ANSWERS": ["A bean", "A variable"]
+                    "POTENTIAL_ANSWERS": ["A bean", "A variable", "A hex Value", "A taxonomy"]
                     }],
                 "QUIZ_RESULT" : 100.0
                 }],
@@ -19,7 +19,7 @@
                 "CONTENT": "Boolena is a variable"}]
         }],
         "COMMENTS": [{
-            "USER_ID":"2b2bc859-32da-4de9-a089-2e8d40fe576b:",
+            "USER_ID":"2b2bc859-32da-4de9-a089-2e8d40fe576b",
             "MESSAGE": "This was short",
             "REPLY": [{
                 "USERID":"c6deaf22-5c2f-45a3-b9ef-5f2215e9c7cb",
@@ -30,12 +30,12 @@
             "QUESTION": [{
                 "ASK": "Is a boolean a variable?",
                 "ANSWER": 1,
-                "POTENTIAL_ANSWERS": ["False", "True"]
+                "POTENTIAL_ANSWERS": ["False", "True", "Maybe", "Neither"]
             }],
             "QUIZRESULT": 100.0
         }],
-        "COURSEID": "ef498a14-2fbc-42fb-b21d-58c6d682052d",
-        "USERID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
+        "COURSE_ID": "ef498a14-2fbc-42fb-b21d-58c6d682052d",
+        "USER_ID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
         
     },{
         "TEACHER": "99de1e37-4150-450a-bae6-989e366c2235",
@@ -66,7 +66,7 @@
             "QUESTION": [{
                 "ASK": "Is a boolean a variable?",
                 "ANSWER": 1,
-                "POTENTIAL_ANSWERS": ["False", "True"]
+                "POTENTIAL_ANSWERS": ["False", "True", "Maybe", "Neither"]
             }],
             "QUIZRESULT": 100.0
             }],

@@ -34,6 +34,7 @@ public abstract class DataConstants {
     protected static final String ANSWER = "ANSWER";
     protected static final String SECTIONS = "SECTIONS";
     protected static final String CONTENT = "CONTENT";
+    protected static final String USERID = "USERID";
 
 
 }
