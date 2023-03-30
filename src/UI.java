@@ -200,6 +200,7 @@ public class UI {
 
   // Login
   private void login() {
+    clearScreen();
     boolean isLog = false;
     while(!isLog) {
       System.out.println(LOGIN_HEADER);
@@ -211,10 +212,11 @@ public class UI {
       isLog = lms.login(user, pass);
 
       if(!isLog) {
+        clearScreen();
         System.out.println("Oops! The username and password do not match.");
         continue;
       }
-        
+      
       switch(lms.getCurrentUser().getType()) {
         case("student"):
            MainStudentMenu();
@@ -230,6 +232,7 @@ public class UI {
   }
   // Register
   private void register() {
+    clearScreen();
     boolean isValid = false;
     System.out.println(REGISTER_HEADER);
 
@@ -276,7 +279,7 @@ public class UI {
 
     System.out.println("Success! " + username + " has been created! Press \"ENTER\" to return to the main menu.");
     scanner.nextLine();
-    printMenu();
+    run();
       
   }
 
@@ -876,12 +879,12 @@ public class UI {
       switch(uInput) {
         case 1:
           System.out.println("Enter the new section name");
-          currentModule.setName(getInput());
+          currentSection.setName(getInput());
           editSection(currentSection.getName());
           break;
         case 2:
           System.out.println("Enter the new content for this section");
-          currentModule.setContent(getInput());
+          currentSection.setContent(getInput());
           editSection(secName);
           break;
         case 3:

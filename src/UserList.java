@@ -52,7 +52,7 @@ public class UserList {
 
     public User getUser(String username) {
         for(User user : users) {
-            if(hasUser(username)) {
+            if(user.getUserName().equals(username)) {
                 return user;
             }
         }
