@@ -31,10 +31,6 @@ public class Admin extends User{
         super(email, username, password, firstName, lastName, userID, "admin");
     }
 
-    public void removeMessage(){
-
-    }
-
     /**
      * @param name
      * @return Course
