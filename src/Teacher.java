@@ -43,7 +43,7 @@ public class Teacher extends User{
      * @return
      */
     public ArrayList<Course> getCourses(){
-        return super.getCourses();
+        return super.getUserCourses();
     }
     
     /**

@@ -48,7 +48,7 @@ public class Admin extends User{
      * getCourses calls superclass getCourses method and returns an arraylist of courses
      */
     public ArrayList<Course> getCourses(){
-        return super.getCourses();
+        return super.getUserCourses();
     }
     
     /**

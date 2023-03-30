@@ -47,7 +47,7 @@ public class Student extends User{
      * 
      */
     public ArrayList<Course> getCourses(){
-        return super.getCourses();
+        return super.getUserCourses();
     }
 
     /**
