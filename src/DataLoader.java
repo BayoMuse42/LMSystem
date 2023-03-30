@@ -7,10 +7,20 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;;
 
 public class DataLoader extends DataConstants {
+    /* public static void main(String[] args) {
+        ArrayList<User> testUsers = getUsers();
+        for(User u : testUsers) {
+            System.out.println(u.toString());
+        }
+        ArrayList<Course> testCourses = getCourses();
+        for(Course c : testCourses) {
+            System.out.println(c.toString());
+        }
+    } */
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
         try {
-            FileReader reader = new FileReader(COURSE_FILE_NAME);	
+            FileReader reader = new FileReader(USER_FILE_NAME);	
 			JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
 
             for(int i=0; i < peopleJSON.size(); i++) {
@@ -47,7 +57,7 @@ public class DataLoader extends DataConstants {
     public static ArrayList<Course> getCourses() {
         ArrayList<Course> courses = new ArrayList<Course>();
         try {
-            FileReader reader = new FileReader(USER_FILE_NAME);
+            FileReader reader = new FileReader(COURSE_FILE_NAME);
 			JSONArray courseJSON = (JSONArray)new JSONParser().parse(reader);
 
             for(int i=0; i < courseJSON.size(); i++) {
