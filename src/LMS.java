@@ -31,7 +31,8 @@ public class LMS {
   }
 
   public void logout() {
-    currentUser = null;
+    userList.saveUsers();
+    courseList.saveCourses();
   }
 
   public User getCurrentUser() {

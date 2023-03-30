@@ -140,4 +140,8 @@ public class CourseList {
         }
         return userCourses;
     }
+
+    public void saveCourses() {
+        DataWriter.saveCourses();
+    }
 }

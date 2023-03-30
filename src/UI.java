@@ -19,6 +19,7 @@ public class UI {
   }
 
   public void run() {
+    menu.clear();
     menu.add("Login");
     menu.add("Register");
     menu.add("Exit");
@@ -87,7 +88,7 @@ public class UI {
     menu.add("Logout");
     menu.add("Exit");
 
-    System.out.println("Welcome, " + lms.getCurrentUser().username + "!");
+    System.out.println("Welcome, " + lms.getCurrentUser().firstName + "!");
 
     while(true) {
       printMenu();
@@ -122,7 +123,7 @@ public class UI {
     clearScreen();
     menu.clear();
 
-    System.out.println("Welcome, " + lms.getCurrentUser().username + "!");
+    System.out.println("Welcome, " + lms.getCurrentUser().firstName + "!");
 
     menu.add("Go to Course List");
     menu.add("Create a New Course");
@@ -166,7 +167,7 @@ public class UI {
     clearScreen();
     menu.clear();
 
-    System.out.println("Welcome, " + lms.getCurrentUser().username + "!");
+    System.out.println("Welcome, " + lms.getCurrentUser().firstName + "!");
 
     menu.add("Search from Course Database");
     menu.add("logout");
