@@ -6,7 +6,7 @@ public class CourseList {
     private static CourseList courseList;
     public ArrayList<Course> courses;
 
-    public CourseList() {
+    private CourseList() {
         courses = DataLoader.getCourses();
     }
     
