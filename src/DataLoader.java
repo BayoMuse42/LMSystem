@@ -7,7 +7,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;;
 
 public class DataLoader extends DataConstants {
-    /* public static void main(String[] args) {
+    public static void main(String[] args) {
         ArrayList<User> testUsers = getUsers();
         for(User u : testUsers) {
             System.out.println(u.toString());
@@ -16,7 +16,7 @@ public class DataLoader extends DataConstants {
         for(Course c : testCourses) {
             System.out.println(c.toString());
         }
-    } */
+    } 
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
         try {

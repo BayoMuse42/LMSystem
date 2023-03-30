@@ -1,8 +1,8 @@
 package src;
 
 public abstract class DataConstants {
-    protected static final String USER_FILE_NAME = "lib/json/user.json";
-    protected static final String COURSE_FILE_NAME = "lib/json/course.json";
+    protected static final String USER_FILE_NAME = "src/json/users.json";
+    protected static final String COURSE_FILE_NAME = "src/json/course.json";
     /**
      * User elements
      */
