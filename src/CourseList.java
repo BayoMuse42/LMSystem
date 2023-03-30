@@ -6,14 +6,7 @@ public class CourseList {
     private static CourseList courseList;
     public ArrayList<Course> courses;
 
-<<<<<<< HEAD
-    /**
-     * Constructor
-     */
-    public CourseList() {
-=======
     private CourseList() {
->>>>>>> 72dc240617bf1ed037468cbcf89ee6f6cc8f2ba7
         courses = DataLoader.getCourses();
     }
     
@@ -59,12 +52,14 @@ public class CourseList {
         
     }
 
-    /**
-     * 
-     * @return ArrayList of courses
-     */
-    public ArrayList<Course> getCourses() {
-        return this.courses;
+    public ArrayList<Course> getCourses(UUID userID) {
+        ArrayList<Course> userCourses = new ArrayList<Course>();
+        for (Course c : courses) {
+            if(c.getUserID().equals(userID) || c.getTeacher().equals(userID))
+                userCourses.add(c);
+            
+        }
+        return userCourses;
     }
 
     /**

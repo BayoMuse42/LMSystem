@@ -65,7 +65,7 @@ public abstract class User {
      * @return
      */
     public ArrayList<Course> getCourses(){
-        return cList.getCourses();
+        return cList.getCourses(userID);
     };
 
     /**
