@@ -33,6 +33,7 @@ public class Module {
     public Module(String name, String description){
         this.name = name;
         this.description = description;
+        sections = new ArrayList<Section>();
     }
 
     /**

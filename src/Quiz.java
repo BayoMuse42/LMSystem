@@ -20,7 +20,7 @@ public class Quiz {
      * @param potentialAnswer
      * @param answer
      */
-    public void addQuestion(String ask, String[] potentialAnswer, int answer) {
+    public void addQuestion(String ask, ArrayList<String> potentialAnswer, int answer) {
         Question question = new Question(ask, answer, potentialAnswer);
         questions.add(question);
     }
@@ -57,11 +57,7 @@ public class Quiz {
         this.quizResult = quizResult;
     }
 
-    /**
-     * returns pringtable potential answers
-     * @return
-     */
-    public String[] getPotentialAnswers(){
+    public ArrayList<String> getPotentialAnswers(){
         for (int k = 0; k < questions.size(); k++){
             return questions.get(k).getPotentialAnswers();
         };
