@@ -1,5 +1,6 @@
 package src;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Question {
     protected String ask;
@@ -36,5 +37,11 @@ public class Question {
 
     public String[] getPotentialAnswers(){
         return potentialAnswers;
+    }
+
+    @Override
+    public String toString() {
+        return "Question [ask=" + ask + ", answer=" + answer + ", potentialAnswers=" + Arrays.toString(potentialAnswers)
+                + ", response=" + response + "]";
     }
 }
