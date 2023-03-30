@@ -7,14 +7,32 @@ public class Student extends User{
     private int skill;
     private ArrayList<Double> grades;
 
+    /**
+     * constructor
+     * @param email
+     * @param username
+     * @param password
+     * @param firstName
+     * @param lastName
+     */
     public Student(String email, String username, String password, String firstName, String lastName){
         super(email, username, password, firstName, lastName, "student");
     }
 
+    /**
+     * overloaded constructor
+     * @param email
+     * @param username
+     * @param password
+     * @param firstName
+     * @param lastName
+     * @param userID
+     */
     public Student(String email, String username, String password, String firstName, String lastName, UUID userID){
         super(email, username, password, firstName, lastName, userID, "student");
     }
 
+    /** */
     public Course getCourses(String name){
         return super.getCourses(name);
 
