@@ -12,57 +12,103 @@ public class Module {
     private ArrayList<Section> sections;
     private boolean completeFlag;
 
+    /**
+     * 
+     * @param name
+     * @param description
+     * Constructor takes name and description
+     */
     public Module(String name, String description){
         this.name = name;
         this.description = description;
     }
 
+    /**
+     * 
+     * @param name
+     * @param content
+     * Creates a section and adds it to arraylist of sections 
+     */
     public void createSection(String name, String content){
         sections.add(new Section(name, content));
     }
 
+    /**
+     * 
+     * @return Module name
+     */
     public String getName(){
         return this.name;
-
     }
 
+    /**
+     * 
+     * @return String of module content
+     */
     public String getContent(){
         for (Section s: sections){
             return s.getContent();
         }
-        
         return null;
     }
 
-    public Object setName(String name){
-            return this.setName(name);
+    /**
+     * 
+     * @param name
+     * Changes module name 
+     */
+    public void setName(String name){
+        this.name = name;
     }
 
-    public Object setContent(String message){
-            return this.setContent(message);
-    }
-
+    /**
+     * 
+     * @return boolean
+     * Checks if module is complete
+     */
     public boolean isComplete(){
         return completeFlag;
     }
 
+    /**
+     * 
+     * @param b
+     * Sets module completion
+     */
     public void setComplete(boolean b) {
         this.completeFlag = b;
     }
 
+    /**
+     * 
+     * @return double QuizResult
+     */
     public double getQuizResult(){
         return quizResult;
 
     }
 
+    /**
+     * 
+     * @return String description of module
+     */
     public String getDescription(){
         return this.description;
     }
 
+    /**
+     * 
+     * @return quiz for module
+     */
     public Quiz getQuiz(){
         return this.quiz;
     }
 
+    /**
+     * 
+     * @param name
+     * @return Section matches name
+     */
     public Section getSection(String name){
         for (Section s: this.sections){
             if (s.getName().equals(name))
@@ -71,14 +117,26 @@ public class Module {
         return null;
     }
 
+    /**
+     * 
+     * @return arraylist of sections
+     */
     public ArrayList<Section> getSections() {
         return this.sections;
     }
 
+    /**
+     * 
+     * @param secName
+     * Removes section based on name
+     */
     public void removeSection(String secName) {
         sections.remove(getSection(secName));
     }
 
+    /**
+     * Prints content of module out to text file
+     */
     public void printContent() {
         try {
             FileWriter modWriter = new FileWriter(name + ".txt");
@@ -95,7 +153,7 @@ public class Module {
     }
 
     public String toString() {
-        return "Name: " + name + " Description: " + description + " Quiz Result:" + quizResult + " Is the course complete?: " + completeFlag;
+        return "Name: " + name + "\nDescription: " + description + "\nQuiz Result:" + quizResult + "\nIs the course complete?: " + completeFlag;
     }
     
 }
