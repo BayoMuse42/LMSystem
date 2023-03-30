@@ -14,6 +14,14 @@ public class Section {
         this.name = name;
         this.content = content;
     }
+
+    public void setContent(String content){
+        this.content = content;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
     
     /**
      * gets section content
