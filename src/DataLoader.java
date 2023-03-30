@@ -95,6 +95,7 @@ public class DataLoader extends DataConstants {
                         }
                         
                         quiz.add(new Quiz(quizQuestions));
+                        quiz.get(0).setQuizResult(((Long)quizJSON.get(QUIZ_RESULT)).doubleValue());
                     }
 
                     //make a module
@@ -123,7 +124,7 @@ public class DataLoader extends DataConstants {
                     JSONArray jsonReply = (JSONArray)commentJSON.get(REPLY);
                     for(int b = 0; b < jsonReply.size(); b++) {
                         JSONObject replyJSON = (JSONObject)jsonReply.get(b);
-                        UUID userIDR = UUID.fromString((String)replyJSON.get(USERID));
+                        UUID userIDR = UUID.fromString((String)replyJSON.get(USER_ID));
                         String messageR = (String)replyJSON.get(MESSAGE);
                         replyComments.add(new Comment(userIDR, messageR));
                     }
@@ -151,12 +152,11 @@ public class DataLoader extends DataConstants {
                         endQuizQuestions.add(new Question(ask, answer, potentialAnswers));
                     }
                     quiz.add(new Quiz(endQuizQuestions));
+                    quiz.get(0).setQuizResult(((Long)endQuizJSON.get(QUIZ_RESULT)).doubleValue());
                 }
 
                 UUID courseID = UUID.fromString((String)coursesJSON.get(COURSE_ID));
                 UUID userID = UUID.fromString((String)coursesJSON.get(USER_ID));
-
-                System.out.println("add course");
 
                 courses.add(new Course(teacher, difficulty, name, modules, comments, quiz.get(0), courseID, userID));
             }

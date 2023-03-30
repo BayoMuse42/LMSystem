@@ -22,7 +22,7 @@
             "USER_ID":"2b2bc859-32da-4de9-a089-2e8d40fe576b",
             "MESSAGE": "This was short",
             "REPLY": [{
-                "USERID":"c6deaf22-5c2f-45a3-b9ef-5f2215e9c7cb",
+                "USER_ID":"c6deaf22-5c2f-45a3-b9ef-5f2215e9c7cb",
                 "MESSAGE": "I agree"}]
             
         }],
