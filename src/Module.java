@@ -18,6 +18,19 @@ public class Module {
      * @param description
      * Constructor takes name and description
      */
+    public Module(String name, String description, Quiz quiz){
+        this.name = name;
+        this.description = description;
+        this.quiz = quiz;
+        this.sections = new ArrayList<Section>();
+    }
+
+    /**
+     * 
+     * @param name
+     * @param description
+     * Constructor takes name and description
+     */
     public Module(String name, String description){
         this.name = name;
         this.description = description;
@@ -103,6 +116,10 @@ public class Module {
      */
     public Quiz getQuiz(){
         return this.quiz;
+    }
+
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
     }
 
     /**

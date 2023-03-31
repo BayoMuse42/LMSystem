@@ -32,7 +32,7 @@
                 "ANSWER": 1,
                 "POTENTIAL_ANSWERS": ["False", "True", "Maybe", "Neither"]
             }],
-            "QUIZRESULT": 100.0
+            "QUIZ_RESULT": 100.0
         }],
         "COURSE_ID": "ef498a14-2fbc-42fb-b21d-58c6d682052d",
         "USER_ID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
@@ -49,7 +49,7 @@
                 "ANSWER": 1,
                 "POTENTIAL_ANSWERS": ["A bean", "A variable", "A hex value", "A taxonomy"]
             }],
-            "QUIZRESULT": 100.0
+            "QUIZ_RESULT": 100.0
         }], 
         "SECTIONS": [{
             "NAME": "Boolean",
@@ -68,7 +68,7 @@
                 "ANSWER": 1,
                 "POTENTIAL_ANSWERS": ["False", "True", "Maybe", "Neither"]
             }],
-            "QUIZRESULT": 100.0
+            "QUIZ_RESULT": 100.0
             }],
         "COURSE_ID": "6727e46d-ccc2-436e-b9f8-d8757a33a102",
         "USER_ID": "4c88bb74-3395-403f-91b8-824b5e09b21f"

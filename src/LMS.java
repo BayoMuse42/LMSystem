@@ -162,7 +162,7 @@ public class LMS {
         FileWriter certWriter = new FileWriter("Certificate.txt");
         certWriter.write("---- Certificate of Completion ----\n");
         certWriter.write("This certifies that\n");
-        certWriter.write(currentUser.getFirstName() + currentUser.getLastName() + "\n");
+        certWriter.write(currentUser.getFirstName() + " " + currentUser.getLastName() + "\n");
         certWriter.write("Has completed " + courseName + "\n");
         certWriter.close();
         System.out.println("Certificate successfully created!");

@@ -85,7 +85,7 @@ public class DataLoader extends DataConstants {
                             int answer = ((Long)questionJSON.get(ANSWER)).intValue();
                             ArrayList<String> potentialAnswers = new ArrayList<String>();
                             JSONArray jsonPotAns = (JSONArray)questionJSON.get(POTENTIAL_ANSWERS);
-                            for(int c = 0; c < jsonPotAns.size() - 1; c++) {
+                            for(int c = 0; c < jsonPotAns.size(); c++) {
                                 //JSONObject potAnsJSON = (JSONObject)jsonPotAns.get(c);
                                 //String potAns = (String)potAnsJSON
                                 potentialAnswers.add((String)jsonPotAns.get(c));
@@ -95,11 +95,11 @@ public class DataLoader extends DataConstants {
                         }
                         
                         quiz.add(new Quiz(quizQuestions));
-                        quiz.get(0).setQuizResult(((Long)quizJSON.get(QUIZ_RESULT)).doubleValue());
+                        quiz.get(0).setQuizResult((Double)quizJSON.get(QUIZ_RESULT));
                     }
 
                     //make a module
-                    Module module = new Module(nameModule, description);
+                    Module module = new Module(nameModule, description, quiz.get(0));
 
                     JSONArray jsonSection = (JSONArray)moduleJSON.get(SECTIONS);
                     for(int b = 0; b < jsonSection.size(); b++) {
@@ -145,14 +145,14 @@ public class DataLoader extends DataConstants {
                         int answer = ((Long)questionJSON.get(ANSWER)).intValue();
                         ArrayList<String> potentialAnswers = new ArrayList<String>();
                         JSONArray jsonPotAnsEnd = (JSONArray)questionJSON.get(POTENTIAL_ANSWERS);
-                        for(int b = 0; b < jsonPotAnsEnd.size() - 1; b++) {
+                        for(int b = 0; b < jsonPotAnsEnd.size(); b++) {
                             potentialAnswers.add((String)jsonPotAnsEnd.get(b));
                         }
                         //String[] potentialAnswers = (String[])questionJSON.get(a);
                         endQuizQuestions.add(new Question(ask, answer, potentialAnswers));
                     }
                     quiz.add(new Quiz(endQuizQuestions));
-                    quiz.get(0).setQuizResult(((Long)endQuizJSON.get(QUIZ_RESULT)).doubleValue());
+                    quiz.get(0).setQuizResult((Double)endQuizJSON.get(QUIZ_RESULT));
                 }
 
                 UUID courseID = UUID.fromString((String)coursesJSON.get(COURSE_ID));
