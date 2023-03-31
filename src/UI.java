@@ -424,7 +424,7 @@ public class UI {
         case 1:
           System.out.println("Which module would you like to take?");
           String mInput = getInput();
-          if(currentCourse.getModule(mInput).getQuizResult() > 80) {
+          if(currentCourse.getModule(mInput).isComplete()) {
             System.out.println("This is a module that you have already completed.\n" +
             "Would you like to review this module?\nyes or no");
             if(getInput().equals("yes"))
@@ -597,6 +597,7 @@ public class UI {
 
     menu.add("Start first section");
     menu.add("Print module content");
+    menu.add("View comments");
     menu.add("Back");
 
     System.out.println("| " + moduleName + " |");
@@ -620,6 +621,9 @@ public class UI {
         lms.printModule();
         break;
       case 3:
+        commentMenu(lms.getCurrentCourse().getName());
+        break;
+      case 4:
         courseMenuStudent(lms.getCurrentCourse().getName());
         break;
       default:
@@ -638,6 +642,7 @@ public class UI {
 
     menu.add("View section");
     menu.add("View end-of-module quiz");
+    menu.add("View comments");
     menu.add("Back");
 
     System.out.println("| " + moduleName + " |");
@@ -662,6 +667,9 @@ public class UI {
         quizMenuTeacher(moduleName, false);
         break;
       case 3:
+        commentMenu(lms.getCurrentCourse().getName());
+        break;
+      case 4:
         courseMenuTeacher(lms.getCurrentCourse().getName());
         break;
       default:
@@ -916,10 +924,10 @@ public class UI {
 
       System.out.println(currentQuestion.ask);
 
-      for(int j = 0; j < currentQuestion.getPotentialAnswers().length; j++)
-        System.out.println((j+1) + currentQuestion.getPotentialAnswers()[j]);
+      for(int j = 0; j < currentQuestion.getPotentialAnswers().size(); j++)
+        System.out.println((j+1) + currentQuestion.getPotentialAnswers().get(j));
 
-      int answer = getIntInput(currentQuestion.getPotentialAnswers().length);
+      int answer = getIntInput(currentQuestion.getPotentialAnswers().size());
 
       if(currentQuestion.isCorrect(answer)) {
         numCorrect++;
@@ -977,10 +985,10 @@ public class UI {
 
       System.out.println(currentQuestion.ask);
 
-      for(int j = 0; j < currentQuestion.getPotentialAnswers().length; j++)
-        System.out.println((j+1) + currentQuestion.getPotentialAnswers()[j]);
+      for(int j = 0; j < currentQuestion.getPotentialAnswers().size(); j++)
+        System.out.println((j+1) + currentQuestion.getPotentialAnswers().get(j));
 
-      System.out.println("Correct answer: " + currentQuestion.getPotentialAnswers()[currentQuestion.getAnswer()]);
+      System.out.println("Correct answer: " + currentQuestion.getPotentialAnswers().get(currentQuestion.getAnswer()));
       
       System.out.println("Press any key to continue");
       scanner.nextLine();
@@ -1011,10 +1019,10 @@ public class UI {
 
     System.out.println("How many answer choices are there?");
     int numofQuestions = getIntInput(4);
-    String[] answers = new String[numofQuestions];
-    for(int i = 0; i < answers.length; i++) {
+    ArrayList<String> answers = new ArrayList<String>();
+    for(int i = 0; i < answers.size(); i++) {
       System.out.println("Enter answer choice " + i+1);
-      answers[i] = getInput();
+      answers.add(getInput());
     }
     System.out.println("Which answer is the correct answer?");
     int correct = getIntInput(numofQuestions);
@@ -1049,9 +1057,9 @@ public class UI {
 
       System.out.println(currentQuestion.ask);
 
-      for(int j = 0; j < currentQuestion.getPotentialAnswers().length; j++)
-        System.out.println((j+1) + currentQuestion.getPotentialAnswers()[j]);
-      System.out.println("Correct answer: " + currentQuestion.getPotentialAnswers()[currentQuestion.getAnswer()]);
+      for(int j = 0; j < currentQuestion.getPotentialAnswers().size(); j++)
+        System.out.println((j+1) + currentQuestion.getPotentialAnswers().get(j));
+      System.out.println("Correct answer: " + currentQuestion.getPotentialAnswers().get(currentQuestion.getAnswer()));
     }
 
     printMenu();
@@ -1067,10 +1075,10 @@ public class UI {
       
           System.out.println("How many answer choices are there?");
           int numofQuestions = getIntInput(4);
-          String[] answers = new String[numofQuestions];
-          for(int i = 0; i < answers.length; i++) {
+          ArrayList<String> answers = new ArrayList<String>();
+          for(int i = 0; i < answers.size(); i++) {
             System.out.println("Enter answer choice " + i+1);
-            answers[i] = getInput();
+            answers.add(getInput());
           }
           System.out.println("Which answer is the correct answer?");
           int correct = getIntInput(numofQuestions);
