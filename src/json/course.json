@@ -2,10 +2,10 @@
     {
         "TEACHER": "99de1e37-4150-450a-bae6-989e366c2235",
         "DIFFICULTY": 1,
-        "NAME": "JavaScript for Beginners",
+        "NAME": "Java Boolean Tutorial",
         "MODULES": [
-            {"NAME": "Intro to JavaScript", 
-            "DESCRIPTION": "A short JavaScript tutorial", 
+            {"NAME": "Java Tutorial", 
+            "DESCRIPTION": "A short java tutorial", 
             "QUIZ": [{
                 "QUESTION" : [{
                     "ASK": "What is a boolean?", 
@@ -35,8 +35,43 @@
             "QUIZ_RESULT": 100.0
         }],
         "COURSE_ID": "ef498a14-2fbc-42fb-b21d-58c6d682052d",
-        "USER_ID": "f5f076f9-e4cd-4716-a8df-f6e252e346f0"
+        "USER_ID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
         
+    },{
+        "TEACHER": "99de1e37-4150-450a-bae6-989e366c2235",
+        "DIFFICULTY": 1,
+        "NAME": "Python Boolean Tutorial",
+        "MODULES": [{"NAME": "Python Tutorial",
+        "DESCRIPTION": "A short python tutorial",
+        "QUIZ": [{
+            "QUESTION": [{
+                "ASK": "What is a boolean?",
+                "ANSWER": 1,
+                "POTENTIAL_ANSWERS": ["A bean", "A variable", "A hex value", "A taxonomy"]
+            }],
+            "QUIZ_RESULT": 100.0
+        }], 
+        "SECTIONS": [{
+            "NAME": "Boolean",
+            "CONTENT": "Boolena is a variable"}] 
+        }],
+        "COMMENTS": [{
+            "USER_ID":"cb839ed7-d417-4911-bcfc-8423505cfe5e",
+            "MESSAGE": "This was aslo short",
+            "REPLY": [{
+                "USER_ID":"0accd7f1-098d-4f69-bf02-f8675160a199",
+                "MESSAGE": "I also agree"}]
+        }],
+        "END_OF_COURSE_QUIZ": [{
+            "QUESTION": [{
+                "ASK": "Is a boolean a variable?",
+                "ANSWER": 1,
+                "POTENTIAL_ANSWERS": ["False", "True", "Maybe", "Neither"]
+            }],
+            "QUIZ_RESULT": 100.0
+            }],
+        "COURSE_ID": "6727e46d-ccc2-436e-b9f8-d8757a33a102",
+        "USER_ID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
     }
         
 ]
