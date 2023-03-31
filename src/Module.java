@@ -22,6 +22,7 @@ public class Module {
         this.name = name;
         this.description = description;
         this.quiz = quiz;
+        this.sections = new ArrayList<Section>();
     }
 
     /**

@@ -7,7 +7,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;;
 
 public class DataLoader extends DataConstants {
-    public static void main(String[] args) {
+    /* public static void main(String[] args) {
         ArrayList<User> testUsers = getUsers();
         for(User u : testUsers) {
             System.out.println(u.toString());
@@ -16,7 +16,7 @@ public class DataLoader extends DataConstants {
         for(Course c : testCourses) {
             System.out.println(c.toString());
         }
-    } 
+     } */
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
         try {
@@ -85,7 +85,7 @@ public class DataLoader extends DataConstants {
                             int answer = ((Long)questionJSON.get(ANSWER)).intValue();
                             ArrayList<String> potentialAnswers = new ArrayList<String>();
                             JSONArray jsonPotAns = (JSONArray)questionJSON.get(POTENTIAL_ANSWERS);
-                            for(int c = 0; c < jsonPotAns.size() - 1; c++) {
+                            for(int c = 0; c < jsonPotAns.size(); c++) {
                                 //JSONObject potAnsJSON = (JSONObject)jsonPotAns.get(c);
                                 //String potAns = (String)potAnsJSON
                                 potentialAnswers.add((String)jsonPotAns.get(c));
@@ -95,10 +95,11 @@ public class DataLoader extends DataConstants {
                         }
                         
                         quiz.add(new Quiz(quizQuestions));
+                        quiz.get(0).setQuizResult((Double)quizJSON.get(QUIZ_RESULT));
                     }
 
                     //make a module
-                    Module module = new Module(nameModule, description);
+                    Module module = new Module(nameModule, description, quiz.get(0));
 
                     JSONArray jsonSection = (JSONArray)moduleJSON.get(SECTIONS);
                     for(int b = 0; b < jsonSection.size(); b++) {
@@ -123,7 +124,7 @@ public class DataLoader extends DataConstants {
                     JSONArray jsonReply = (JSONArray)commentJSON.get(REPLY);
                     for(int b = 0; b < jsonReply.size(); b++) {
                         JSONObject replyJSON = (JSONObject)jsonReply.get(b);
-                        UUID userIDR = UUID.fromString((String)replyJSON.get(USERID));
+                        UUID userIDR = UUID.fromString((String)replyJSON.get(USER_ID));
                         String messageR = (String)replyJSON.get(MESSAGE);
                         replyComments.add(new Comment(userIDR, messageR));
                     }
@@ -144,19 +145,18 @@ public class DataLoader extends DataConstants {
                         int answer = ((Long)questionJSON.get(ANSWER)).intValue();
                         ArrayList<String> potentialAnswers = new ArrayList<String>();
                         JSONArray jsonPotAnsEnd = (JSONArray)questionJSON.get(POTENTIAL_ANSWERS);
-                        for(int b = 0; b < jsonPotAnsEnd.size() - 1; b++) {
+                        for(int b = 0; b < jsonPotAnsEnd.size(); b++) {
                             potentialAnswers.add((String)jsonPotAnsEnd.get(b));
                         }
                         //String[] potentialAnswers = (String[])questionJSON.get(a);
                         endQuizQuestions.add(new Question(ask, answer, potentialAnswers));
                     }
                     quiz.add(new Quiz(endQuizQuestions));
+                    quiz.get(0).setQuizResult((Double)endQuizJSON.get(QUIZ_RESULT));
                 }
 
                 UUID courseID = UUID.fromString((String)coursesJSON.get(COURSE_ID));
                 UUID userID = UUID.fromString((String)coursesJSON.get(USER_ID));
-
-                System.out.println("add course");
 
                 courses.add(new Course(teacher, difficulty, name, modules, comments, quiz.get(0), courseID, userID));
             }

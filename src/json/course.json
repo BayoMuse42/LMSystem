@@ -22,7 +22,7 @@
             "USER_ID":"2b2bc859-32da-4de9-a089-2e8d40fe576b",
             "MESSAGE": "This was short",
             "REPLY": [{
-                "USERID":"c6deaf22-5c2f-45a3-b9ef-5f2215e9c7cb",
+                "USER_ID":"c6deaf22-5c2f-45a3-b9ef-5f2215e9c7cb",
                 "MESSAGE": "I agree"}]
             
         }],
@@ -32,7 +32,7 @@
                 "ANSWER": 1,
                 "POTENTIAL_ANSWERS": ["False", "True", "Maybe", "Neither"]
             }],
-            "QUIZRESULT": 100.0
+            "QUIZ_RESULT": 100.0
         }],
         "COURSE_ID": "ef498a14-2fbc-42fb-b21d-58c6d682052d",
         "USER_ID": "f5f076f9-e4cd-4716-a8df-f6e252e346f0"

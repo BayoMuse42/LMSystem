@@ -6,6 +6,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants {
+	public static void main(String[] args) {
+		
+	}
     public static void saveUsers() {
 		UserList users = UserList.getInstance();
 		ArrayList<User> userList = users.getUsers();
@@ -80,7 +83,11 @@ public class DataWriter extends DataConstants {
 			for(Question q : m.getQuiz().getQuestions()) {
 				questionJSON.put(ASK, q.getAsk());
 				questionJSON.put(ANSWER, q.getAnswer());
-				questionJSON.put(POTENTIAL_ANSWERS, q.getPotentialAnswers());
+				JSONArray potAnsJSON = new JSONArray();
+				for(String pa : q.getPotentialAnswers()) {
+					potAnsJSON.add(pa);
+				}
+				questionJSON.put(POTENTIAL_ANSWERS, potAnsJSON);
 				moduleQuizQuestions.add(questionJSON);
 			}
 			quizJSON.put(QUESTION, questionJSON);
@@ -124,7 +131,11 @@ public class DataWriter extends DataConstants {
 		for(Question q : course.getEndOfCourseQuiz().getQuestions()) {
 			endQuestionsJSON.put(ASK, q.getAsk());
 			endQuestionsJSON.put(ANSWER, q.getAnswer());
-			endQuestionsJSON.put(POTENTIAL_ANSWERS, q.getPotentialAnswers());
+			JSONArray potAnsJSON = new JSONArray();
+			for(String pa : q.getPotentialAnswers()) {
+				potAnsJSON.add(pa);
+			}
+			endQuestionsJSON.put(POTENTIAL_ANSWERS, potAnsJSON);
 			endQuizQuestions.add(endQuestionsJSON);
 		}
 		endQuizJSON.put(QUESTION, endQuizQuestions);
