@@ -16,7 +16,7 @@
                 }],
             "SECTIONS": [{
                 "NAME": "Boolean", 
-                "CONTENT": "Boolean is a variable"}]
+                "CONTENT": "Boolena is a variable"}]
         }],
         "COMMENTS": [{
             "USER_ID":"2b2bc859-32da-4de9-a089-2e8d40fe576b",
@@ -73,5 +73,4 @@
         "COURSE_ID": "6727e46d-ccc2-436e-b9f8-d8757a33a102",
         "USER_ID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
     }
-        
 ]
