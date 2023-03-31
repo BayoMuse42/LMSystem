@@ -15,5 +15,29 @@
         "LAST_NAME": "Ent",
         "TYPE": "student",
         "USER_ID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
-    }
+    },{
+        "EMAIL": "wisdomjs@mailbox.sc.edu",
+        "USERNAME": "wisdomsearchtree",
+        "PASSWORD": "MyDrisPepper#",
+        "FIRST_NAME": "John",
+        "LAST_NAME": "Wisdom",
+        "TYPE": "teacher",
+        "USER_ID": "9f32d068-f98e-4e8a-8c55-453244f4bee5"
+    },{
+	    "EMAIL": "jlsolace24@gmail.com",
+        "USERNAME": "MockingCode24",
+        "PASSWORD": "Mockingb!rd",
+        "FIRST_NAME": "Scout",
+        "LAST_NAME": "Solace",
+        "TYPE": "student",
+        "USER_ID": "f5f076f9-e4cd-4716-a8df-f6e252e346f0"
+	},{	    
+		"EMAIL": "AAnderson2004@gmail.com",
+        "USERNAME": "AAnders04",
+        "PASSWORD": "SecurePassw0rd",
+        "FIRST_NAME": "Allie",
+        "LAST_NAME": "Anderson",
+        "TYPE": "student",
+        "USER_ID": "bc096b41-48a9-409d-912b-c7d8ddf81533"
+		}
 ]
