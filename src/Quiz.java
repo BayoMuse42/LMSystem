@@ -69,7 +69,8 @@ public class Quiz {
      * @param numCorrect
      */
     public void calcQuizResult(int numCorrect) {
-        quizResult = (numCorrect/questions.size())*100;
+        quizResult = (double)numCorrect/(double)questions.size();
+        quizResult = (quizResult)*100;
     }
 
     /**

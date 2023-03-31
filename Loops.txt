@@ -1,0 +1,10 @@
+Loop Basics
+Loops are structures that repeat a block of code within them until a condition is met. To break out of a for loop, the condition that was set must be met, or the break statement must be called in the block of code.
+For Loops
+For loops are a loop that iterates over a sequence.
+example of the syntax of a for loop:
+array = [1, 5, 4]
+for x in array
+  print(x)
+While Loops
+A while loop is a loop that runs a block of code while a certain condition is true

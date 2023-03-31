@@ -81,6 +81,10 @@ public class Module {
      * Checks if module is complete
      */
     public boolean isComplete(){
+        if(quiz.getQuizResult() >= 80) {
+            completeFlag = true;
+        }
+
         return completeFlag;
     }
 

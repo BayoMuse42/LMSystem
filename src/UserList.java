@@ -39,7 +39,7 @@ public class UserList {
 
     public User getUser(UUID userID) {
         for(User user : users) {
-            if(hasUser(userID)) {
+            if(user.getUserID().equals(userID)) {
                 return user;
             }
         }

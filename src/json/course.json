@@ -2,17 +2,17 @@
     {
         "TEACHER": "99de1e37-4150-450a-bae6-989e366c2235",
         "DIFFICULTY": 1,
-        "NAME": "Java Boolean Tutorial",
+        "NAME": "JavaScript Basics",
         "MODULES": [
             {"NAME": "Java Tutorial", 
             "DESCRIPTION": "A short java tutorial", 
             "QUIZ": [{
-                "QUESTION" : [{
+                "QUESTION": [{
                     "ASK": "What is a boolean?", 
                     "ANSWER": 1, 
                     "POTENTIAL_ANSWERS": ["A bean", "A variable", "A hex Value", "A taxonomy"]
                     }],
-                "QUIZ_RESULT" : 100.0
+                "QUIZ_RESULT": 100.0
                 }],
             "SECTIONS": [{
                 "NAME": "Boolean", 
@@ -35,42 +35,175 @@
             "QUIZ_RESULT": 100.0
         }],
         "COURSE_ID": "ef498a14-2fbc-42fb-b21d-58c6d682052d",
-        "USER_ID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
+        "USER_ID": "f5f076f9-e4cd-4716-a8df-f6e252e346f0"
         
-    },{
-        "TEACHER": "99de1e37-4150-450a-bae6-989e366c2235",
-        "DIFFICULTY": 1,
-        "NAME": "Python Boolean Tutorial",
-        "MODULES": [{"NAME": "Python Tutorial",
-        "DESCRIPTION": "A short python tutorial",
+    },{ 
+        "TEACHER": "9f32d068-f98e-4e8a-8c55-453244f4bee5",
+        "DIFFICULTY": 2,
+        "NAME": "Python Boot Camp",
+        "MODULES": [{"NAME": "Basic Syntax", 
+        "DESCRIPTION": " ", 
         "QUIZ": [{
-            "QUESTION": [{
-                "ASK": "What is a boolean?",
-                "ANSWER": 1,
-                "POTENTIAL_ANSWERS": ["A bean", "A variable", "A hex value", "A taxonomy"]
+                "QUESTION": [{
+                    "ASK": "What does Python use to indicate a block of code?", 
+                    "ANSWER": 2, 
+                    "POTENTIAL_ANSWERS": ["Spaces", "Indents", "Brackets", "Parentheses"]
+                }],
+                "QUIZ_RESULT": 100.0
             }],
-            "QUIZ_RESULT": 100.0
-        }], 
-        "SECTIONS": [{
-            "NAME": "Boolean",
-            "CONTENT": "Boolena is a variable"}] 
+            "SECTIONS": [{
+                "NAME": "Indentation", 
+                "CONTENT": "Placeholder"}]
+        },{"NAME": "Operators", 
+            "DESCRIPTION": "This module goes over the different operators that can be used in Python", 
+            "QUIZ": [{
+                "QUESTION": [{
+                    "ASK": "Placeholder", 
+                    "ANSWER": 1, 
+                    "POTENTIAL_ANSWERS": ["Placeholder", "Placeholder", "Placeholder", "Placeholder"]
+                    }],
+                "QUIZ_RESULT": 100.0
+                }],
+            "SECTIONS": [{
+                "NAME": "Placeholder", 
+                "CONTENT": "Placeholder"}]
+        },{"NAME": "Data Types", 
+            "DESCRIPTION": "This module goes over the different data types of Python", 
+            "QUIZ": [{
+                "QUESTION": [{
+                    "ASK": "Placeholder", 
+                    "ANSWER": 1, 
+                    "POTENTIAL_ANSWERS": ["Placeholder", "Placeholder", "Placeholder", "Placeholder"]
+                    }],
+                "QUIZ_RESULT": 100.0
+                }],
+            "SECTIONS": [{
+                "NAME": "Placeholder", 
+                "CONTENT": "Placeholder"}]
+        },{"NAME": "Variables", 
+            "DESCRIPTION": "This module goes over how to declare and use variables in Python", 
+            "QUIZ": [{
+                "QUESTION": [{
+                    "ASK": "Placeholder", 
+                    "ANSWER": 1, 
+                    "POTENTIAL_ANSWERS": ["Placeholder", "Placeholder", "Placeholder", "Placeholder"]
+                    }],
+                "QUIZ_RESULT": 100.0
+                }],
+            "SECTIONS": [{
+                "NAME": "Placeholder", 
+                "CONTENT": "Placeholder"}]
+        },{"NAME": "Type Casting", 
+            "DESCRIPTION": "This module goes over what type casting is and how to use it in Python", 
+            "QUIZ": [{
+                "QUESTION": [{
+                    "ASK": "Placeholder", 
+                    "ANSWER": 1, 
+                    "POTENTIAL_ANSWERS": ["Placeholder", "Placeholder", "Placeholder", "Placeholder"]
+                    }],
+                "QUIZ_RESULT": 100.0
+                }],
+            "SECTIONS": [{
+                "NAME": "Placeholder", 
+                "CONTENT": "Placeholder"}]
+        },{"NAME": "Conditionals", 
+            "DESCRIPTION": "This module will cover different conditional statements in Python such as if-then and switch statements", 
+            "QUIZ": [{
+                "QUESTION": [{
+                    "ASK": " ", 
+                    "ANSWER": 1, 
+                    "POTENTIAL_ANSWERS": ["Placeholder", "Placeholder", "Placeholder", "Placeholder"]
+                    }],
+                "QUIZ_RESULT": 100.0
+                }],
+            "SECTIONS": [{
+                "NAME": "Placeholder", 
+                "CONTENT": "Placeholder"}]
+        },{"NAME": "Loops", 
+            "DESCRIPTION": "This module will cover different types of loops used in Python", 
+            "QUIZ": [{
+                "QUESTION": [{
+                    "ASK": "What is the proper syntax for the start of a for loop?", 
+                    "ANSWER": 3, 
+                    "POTENTIAL_ANSWERS": ["for(int i = 0;i < x; i++)", "for(String x : x)", "for x in array:", "for int i equals 0, i < x, i++"]
+                    },{
+                    "ASK": "What is the purporse of the range() function?", 
+                    "ANSWER": 4, 
+                    "POTENTIAL_ANSWERS": ["print", "Take in a set of numbers", "Goes to the specified number and deletes the object at that number's index", "returns a sequence of numbers and increments by one and ends at a specified number"]
+                    },{
+                    "ASK": "What is the statement used to stop a loop even if it's condition is true?", 
+                    "ANSWER": 1, 
+                    "POTENTIAL_ANSWERS": ["break", "continue", "stop", "delete"]
+                    },{
+                        "ASK": "True or False: you can use an else statement with a while loop", 
+                        "ANSWER": 1, 
+                        "POTENTIAL_ANSWERS": ["True", "False"]
+                        }],
+                "QUIZ_RESULT": 0.0
+                }],
+            "SECTIONS": [{
+                "NAME": "Loop Basics", 
+                "CONTENT": "Loops are structures that repeat a block of code within them until a condition is met. To break out of a for loop, the condition that was set must be met, or the break statement must be called in the block of code."},{
+                "NAME": "For Loops", 
+                "CONTENT": "For loops are a loop that iterates over a sequence.\nexample of the syntax of a for loop:\narray = [1, 5, 4]\nfor x in array\n  print(x)"},{
+                "NAME": "While Loops",
+                "CONTENT": "A while loop is a loop that runs a block of code while a certain condition is true"}]
+        },{"NAME": "Functions", 
+            "DESCRIPTION": "The module will cover how to use functions in Python", 
+            "QUIZ": [{
+                "QUESTION": [{
+                    "ASK": "Placeholder", 
+                    "ANSWER": 1, 
+                    "POTENTIAL_ANSWERS": ["Placeholder", "Placeholder", "Placeholder", "Placeholder"]
+                    }],
+                "QUIZ_RESULT": 0.0
+                }],
+            "SECTIONS": [{
+                "NAME": "Placeholder", 
+                "CONTENT": "Placeholder"}]
+        },{"NAME": "Arrays", 
+            "DESCRIPTION": "This module will go over how to use arrays in Python", 
+            "QUIZ": [{
+                "QUESTION": [{
+                    "ASK": "Placeholder", 
+                    "ANSWER": 1, 
+                    "POTENTIAL_ANSWERS": ["Placeholder", "Placeholder", "Placeholder", "Placeholder"]
+                    }],
+                "QUIZ_RESULT": 0.0
+                }],
+            "SECTIONS": [{
+                "NAME": "Placeholder", 
+                "CONTENT": "Placeholder"}]
+        },{"NAME": "Classes and Objects", 
+            "DESCRIPTION": "This module will cover what a class is and the basics of object-oriented programming and how it relates to Python", 
+            "QUIZ": [{
+                "QUESTION": [{
+                    "ASK": "Placeholder", 
+                    "ANSWER": 1, 
+                    "POTENTIAL_ANSWERS": ["Placeholder", "Placeholder", "Placeholder", "Placeholder"]
+                    }],
+                "QUIZ_RESULT": 0.0
+                }],
+            "SECTIONS": [{
+                "NAME": "Placeholder", 
+                "CONTENT": "Placeholder"}]
         }],
         "COMMENTS": [{
-            "USER_ID":"cb839ed7-d417-4911-bcfc-8423505cfe5e",
-            "MESSAGE": "This was aslo short",
+            "USER_ID":"bc096b41-48a9-409d-912b-c7d8ddf81533",
+            "MESSAGE": "These are throwing me for a loop...hehehe",
             "REPLY": [{
-                "USER_ID":"0accd7f1-098d-4f69-bf02-f8675160a199",
-                "MESSAGE": "I also agree"}]
+                "USER_ID":"9f32d068-f98e-4e8a-8c55-453244f4bee5",
+                "MESSAGE": "Keep working on it! You'll get it!"}]          
         }],
         "END_OF_COURSE_QUIZ": [{
             "QUESTION": [{
-                "ASK": "Is a boolean a variable?",
+                "ASK": "True or False: Python code ends in a semi-colon",
                 "ANSWER": 1,
-                "POTENTIAL_ANSWERS": ["False", "True", "Maybe", "Neither"]
+                "POTENTIAL_ANSWERS": ["True", "False"]
             }],
-            "QUIZ_RESULT": 100.0
+            "QUIZ_RESULT": 0.0
             }],
-        "COURSE_ID": "6727e46d-ccc2-436e-b9f8-d8757a33a102",
-        "USER_ID": "4c88bb74-3395-403f-91b8-824b5e09b21f"
+        "COURSE_ID": "5ebd213d-813d-4d56-8bf9-abee8267c6d0",
+        "USER_ID": "f5f076f9-e4cd-4716-a8df-f6e252e346f0"
     }
 ]

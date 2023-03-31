@@ -98,6 +98,13 @@ public class Course {
      * @return double representing users progress on course
      */
     public double checkProgress() {
+        int count = 0;
+        for(Module m : modules) {
+            if(m.isComplete()) {
+                count++;
+            }
+            calcProgress(count);
+        }
         return courseProgress;
     }
 
@@ -107,7 +114,8 @@ public class Course {
      * Calculates user progress
      */
     public void calcProgress(int numCorrect) {
-        courseProgress = (numCorrect/modules.size())*100;
+        courseProgress = (double) numCorrect/(double)modules.size();
+        courseProgress = (courseProgress)*100;
     }
 
     /**
@@ -239,7 +247,7 @@ public class Course {
      * @return UUId of user id
      */ 
     public UUID getUserID(){
-        return courseID;
+        return userID;
     }
 
     /**
