@@ -7,17 +7,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;;
 
 public class DataLoader extends DataConstants {
-    /* public static void main(String[] args) {
-        ArrayList<User> testUsers = getUsers();
-        for(User u : testUsers) {
-            System.out.println(u.toString());
-        }
-        ArrayList<Course> testCourses = getCourses();
-        for(Course c : testCourses) {
-            System.out.println(c.toString());
-        }
-     } */
-
      /**
       * Pull data from users.json file and store in ArrayList
       * @return an ArrayList ofusers
