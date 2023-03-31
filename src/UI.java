@@ -336,7 +336,7 @@ public class UI {
         break;
       case 3:
         System.out.println("Type in the name of the course you would like to remove.");
-        System.out.println("WARNING: Removing a course from your lsit will erase your course progress unless you have already completed the course.");
+        System.out.println("WARNING: Removing a course from your list will erase your course progress unless you have already completed the course.");
         lms.deleteCourse(getInput());
         System.out.println("Course deleted");
         scanner.nextLine();

@@ -56,7 +56,7 @@
                 "NAME": "Indentation", 
                 "CONTENT": " "}]
         },{"NAME": "Operators", 
-            "DESCRIPTION": " ", 
+            "DESCRIPTION": "This module goes over the different operators that can be used in Python", 
             "QUIZ": [{
                 "QUESTION" : [{
                     "ASK": " ", 
@@ -69,7 +69,7 @@
                 "NAME": " ", 
                 "CONTENT": " "}]
         },{"NAME": "Data Types", 
-            "DESCRIPTION": "", 
+            "DESCRIPTION": "This module goes over the different data types of Python", 
             "QUIZ": [{
                 "QUESTION" : [{
                     "ASK": " ", 
@@ -82,7 +82,7 @@
                 "NAME": " ", 
                 "CONTENT": " "}]
         },{"NAME": "Variables", 
-            "DESCRIPTION": " ", 
+            "DESCRIPTION": "This module goes over how to declare and use variables in Python", 
             "QUIZ": [{
                 "QUESTION" : [{
                     "ASK": " ", 
@@ -95,7 +95,7 @@
                 "NAME": " ", 
                 "CONTENT": " "}]
         },{"NAME": "Type Casting", 
-            "DESCRIPTION": " ", 
+            "DESCRIPTION": "This module goes over what type casting is and how to use it in Python", 
             "QUIZ": [{
                 "QUESTION" : [{
                     "ASK": " ", 
@@ -108,7 +108,7 @@
                 "NAME": " ", 
                 "CONTENT": " "}]
         },{"NAME": "Conditionals", 
-            "DESCRIPTION": " ", 
+            "DESCRIPTION": "This module will cover different conditional statements in Python such as if-then and switch statements", 
             "QUIZ": [{
                 "QUESTION" : [{
                     "ASK": " ", 
@@ -148,7 +148,7 @@
                 "NAME": "For Loops", 
                 "CONTENT": "For loops are a loop that iterates over a sequence.\nexample of the syntax of a for loop:\narray = [1, 5, 4]\nfor x in array\n  print(x)"}]
         },{"NAME": "Functions", 
-            "DESCRIPTION": " ", 
+            "DESCRIPTION": "The module will cover how to use functions in Python", 
             "QUIZ": [{
                 "QUESTION" : [{
                     "ASK": "", 
@@ -161,7 +161,7 @@
                 "NAME": " ", 
                 "CONTENT": " "}]
         },{"NAME": "Arrays", 
-            "DESCRIPTION": "", 
+            "DESCRIPTION": "This module will go over how to use arrays in Python", 
             "QUIZ": [{
                 "QUESTION" : [{
                     "ASK": "", 
@@ -174,7 +174,7 @@
                 "NAME": " ", 
                 "CONTENT": " "}]
         },{"NAME": "Classes and Objects", 
-            "DESCRIPTION": "", 
+            "DESCRIPTION": "This module will cover what a class is and the basics of object-oriented programming and how it relates to Python", 
             "QUIZ": [{
                 "QUESTION" : [{
                     "ASK": "", 
@@ -197,9 +197,9 @@
         }],
         "END_OF_COURSE_QUIZ": [{
             "QUESTION": [{
-                "ASK": " ",
+                "ASK": "True or False: Python code ends in a semi-colon",
                 "ANSWER": 1,
-                "POTENTIAL_ANSWERS": [" ", " ", " ", " "]
+                "POTENTIAL_ANSWERS": ["True", "False"]
             }],
             "QUIZRESULT": 0.0
         }],
