@@ -4,8 +4,8 @@
         "DIFFICULTY": 1,
         "NAME": "JavaScript for Beginners",
         "MODULES": [
-            {"NAME": "Intro to Java", 
-            "DESCRIPTION": "A short java tutorial", 
+            {"NAME": "Intro to JavaScript", 
+            "DESCRIPTION": "A short JavaScript tutorial", 
             "QUIZ": [{
                 "QUESTION" : [{
                     "ASK": "What is a boolean?", 
@@ -16,7 +16,7 @@
                 }],
             "SECTIONS": [{
                 "NAME": "Boolean", 
-                "CONTENT": "Boolena is a variable"}]
+                "CONTENT": "Boolean is a variable"}]
         }],
         "COMMENTS": [{
             "USER_ID":"2b2bc859-32da-4de9-a089-2e8d40fe576b",
@@ -37,174 +37,6 @@
         "COURSE_ID": "ef498a14-2fbc-42fb-b21d-58c6d682052d",
         "USER_ID": "f5f076f9-e4cd-4716-a8df-f6e252e346f0"
         
-    },{
-        "TEACHER": "9f32d068-f98e-4e8a-8c55-453244f4bee5",
-        "DIFFICULTY": 2,
-        "NAME": "Python Boot Camp",
-        "MODULES": [
-            {"NAME": "Basic Syntax", 
-            "DESCRIPTION": " ", 
-            "QUIZ": [{
-                "QUESTION" : [{
-                    "ASK": "What does Python use to indicate a block of code?", 
-                    "ANSWER": 2, 
-                    "POTENTIAL_ANSWERS": ["Spaces", "Indents", "Brackets", "Parentheses"]
-                    }],
-                "QUIZ_RESULT" : 100.0
-                }],
-            "SECTIONS": [{
-                "NAME": "Indentation", 
-                "CONTENT": " "}]
-        },{"NAME": "Operators", 
-            "DESCRIPTION": "This module goes over the different operators that can be used in Python", 
-            "QUIZ": [{
-                "QUESTION" : [{
-                    "ASK": " ", 
-                    "ANSWER": 1, 
-                    "POTENTIAL_ANSWERS": [" ", " ", " ", " "]
-                    }],
-                "QUIZ_RESULT" : 100.0
-                }],
-            "SECTIONS": [{
-                "NAME": " ", 
-                "CONTENT": " "}]
-        },{"NAME": "Data Types", 
-            "DESCRIPTION": "This module goes over the different data types of Python", 
-            "QUIZ": [{
-                "QUESTION" : [{
-                    "ASK": " ", 
-                    "ANSWER": 1, 
-                    "POTENTIAL_ANSWERS": [" ", " ", " ", " "]
-                    }],
-                "QUIZ_RESULT" : 100.0
-                }],
-            "SECTIONS": [{
-                "NAME": " ", 
-                "CONTENT": " "}]
-        },{"NAME": "Variables", 
-            "DESCRIPTION": "This module goes over how to declare and use variables in Python", 
-            "QUIZ": [{
-                "QUESTION" : [{
-                    "ASK": " ", 
-                    "ANSWER": 1, 
-                    "POTENTIAL_ANSWERS": [" ", " ", " ", " "]
-                    }],
-                "QUIZ_RESULT" : 100.0
-                }],
-            "SECTIONS": [{
-                "NAME": " ", 
-                "CONTENT": " "}]
-        },{"NAME": "Type Casting", 
-            "DESCRIPTION": "This module goes over what type casting is and how to use it in Python", 
-            "QUIZ": [{
-                "QUESTION" : [{
-                    "ASK": " ", 
-                    "ANSWER": 1, 
-                    "POTENTIAL_ANSWERS": [" ", " ", " ", " "]
-                    }],
-                "QUIZ_RESULT" : 100.0
-                }],
-            "SECTIONS": [{
-                "NAME": " ", 
-                "CONTENT": " "}]
-        },{"NAME": "Conditionals", 
-            "DESCRIPTION": "This module will cover different conditional statements in Python such as if-then and switch statements", 
-            "QUIZ": [{
-                "QUESTION" : [{
-                    "ASK": " ", 
-                    "ANSWER": 1, 
-                    "POTENTIAL_ANSWERS": [" ", " ", " ", " "]
-                    }],
-                "QUIZ_RESULT" : 100.0
-                }],
-            "SECTIONS": [{
-                "NAME": " ", 
-                "CONTENT": " "}]
-        },{"NAME": "Loops", 
-            "DESCRIPTION": "This module will cover different types of loops used in Python", 
-            "QUIZ": [{
-                "QUESTION" : [{
-                    "ASK": "What is the proper syntax for the start of a for loop?", 
-                    "ANSWER": 2, 
-                    "POTENTIAL_ANSWERS": ["for(int i = 0;i < x; i++)", "for(String x : x)", "for x in array:", "for int i equals 0, i < x, i++"]
-                    },{
-                    "ASK": "What is the purporse of the range() function?", 
-                    "ANSWER": 3, 
-                    "POTENTIAL_ANSWERS": ["print", "Take in a set of numbers", "Goes to the specified number and deletes the object at that number's index", "returns a sequence of numbers and increments by one and ends at a specified number"]
-                    },{
-                    "ASK": "What is the statement used to stop a loop even if it's condition is true?", 
-                    "ANSWER": 0, 
-                    "POTENTIAL_ANSWERS": ["break", "continue", "stop", "delete"]
-                    },{
-                    "ASK": "True or False: you can use an else statement with a while loop", 
-                    "ANSWER": 1, 
-                    "POTENTIAL_ANSWERS": ["True", "False"]
-                    }],
-                "QUIZ_RESULT" : 0.0
-                }],
-            "SECTIONS": [{
-                "NAME": "Loop Basics", 
-                "CONTENT": "Loops are structures that repeat a block of code within them until a condition is met. To break out of a for loop, the condition that was set must be met, or the break statement must be called in the block of code."},{
-                "NAME": "For Loops", 
-                "CONTENT": "For loops are a loop that iterates over a sequence.\nexample of the syntax of a for loop:\narray = [1, 5, 4]\nfor x in array\n  print(x)"}]
-        },{"NAME": "Functions", 
-            "DESCRIPTION": "The module will cover how to use functions in Python", 
-            "QUIZ": [{
-                "QUESTION" : [{
-                    "ASK": "", 
-                    "ANSWER": 1, 
-                    "POTENTIAL_ANSWERS": [" ", " ", " ", " "]
-                    }],
-                "QUIZ_RESULT" : 0.0
-                }],
-            "SECTIONS": [{
-                "NAME": " ", 
-                "CONTENT": " "}]
-        },{"NAME": "Arrays", 
-            "DESCRIPTION": "This module will go over how to use arrays in Python", 
-            "QUIZ": [{
-                "QUESTION" : [{
-                    "ASK": "", 
-                    "ANSWER": 1, 
-                    "POTENTIAL_ANSWERS": [" ", " ", " ", " "]
-                    }],
-                "QUIZ_RESULT" : 0.0
-                }],
-            "SECTIONS": [{
-                "NAME": " ", 
-                "CONTENT": " "}]
-        },{"NAME": "Classes and Objects", 
-            "DESCRIPTION": "This module will cover what a class is and the basics of object-oriented programming and how it relates to Python", 
-            "QUIZ": [{
-                "QUESTION" : [{
-                    "ASK": "", 
-                    "ANSWER": 1, 
-                    "POTENTIAL_ANSWERS": [" ", " ", " ", " "]
-                    }],
-                "QUIZ_RESULT" : 0.0
-                }],
-            "SECTIONS": [{
-                "NAME": " ", 
-                "CONTENT": " "}]
-        }],
-        "COMMENTS": [{
-            "USER_ID":"bc096b41-48a9-409d-912b-c7d8ddf81533",
-            "MESSAGE": "These are throwing me for a loop...hehehe",
-            "REPLY": [{
-                "USERID":" ",
-                "MESSAGE": " "}]
-            
-        }],
-        "END_OF_COURSE_QUIZ": [{
-            "QUESTION": [{
-                "ASK": "True or False: Python code ends in a semi-colon",
-                "ANSWER": 1,
-                "POTENTIAL_ANSWERS": ["True", "False"]
-            }],
-            "QUIZRESULT": 0.0
-        }],
-        "COURSE_ID": "5ebd213d-813d-4d56-8bf9-abee8267c6d0",
-        "USER_ID": "f5f076f9-e4cd-4716-a8df-f6e252e346f0"
-        
     }
+        
 ]
