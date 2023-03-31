@@ -41,7 +41,7 @@
         "TEACHER": "99de1e37-4150-450a-bae6-989e366c2235",
         "DIFFICULTY": 1,
         "NAME": "Python Boolean Tutorial",
-        "MODULES": [{"name": "Python Tutorial",
+        "MODULES": [{"NAME": "Python Tutorial",
         "DESCRIPTION": "A short python tutorial",
         "QUIZ": [{
             "QUESTION": [{
