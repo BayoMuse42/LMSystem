@@ -136,4 +136,8 @@ public class Course {
         }
         return null;
     }
+
+    public String toString(){
+        return courseID + " is the course." ; 
+    }
 }
