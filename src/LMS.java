@@ -31,7 +31,8 @@ public class LMS {
   }
 
   public void logout() {
-    currentUser = null;
+    userList.saveUsers();
+    courseList.saveCourses();
   }
 
   public User getCurrentUser() {
@@ -128,12 +129,12 @@ public class LMS {
   }
 
   public ArrayList<Course> getUserCourses(User user) {
-    return currentUser.getCourses();
+    return currentUser.getUserCourses();
   }
 
   public void addUserCourses(String name) {
     Course c = getCourse(name);
-    currentUser.getCourses().add(c);
+    currentUser.getUserCourses().add(c);
   }
 
   public void addCourse(UUID teacherID, int difficulty, String name, UUID courseID) {
@@ -161,7 +162,7 @@ public class LMS {
         FileWriter certWriter = new FileWriter("Certificate.txt");
         certWriter.write("---- Certificate of Completion ----\n");
         certWriter.write("This certifies that\n");
-        certWriter.write(currentUser.getFirstName() + currentUser.getLastName() + "\n");
+        certWriter.write(currentUser.getFirstName() + " " + currentUser.getLastName() + "\n");
         certWriter.write("Has completed " + courseName + "\n");
         certWriter.close();
         System.out.println("Certificate successfully created!");

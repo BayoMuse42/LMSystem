@@ -19,6 +19,7 @@ public class UI {
   }
 
   public void run() {
+    menu.clear();
     menu.add("Login");
     menu.add("Register");
     menu.add("Exit");
@@ -51,19 +52,15 @@ public class UI {
   }
 
   public int getIntInput(int choices) {
-    System.out.println("What would you like to do?\n");
-
     int input = scanner.nextInt();
     scanner.nextLine();
 
-    if ( input >= 0 && input <= choices - 1)
+    if ( input >= 0 && input <= choices)
       return input;
     return -1;
   }
 
   public String getInput() {
-    System.out.println("What would you like to do?\n");
-
     String input = scanner.nextLine();
 
     if ( input != null)
@@ -87,7 +84,7 @@ public class UI {
     menu.add("Logout");
     menu.add("Exit");
 
-    System.out.println("Welcome, " + lms.getCurrentUser().username + "!");
+    System.out.println("Welcome, " + lms.getCurrentUser().firstName + "!");
 
     while(true) {
       printMenu();
@@ -122,7 +119,7 @@ public class UI {
     clearScreen();
     menu.clear();
 
-    System.out.println("Welcome, " + lms.getCurrentUser().username + "!");
+    System.out.println("Welcome, " + lms.getCurrentUser().firstName + "!");
 
     menu.add("Go to Course List");
     menu.add("Create a New Course");
@@ -166,7 +163,7 @@ public class UI {
     clearScreen();
     menu.clear();
 
-    System.out.println("Welcome, " + lms.getCurrentUser().username + "!");
+    System.out.println("Welcome, " + lms.getCurrentUser().firstName + "!");
 
     menu.add("Search from Course Database");
     menu.add("logout");
@@ -200,6 +197,7 @@ public class UI {
 
   // Login
   private void login() {
+    clearScreen();
     boolean isLog = false;
     while(!isLog) {
       System.out.println(LOGIN_HEADER);
@@ -211,10 +209,11 @@ public class UI {
       isLog = lms.login(user, pass);
 
       if(!isLog) {
+        clearScreen();
         System.out.println("Oops! The username and password do not match.");
         continue;
       }
-        
+      
       switch(lms.getCurrentUser().getType()) {
         case("student"):
            MainStudentMenu();
@@ -230,6 +229,7 @@ public class UI {
   }
   // Register
   private void register() {
+    clearScreen();
     boolean isValid = false;
     System.out.println(REGISTER_HEADER);
 
@@ -276,7 +276,7 @@ public class UI {
 
     System.out.println("Success! " + username + " has been created! Press \"ENTER\" to return to the main menu.");
     scanner.nextLine();
-    printMenu();
+    run();
       
   }
 
@@ -332,7 +332,7 @@ public class UI {
         break;
       case 3:
         System.out.println("Type in the name of the course you would like to remove.");
-        System.out.println("WARNING: Removing a course from your lsit will erase your course progress unless you have already completed the course.");
+        System.out.println("WARNING: Removing a course from your list will erase your course progress unless you have already completed the course.");
         lms.deleteCourse(getInput());
         System.out.println("Course deleted");
         scanner.nextLine();
@@ -420,7 +420,7 @@ public class UI {
         case 1:
           System.out.println("Which module would you like to take?");
           String mInput = getInput();
-          if(currentCourse.getModule(mInput).getQuizResult() > 80) {
+          if(currentCourse.getModule(mInput).isComplete()) {
             System.out.println("This is a module that you have already completed.\n" +
             "Would you like to review this module?\nyes or no");
             if(getInput().equals("yes"))
@@ -514,7 +514,7 @@ public class UI {
     menu.clear();
     lms.setCurrentCourse(courseName);
     Course currentCourse = lms.getCurrentCourse();
-    Quiz currentQuiz = lms.getCurrentQuiz(courseName, true);
+    Quiz currentQuiz = currentCourse.getEndOfCourseQuiz();
 
     menu.add("Add a module");
     if(!currentCourse.getModules().equals(null)) {
@@ -533,53 +533,57 @@ public class UI {
     System.out.println("| " + lms.getCurrentUser().getUserName() + " |");
     printModules();
 
-    printMenu();
+    while(true) {
+      printMenu();
 
-    int uInput = getIntInput(menu.size());
-
-    if(!currentCourse.getModules().equals(null)) {
-      switch(uInput) {
-        case 1:
-          createModule();
-          break;
-        case 2:
-          System.out.println("Which module would you like to edit?");
-          editModule(getInput());
-          break;
-        case 3:
-          System.out.println("Which module would you like to remove?");
-          currentCourse.removeModule(getInput());
-          System.out.println("Module removed");
-          editCourse(courseName);
-          break;
-        case 4:
-          if(currentQuiz.equals(null)) {
-            createQuiz(true);
+      int uInput = getIntInput(menu.size());
+  
+  
+      if(!currentCourse.getModules().equals(null)) {
+        switch(uInput) {
+          case 1:
+            createModule();
             break;
-          }
+          case 2:
+            System.out.println("Which module would you like to edit?");
+            editModule(getInput());
+            break;
+          case 3:
+            System.out.println("Which module would you like to remove?");
+            currentCourse.removeModule(getInput());
+            System.out.println("Module removed");
+            editCourse(courseName);
+            break;
+          case 4:
+            if(currentQuiz.equals(null)) {
+              createQuiz(true);
+              break;
+            }
+            editQuiz(courseName, true);
+            break;
+          case 5:
+            viewCoursesTeacher();
+            break;
+        }
+      } else {
+        switch(uInput) {
+          case 1:
+            createModule();
+            break;
+          case 2:
+            if(currentQuiz.equals(null)) {
+              createQuiz(true);
+              break;
+            }
           editQuiz(courseName, true);
           break;
-        case 5:
-          viewCoursesTeacher();
-          break;
-      }
-    } else {
-      switch(uInput) {
-        case 1:
-          createModule();
-          break;
-        case 2:
-          if(currentQuiz.equals(null)) {
-            createQuiz(true);
-            break;
-          }
-        editQuiz(courseName, true);
-        break;
-        case 3:
-          viewCoursesTeacher();
-         break;
+          case 3:
+            viewCoursesTeacher();
+           break;
+        }
       }
     }
+  
 
   }
 
@@ -593,6 +597,7 @@ public class UI {
 
     menu.add("Start first section");
     menu.add("Print module content");
+    menu.add("View comments");
     menu.add("Back");
 
     System.out.println("| " + moduleName + " |");
@@ -601,29 +606,30 @@ public class UI {
     System.out.println("There are " + currentModule.getSections().size() + " sections");
 
     for(Section section : currentModule.getSections()) {
-      System.out.println("> " + section);
+      System.out.println("> " + section.getName());
     }
 
     printMenu();
 
     int uInput = getIntInput(menu.size());
-
-    switch(uInput) {
-      case 1:
-        sectionMenuStudent(currentModule.getSections().get(0).getName());
-        break;
-      case 2:
-        lms.printModule();
-        break;
-      case 3:
-        courseMenuStudent(lms.getCurrentCourse().getName());
-        break;
-      default:
-        System.out.println("Invalid input");
-        moduleMenuStudent(moduleName);
-        break;
-    }
-
+      switch(uInput) {
+        case 1:
+          sectionMenuStudent(currentModule.getSections().get(0).getName());
+          break;
+        case 2:
+          lms.printModule();
+          break;
+        case 3:
+          commentMenu(lms.getCurrentCourse().getName());
+          break;
+        case 4:
+          courseMenuStudent(lms.getCurrentCourse().getName());
+          break;
+        default:
+          System.out.println("Invalid input");
+          moduleMenuStudent(moduleName);
+          break;
+      }
   }
 
   private void moduleMenuTeacher(String moduleName) {
@@ -634,6 +640,7 @@ public class UI {
 
     menu.add("View section");
     menu.add("View end-of-module quiz");
+    menu.add("View comments");
     menu.add("Back");
 
     System.out.println("| " + moduleName + " |");
@@ -648,23 +655,28 @@ public class UI {
     printMenu();
 
     int uInput = getIntInput(menu.size());
-
-    switch(uInput) {
-      case 1:
-        System.out.println("Which section would you like to view?");
-        sectionMenuTeacher(getInput());
-        break;
-      case 2:
-        quizMenuTeacher(moduleName, false);
-        break;
-      case 3:
-        courseMenuTeacher(lms.getCurrentCourse().getName());
-        break;
-      default:
-        System.out.println("Invalid input");
-        moduleMenuTeacher(moduleName);
-        break;
+    while(true) {
+      switch(uInput) {
+        case 1:
+          System.out.println("Which section would you like to view?");
+          sectionMenuTeacher(getInput());
+          break;
+        case 2:
+          quizMenuTeacher(moduleName, false);
+          break;
+        case 3:
+          commentMenu(lms.getCurrentCourse().getName());
+          break;
+        case 4:
+          courseMenuTeacher(lms.getCurrentCourse().getName());
+          break;
+        default:
+          System.out.println("Invalid input");
+          moduleMenuTeacher(moduleName);
+          break;
+      }
     }
+  
 
   }
 
@@ -673,9 +685,11 @@ public class UI {
     System.out.println("There are " + currentCourse.getModules().size() + " modules avaliable");
 
     for(int i = 0; i < currentCourse.getModules().size(); i++) {
-      System.out.println("> " + currentCourse.getModules().get(i).getName());
-      if(currentCourse.getModules().get(i).isComplete())
-        System.out.print(" -- Complete");
+      System.out.print("> " + currentCourse.getModules().get(i).getName());
+      if(currentCourse.getModules().get(i).isComplete() && lms.getCurrentUser().getType().equals("student"))
+        System.out.print(" -- Complete\n");
+      else
+        System.out.print("\n");
     }
     System.out.println("> End of Course Quiz\n");
   }
@@ -715,12 +729,14 @@ public class UI {
     System.out.println("There are " + currentModule.getSections().size() + " sections");
 
     for(Section section : currentModule.getSections()) {
-      System.out.println("> " + section);
+      System.out.println("> " + section.getName());
+      System.out.println("\t " + section.getContent());
     }
 
     printMenu();
 
-    int uInput = getIntInput(menu.size());
+    while(true) {
+      int uInput = getIntInput(menu.size());
       if(!currentModule.getSections().equals(null)) {
         switch(uInput) {
           case 1:
@@ -757,6 +773,8 @@ public class UI {
             break;
         }
       }
+    }
+   
   }
 
   // Section menu
@@ -766,9 +784,9 @@ public class UI {
     Section currentSection = lms.getCurrentSection();
     Module currentModule = lms.getCurrentModule();
 
-    System.out.println(currentSection.getName());
+    System.out.println(currentSection.getName() + "\n");
 
-    System.out.println(currentSection.getContent());
+    System.out.println(currentSection.getContent() + "\n");
 
     if(currentModule.getSections().indexOf(currentSection) ==
       currentModule.getSections().size() - 1) {
@@ -876,12 +894,12 @@ public class UI {
       switch(uInput) {
         case 1:
           System.out.println("Enter the new section name");
-          currentModule.setName(getInput());
+          currentSection.setName(getInput());
           editSection(currentSection.getName());
           break;
         case 2:
           System.out.println("Enter the new content for this section");
-          currentModule.setContent(getInput());
+          currentSection.setContent(getInput());
           editSection(secName);
           break;
         case 3:
@@ -912,10 +930,10 @@ public class UI {
 
       System.out.println(currentQuestion.ask);
 
-      for(int j = 0; j < currentQuestion.getPotentialAnswers().length; j++)
-        System.out.println((j+1) + currentQuestion.getPotentialAnswers()[j]);
+      for(int j = 0; j < currentQuestion.getPotentialAnswers().size(); j++)
+        System.out.println((j+1) + "." + currentQuestion.getPotentialAnswers().get(j));
 
-      int answer = getIntInput(currentQuestion.getPotentialAnswers().length);
+      int answer = getIntInput(currentQuestion.getPotentialAnswers().size());
 
       if(currentQuestion.isCorrect(answer)) {
         numCorrect++;
@@ -973,10 +991,10 @@ public class UI {
 
       System.out.println(currentQuestion.ask);
 
-      for(int j = 0; j < currentQuestion.getPotentialAnswers().length; j++)
-        System.out.println((j+1) + currentQuestion.getPotentialAnswers()[j]);
+      for(int j = 0; j < currentQuestion.getPotentialAnswers().size(); j++)
+        System.out.println((j+1) + currentQuestion.getPotentialAnswers().get(j));
 
-      System.out.println("Correct answer: " + currentQuestion.getPotentialAnswers()[currentQuestion.getAnswer()]);
+      System.out.println("Correct answer: " + currentQuestion.getPotentialAnswers().get(currentQuestion.getAnswer()));
       
       System.out.println("Press any key to continue");
       scanner.nextLine();
@@ -1007,10 +1025,10 @@ public class UI {
 
     System.out.println("How many answer choices are there?");
     int numofQuestions = getIntInput(4);
-    String[] answers = new String[numofQuestions];
-    for(int i = 0; i < answers.length; i++) {
+    ArrayList<String> answers = new ArrayList<String>();
+    for(int i = 0; i < answers.size(); i++) {
       System.out.println("Enter answer choice " + i+1);
-      answers[i] = getInput();
+      answers.add(getInput());
     }
     System.out.println("Which answer is the correct answer?");
     int correct = getIntInput(numofQuestions);
@@ -1045,9 +1063,9 @@ public class UI {
 
       System.out.println(currentQuestion.ask);
 
-      for(int j = 0; j < currentQuestion.getPotentialAnswers().length; j++)
-        System.out.println((j+1) + currentQuestion.getPotentialAnswers()[j]);
-      System.out.println("Correct answer: " + currentQuestion.getPotentialAnswers()[currentQuestion.getAnswer()]);
+      for(int j = 0; j < currentQuestion.getPotentialAnswers().size(); j++)
+        System.out.println((j+1) + "." + currentQuestion.getPotentialAnswers().get(j));
+      System.out.println("Correct answer: " + currentQuestion.getPotentialAnswers().get(currentQuestion.getAnswer()-1));
     }
 
     printMenu();
@@ -1063,10 +1081,10 @@ public class UI {
       
           System.out.println("How many answer choices are there?");
           int numofQuestions = getIntInput(4);
-          String[] answers = new String[numofQuestions];
-          for(int i = 0; i < answers.length; i++) {
+          ArrayList<String> answers = new ArrayList<String>();
+          for(int i = 1; i <= numofQuestions; i++) {
             System.out.println("Enter answer choice " + i+1);
-            answers[i] = getInput();
+            answers.add(getInput());
           }
           System.out.println("Which answer is the correct answer?");
           int correct = getIntInput(numofQuestions);
@@ -1111,12 +1129,12 @@ public class UI {
     
     for(int i = 0; i < currentCourse.getComments().size(); i++) {
       Comment currentComment = currentCourse.getComments().get(i);
-      System.out.println(i + ". " + currentComment.message);
-      System.out.println(lms.getUser(currentComment.getUserID()).getUserName());
+      System.out.println(i+1 + ". " + currentComment.message);
+      System.out.println(lms.getUser(currentComment.getUserID()).getUserName() + "\n");
       
       for(int j = 0; j < currentComment.getReplies().size(); j++) {
         Comment currentreply = currentComment.getReplies().get(j);
-        System.out.println(j + ". " + currentreply.message);
+        System.out.println(j+1 + ". " + currentreply.message);
         System.out.println(lms.getUser(currentreply.getUserID()).getUserName());
       }
     }
@@ -1131,7 +1149,8 @@ public class UI {
         break;
       case 2:
         System.out.println("Which comment would you like to reply to?");
-        createReply(getIntInput(currentCourse.getComments().size()));
+        getIntInput(1);
+        createReply(1);
         break;
       case 3:
         if(lms.getCurrentUser().getType().equals("student")) {
@@ -1158,7 +1177,7 @@ public class UI {
   }
 
   private void createReply(int comIndex) {
-      Comment currentComment = lms.getCurrentCourse().getComments().get(comIndex);
+      Comment currentComment = lms.getCurrentCourse().getComments().get(comIndex-1);
       clearScreen();
 
     System.out.println("Type your reply:");

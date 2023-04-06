@@ -39,7 +39,7 @@ public class UserList {
 
     public User getUser(UUID userID) {
         for(User user : users) {
-            if(hasUser(userID)) {
+            if(user.getUserID().equals(userID)) {
                 return user;
             }
         }
@@ -52,7 +52,7 @@ public class UserList {
 
     public User getUser(String username) {
         for(User user : users) {
-            if(hasUser(username)) {
+            if(user.getUserName().equals(username)) {
                 return user;
             }
         }
@@ -63,13 +63,13 @@ public class UserList {
         if(!hasUser(userID)) {
             switch(type) {
                 case "student":
-                    users.add(new Student(username, email, password, firstName, lastName));
+                    users.add(new Student(username, email, password, firstName, lastName, userID));
                     break;
                 case "teacher":
-                    users.add(new Teacher(username, email, password, firstName, lastName));
+                    users.add(new Teacher(username, email, password, firstName, lastName, userID));
                     break;
                 case "admin":
-                    users.add(new Admin(username, email, password, firstName, lastName));
+                    users.add(new Admin(username, email, password, firstName, lastName, userID));
                     break;
             }
         }
@@ -79,6 +79,10 @@ public class UserList {
         if(!hasUser(userID)) {
             users.remove(getUser(userID));
         }
+    }
+
+    public void saveUsers() {
+        DataWriter.saveUsers();
     }
 
 }

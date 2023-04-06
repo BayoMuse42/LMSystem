@@ -1,74 +1,92 @@
 package src;
 import java.util.ArrayList;
-import java.util.function.BooleanSupplier;
 
 public class Quiz {
 
     public ArrayList<Question> questions;
     public double quizResult;    
 
+    /**
+     * constructor
+     * @param questions
+     */
     public Quiz(ArrayList<Question> questions) {
         this.questions = questions;
     }
       
-    public void addQuestion(String ask, String[] potentialAnswer, int answer) {
+    /**
+     * adds question to arraylist of questions
+     * @param ask
+     * @param potentialAnswer
+     * @param answer
+     */
+    public void addQuestion(String ask, ArrayList<String> potentialAnswer, int answer) {
         Question question = new Question(ask, answer, potentialAnswer);
         questions.add(question);
     }
 
+    /**
+     * 
+     * @return quiz result
+     */
     public double getQuizResult() {
         return quizResult;
     }
 
+    /**
+     * gets array list of questions
+     * @return
+     */
     public ArrayList<Question> getQuestions(){
         return questions;
     }
 
+    /**
+     * removes question from quiz based on index of question in arraylist
+     * @param intInput
+     */
     public void removeQuestion(int intInput) {
         questions.remove(intInput);
     }
 
-    // To do 
+    /**
+     * sets result of users quiz
+     * @param quizResult
+     */
     public void setQuizResult(double quizResult) {
         this.quizResult = quizResult;
     }
 
-    public String[] getPotentialAnswers(){
+    public ArrayList<String> getPotentialAnswers(){
         for (int k = 0; k < questions.size(); k++){
             return questions.get(k).getPotentialAnswers();
         };
         return null;
     }
 
+    /**
+     * gets result of a users quiz
+     * @param numCorrect
+     */
     public void calcQuizResult(int numCorrect) {
-        quizResult = (numCorrect/questions.size())*100;
+        quizResult = (double)numCorrect/(double)questions.size();
+        quizResult = (quizResult)*100;
     }
-    
-    /* We wont need this, it's in the UI already
-     public void startQuiz(){
-        int score = 0;
-        for (int i = 0; i < questions.size(); i++){
-            System.out.println("Question " + (i + 1) + ": " + questions.get(i).getAsk());
 
-            String[] options = questions.get(i).getPotentialAnswers();
-            for (int j = 0; j < options.length; j++){
-                System.out.println((j + 1) + ") " + options[j]);
-            } 
-            
-            Scanner scanner = new Scanner(System.in);
-            int userAnswerIndex = scanner.nextInt();
-            String userAnswer = options[userAnswerIndex - 1];
-
-            if (userAnswer.equals(questions[i].getAnswer())) {
-                score++;
-                System.out.println("Correct!");
-            } else {
-                System.out.println("Incorrect.");
+    /**
+     * returns a string description of a quiz
+     */
+    @Override
+    public String toString() {
+        String output = "";
+        for (Question q: questions){
+            output += "ASK: " + q.getAsk() + "\nANSWER: " + q.getAnswer() + "\nPOTENTIAL ANSWERS: ";
+            for(String s: q.potentialAnswers){
+                output += (s) + "\n";
             }
         }
-        System.out.println("Quiz finished. Your score is " + score + "/" + questions.size());
-        this.quizResult = score / questions.size();
-        } */
-    }
+        return output;
+        }
+}
 
 
