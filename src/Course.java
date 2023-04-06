@@ -261,13 +261,6 @@ public class Course {
         return null;
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public String toString(){
-        return courseID + " is the course." ; 
-=======
-=======
->>>>>>> f7379d5d6f36f433aadafc73e91f259b21ef071c
     /**
      * @return String description of course
      */
@@ -275,9 +268,5 @@ public class Course {
         return "Teacher ID: " + Teacher + " Difficulty: " + difficulty + " Course Name: " + name
         + " Quiz Result: " + quizResult + " Course Progress: " + courseProgress + " Course ID: " 
         + courseID + " UserID: " + userID;
-<<<<<<< HEAD
->>>>>>> f7379d5d6f36f433aadafc73e91f259b21ef071c
-=======
->>>>>>> f7379d5d6f36f433aadafc73e91f259b21ef071c
     }
 }
