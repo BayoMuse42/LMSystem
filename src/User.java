@@ -123,13 +123,5 @@ public abstract class User {
     public String getType() {
         return this.type;
     }
-
-    /**
-     * returns string description of User
-     */
-    public String toString(){
-        return "User: " + userID + "\nUsername: " + username + "\nPassword: " + password +
-        "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nType: " + type;
-    }
        
 }
