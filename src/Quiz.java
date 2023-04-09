@@ -59,7 +59,8 @@ public class Quiz {
 
     public ArrayList<String> getPotentialAnswers(){
         for (int k = 0; k < questions.size(); k++){
-            return questions.get(k).getPotentialAnswers();
+            ArrayList<String> potAnswers = new ArrayList<>();
+            potAnswers.add(questions.get(k).getPotentialAnswers());
         };
         return null;
     }
