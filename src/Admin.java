@@ -31,6 +31,10 @@ public class Admin extends User{
         super(email, username, password, firstName, lastName, userID, "admin");
     }
 
+    public void removeMessage(Comment comment){
+        comment.replies.remove(comment);
+    }
+
     /**
      * @param name
      * @return Course
@@ -44,7 +48,7 @@ public class Admin extends User{
      * getCourses calls superclass getCourses method and returns an arraylist of courses
      */
     public ArrayList<Course> getCourses(){
-        return super.getUserCourses();
+        return super.getCourses();
     }
     
     /**

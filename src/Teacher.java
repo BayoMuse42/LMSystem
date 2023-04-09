@@ -43,14 +43,14 @@ public class Teacher extends User{
      * @return
      */
     public ArrayList<Course> getCourses(){
-        return super.getUserCourses();
+        return super.getCourses();
     }
     
     /**
      * @return string description of teacher
      */
     public String toString(){
-        return "First name: " + firstName + " Last name " + lastName + " Email:  "
-        + email + " username " + username + " password: " + password + " type: " + type + " UUID: " + userID;
+        return "First Name: " + firstName + "\nLast Name: " + lastName + "\nEmail:  "
+        + email + "\nUsername " + username + "\nPassword: " + password + "\nUser ID: " + userID;
     }
 }

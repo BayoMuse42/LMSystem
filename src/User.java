@@ -64,8 +64,8 @@ public abstract class User {
      * gets all courses
      * @return
      */
-    public ArrayList<Course> getUserCourses(){
-        return cList.getUserCourses(userID);
+    public ArrayList<Course> getCourses(){
+        return cList.getUserCourses(this.userID);
     };
 
     /**
@@ -122,6 +122,14 @@ public abstract class User {
      */
     public String getType() {
         return this.type;
+    }
+
+    /**
+     * returns string description of User
+     */
+    public String toString(){
+        return "User: " + userID + "\nUsername: " + username + "\nPassword: " + password +
+        "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nType: " + type;
     }
        
 }
