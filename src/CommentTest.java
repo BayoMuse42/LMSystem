@@ -12,17 +12,18 @@ public class CommentTest {
     public String message;
     public ArrayList<Comment> replies;
     public UUID userID;
+    private Comment comment;
 
     @BeforeEach
     public void setup(){
         replies = new ArrayList<Comment>();
+        userID = UUID.randomUUID();
+        
+        replies.add(new Comment(userID, "Great Job!"));
+        replies.add(new Comment(userID, "Well Done!"));
+        replies.add(new Comment(userID, "Awesome Work!"));
 
-        replies = new ArrayList<Comment>();
-        replies.add("Great Job!");
-        replies.add("Well Done!");
-        replies.add("Awesome Work!");
-
-        replies = new Reply(replies);
+        comment = new Comment(userID, "Just finished course", replies);
 
     }
 
@@ -33,32 +34,43 @@ public class CommentTest {
 
     @Test
     public void testing(){
-        assertionTrue(true);
+        assertTrue(true);
     }
     
     /** Gets the messages r 
      * @return messgae
      */
     @Test
-    public String hasMessage() {
-        return this.message
-    }
-    @Test
-    public UUID hasUserID(){
-        return this.userID;
-    }
-
-    @Test
-    public String toString() {
-        String output = "";
-        output += "COMMENT: " + message;
-        for (int i = 0; i < replies.size(); i++){
-            output += "REPLY " + i + ": " + replies.get(i) + "\n";
+    public void hasMessage() {
+        Boolean test1 = true;
+        if (!comment.getMessage().equals("Just finished course")){
+            test1 = false;
         }
-        return output;
-    
+        assertTrue(test1);
     }
 
+    @Test
+    public void hasUserID(){
+        Boolean test2 = true;
+        if (!comment.getUserID().equals(userID)){
+            test2 = false;
+        }
+        assertTrue(test2);
+    }
 
-
+    @Test
+    public void hasReplies(){
+        Boolean test3 = true;
+        ArrayList<Comment> testReplies = comment.getReplies();
+        int i = 0;
+        for (Comment c: testReplies){
+            String testMessage = c.getMessage();
+            Comment c2 = replies.get(i);
+            String rmessage = c2.getMessage();
+            if (!testMessage.equals(rmessage)){
+                test3 = false;
+            }
+        }
+        assertTrue(test3);
+    }
 }
