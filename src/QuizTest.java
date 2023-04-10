@@ -14,28 +14,28 @@ import java.util.ArrayList;
 public class QuizTest {
     private Quiz quiz;
     private ArrayList<Question> questions;
-    private ArrayList<String> potAnswers;
+    private ArrayList<String> potAnswers1;
+    private ArrayList<String> potAnswers2;
 
 
     @BeforeEach
     public void setup(){
 
         questions = new ArrayList<Question>();
-        potAnswers = new ArrayList<String>();
+        potAnswers1 = new ArrayList<String>();
+        potAnswers2 = new ArrayList<String>();
 
-        potAnswers = new ArrayList<String>();
-        potAnswers.add("0001");
-        potAnswers.add("0101");
-        potAnswers.add("0111");
-        potAnswers.add("1001");
-        questions.add(new Question("What is 7 in 4-bit unsigned binary?", 3, potAnswers));
+        potAnswers1.add("0001");
+        potAnswers1.add("0101");
+        potAnswers1.add("0111");
+        potAnswers1.add("1001");
+        questions.add(new Question("What is 7 in 4-bit unsigned binary?", 3, potAnswers1));
 
-        potAnswers.clear();
-        potAnswers.add("break");
-        potAnswers.add("continue");
-        potAnswers.add("stop");
-        potAnswers.add("delete");
-        questions.add(new Question("What statement is used to stop a loop?", 1, potAnswers));
+        potAnswers2.add("break");
+        potAnswers2.add("continue");
+        potAnswers2.add("stop");
+        potAnswers2.add("delete");
+        questions.add(new Question("What statement is used to stop a loop?", 1, potAnswers2));
 
         quiz = new Quiz(questions);
     }
@@ -96,6 +96,26 @@ public class QuizTest {
             test4 = false;
         }
         assertTrue(test4);
+    }
+
+    @Test
+    public void hasPotentialAnswers(){
+        Boolean test5 = true;
+        for (int i = 0; i < questions.size(); i++){
+            Question q = questions.get(i);
+            ArrayList<String> potentialAnswers = q.getPotentialAnswers();
+            ArrayList<String> potAnswers = i == 0 ? potAnswers1 : potAnswers2;
+            if (potentialAnswers.size() != potAnswers.size()){
+                test5 = false;
+            }
+
+            for (int j = 0; j < potentialAnswers.size(); j++){
+                if (!potentialAnswers.get(j).equals(potAnswers.get(j))){
+                    test5 = false;
+                }
+            }
+        }
+        assertTrue(test5);   
     }
 
 
