@@ -85,6 +85,19 @@ public class QuizTest {
 
     }
 
+    @Test
+    public void hasCorrectAnswerIndex(){
+        Boolean test4 = true;
+        if (questions.get(0).getAnswer() != 3){
+            test4 = false;
+        }
+
+        else if (questions.get(1).getAnswer() != 1){
+            test4 = false;
+        }
+        assertTrue(test4);
+    }
+
 
     
 
