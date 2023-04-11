@@ -70,6 +70,7 @@ public class CommentTest {
             if (!testMessage.equals(rmessage)){
                 test3 = false;
             }
+            i++;
         }
         assertTrue(test3);
     }
